@@ -1,9 +1,9 @@
 <?php
-require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
-require_once(dirname(__FILE__) . "/../KalturaEnums.php");
-require_once(dirname(__FILE__) . "/../KalturaTypes.php");
+require_once(dirname(__FILE__) . "/../BorhanClientBase.php");
+require_once(dirname(__FILE__) . "/../BorhanEnums.php");
+require_once(dirname(__FILE__) . "/../BorhanTypes.php");
 
-class KalturaAnnotationOrderBy
+class BorhanAnnotationOrderBy
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const CREATED_AT_DESC = "-createdAt";
@@ -11,7 +11,7 @@ class KalturaAnnotationOrderBy
 	const UPDATED_AT_DESC = "-updatedAt";
 }
 
-abstract class KalturaAnnotationBaseFilter extends KalturaFilter
+abstract class BorhanAnnotationBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -86,12 +86,12 @@ abstract class KalturaAnnotationBaseFilter extends KalturaFilter
 
 }
 
-class KalturaAnnotationFilter extends KalturaAnnotationBaseFilter
+class BorhanAnnotationFilter extends BorhanAnnotationBaseFilter
 {
 
 }
 
-class KalturaAnnotation extends KalturaObjectBase
+class BorhanAnnotation extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -185,12 +185,12 @@ class KalturaAnnotation extends KalturaObjectBase
 
 }
 
-class KalturaAnnotationListResponse extends KalturaObjectBase
+class BorhanAnnotationListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaAnnotation
+	 * @var array of BorhanAnnotation
 	 * @readonly
 	 */
 	public $objects;
@@ -207,14 +207,14 @@ class KalturaAnnotationListResponse extends KalturaObjectBase
 }
 
 
-class KalturaAnnotationService extends KalturaServiceBase
+class BorhanAnnotationService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function listAction(KalturaAnnotationFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanAnnotationFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -226,11 +226,11 @@ class KalturaAnnotationService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAnnotationListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanAnnotationListResponse");
 		return $resultObject;
 	}
 
-	function add(KalturaAnnotation $annotation)
+	function add(BorhanAnnotation $annotation)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "annotation", $annotation->toParams());
@@ -239,7 +239,7 @@ class KalturaAnnotationService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAnnotation");
+		$this->client->validateObjectType($resultObject, "BorhanAnnotation");
 		return $resultObject;
 	}
 
@@ -252,7 +252,7 @@ class KalturaAnnotationService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAnnotation");
+		$this->client->validateObjectType($resultObject, "BorhanAnnotation");
 		return $resultObject;
 	}
 
@@ -269,7 +269,7 @@ class KalturaAnnotationService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function update($id, KalturaAnnotation $annotation)
+	function update($id, BorhanAnnotation $annotation)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -279,40 +279,40 @@ class KalturaAnnotationService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAnnotation");
+		$this->client->validateObjectType($resultObject, "BorhanAnnotation");
 		return $resultObject;
 	}
 }
-class KalturaAnnotationClientPlugin extends KalturaClientPlugin
+class BorhanAnnotationClientPlugin extends BorhanClientPlugin
 {
 	/**
-	 * @var KalturaAnnotationClientPlugin
+	 * @var BorhanAnnotationClientPlugin
 	 */
 	protected static $instance;
 
 	/**
-	 * @var KalturaAnnotationService
+	 * @var BorhanAnnotationService
 	 */
 	public $annotation = null;
 
-	protected function __construct(KalturaClient $client)
+	protected function __construct(BorhanClient $client)
 	{
 		parent::__construct($client);
-		$this->annotation = new KalturaAnnotationService($client);
+		$this->annotation = new BorhanAnnotationService($client);
 	}
 
 	/**
-	 * @return KalturaAnnotationClientPlugin
+	 * @return BorhanAnnotationClientPlugin
 	 */
-	public static function get(KalturaClient $client)
+	public static function get(BorhanClient $client)
 	{
 		if(!self::$instance)
-			self::$instance = new KalturaAnnotationClientPlugin($client);
+			self::$instance = new BorhanAnnotationClientPlugin($client);
 		return self::$instance;
 	}
 
 	/**
-	 * @return array<KalturaServiceBase>
+	 * @return array<BorhanServiceBase>
 	 */
 	public function getServices()
 	{

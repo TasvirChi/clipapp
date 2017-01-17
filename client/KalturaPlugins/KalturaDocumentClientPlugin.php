@@ -1,9 +1,9 @@
 <?php
-require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
-require_once(dirname(__FILE__) . "/../KalturaEnums.php");
-require_once(dirname(__FILE__) . "/../KalturaTypes.php");
+require_once(dirname(__FILE__) . "/../BorhanClientBase.php");
+require_once(dirname(__FILE__) . "/../BorhanEnums.php");
+require_once(dirname(__FILE__) . "/../BorhanTypes.php");
 
-class KalturaDocumentEntryOrderBy
+class BorhanDocumentEntryOrderBy
 {
 	const NAME_ASC = "+name";
 	const NAME_DESC = "-name";
@@ -19,43 +19,43 @@ class KalturaDocumentEntryOrderBy
 	const PARTNER_SORT_VALUE_DESC = "-partnerSortValue";
 }
 
-class KalturaDocumentFlavorParamsOrderBy
+class BorhanDocumentFlavorParamsOrderBy
 {
 }
 
-class KalturaDocumentFlavorParamsOutputOrderBy
+class BorhanDocumentFlavorParamsOutputOrderBy
 {
 }
 
-class KalturaDocumentType
+class BorhanDocumentType
 {
 	const DOCUMENT = 11;
 	const SWF = 12;
 	const PDF = 13;
 }
 
-class KalturaPdfFlavorParamsOrderBy
+class BorhanPdfFlavorParamsOrderBy
 {
 }
 
-class KalturaPdfFlavorParamsOutputOrderBy
+class BorhanPdfFlavorParamsOutputOrderBy
 {
 }
 
-class KalturaSwfFlavorParamsOrderBy
+class BorhanSwfFlavorParamsOrderBy
 {
 }
 
-class KalturaSwfFlavorParamsOutputOrderBy
+class BorhanSwfFlavorParamsOutputOrderBy
 {
 }
 
-class KalturaDocumentEntry extends KalturaBaseEntry
+class BorhanDocumentEntry extends BorhanBaseEntry
 {
 	/**
 	 * The type of the document
 	 *
-	 * @var KalturaDocumentType
+	 * @var BorhanDocumentType
 	 * @insertonly
 	 */
 	public $documentType = null;
@@ -63,12 +63,12 @@ class KalturaDocumentEntry extends KalturaBaseEntry
 
 }
 
-abstract class KalturaDocumentEntryBaseFilter extends KalturaBaseEntryFilter
+abstract class BorhanDocumentEntryBaseFilter extends BorhanBaseEntryFilter
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaDocumentType
+	 * @var BorhanDocumentType
 	 */
 	public $documentTypeEqual = null;
 
@@ -82,17 +82,17 @@ abstract class KalturaDocumentEntryBaseFilter extends KalturaBaseEntryFilter
 
 }
 
-class KalturaDocumentEntryFilter extends KalturaDocumentEntryBaseFilter
+class BorhanDocumentEntryFilter extends BorhanDocumentEntryBaseFilter
 {
 
 }
 
-class KalturaDocumentListResponse extends KalturaObjectBase
+class BorhanDocumentListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaDocumentEntry
+	 * @var array of BorhanDocumentEntry
 	 * @readonly
 	 */
 	public $objects;
@@ -108,77 +108,77 @@ class KalturaDocumentListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaDocumentFlavorParamsBaseFilter extends KalturaFlavorParamsFilter
+abstract class BorhanDocumentFlavorParamsBaseFilter extends BorhanFlavorParamsFilter
 {
 
 }
 
-class KalturaDocumentFlavorParamsFilter extends KalturaDocumentFlavorParamsBaseFilter
+class BorhanDocumentFlavorParamsFilter extends BorhanDocumentFlavorParamsBaseFilter
 {
 
 }
 
-abstract class KalturaDocumentFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter
+abstract class BorhanDocumentFlavorParamsOutputBaseFilter extends BorhanFlavorParamsOutputFilter
 {
 
 }
 
-class KalturaDocumentFlavorParamsOutputFilter extends KalturaDocumentFlavorParamsOutputBaseFilter
+class BorhanDocumentFlavorParamsOutputFilter extends BorhanDocumentFlavorParamsOutputBaseFilter
 {
 
 }
 
-abstract class KalturaPdfFlavorParamsBaseFilter extends KalturaFlavorParamsFilter
+abstract class BorhanPdfFlavorParamsBaseFilter extends BorhanFlavorParamsFilter
 {
 
 }
 
-class KalturaPdfFlavorParamsFilter extends KalturaPdfFlavorParamsBaseFilter
+class BorhanPdfFlavorParamsFilter extends BorhanPdfFlavorParamsBaseFilter
 {
 
 }
 
-abstract class KalturaPdfFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter
+abstract class BorhanPdfFlavorParamsOutputBaseFilter extends BorhanFlavorParamsOutputFilter
 {
 
 }
 
-class KalturaPdfFlavorParamsOutputFilter extends KalturaPdfFlavorParamsOutputBaseFilter
+class BorhanPdfFlavorParamsOutputFilter extends BorhanPdfFlavorParamsOutputBaseFilter
 {
 
 }
 
-abstract class KalturaSwfFlavorParamsBaseFilter extends KalturaFlavorParamsFilter
+abstract class BorhanSwfFlavorParamsBaseFilter extends BorhanFlavorParamsFilter
 {
 
 }
 
-class KalturaSwfFlavorParamsFilter extends KalturaSwfFlavorParamsBaseFilter
+class BorhanSwfFlavorParamsFilter extends BorhanSwfFlavorParamsBaseFilter
 {
 
 }
 
-abstract class KalturaSwfFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter
+abstract class BorhanSwfFlavorParamsOutputBaseFilter extends BorhanFlavorParamsOutputFilter
 {
 
 }
 
-class KalturaSwfFlavorParamsOutputFilter extends KalturaSwfFlavorParamsOutputBaseFilter
+class BorhanSwfFlavorParamsOutputFilter extends BorhanSwfFlavorParamsOutputBaseFilter
 {
 
 }
 
-class KalturaDocumentFlavorParams extends KalturaFlavorParams
+class BorhanDocumentFlavorParams extends BorhanFlavorParams
 {
 
 }
 
-class KalturaDocumentFlavorParamsOutput extends KalturaFlavorParamsOutput
+class BorhanDocumentFlavorParamsOutput extends BorhanFlavorParamsOutput
 {
 
 }
 
-class KalturaPdfFlavorParams extends KalturaFlavorParams
+class BorhanPdfFlavorParams extends BorhanFlavorParams
 {
 	/**
 	 * 
@@ -190,7 +190,7 @@ class KalturaPdfFlavorParams extends KalturaFlavorParams
 
 }
 
-class KalturaPdfFlavorParamsOutput extends KalturaFlavorParamsOutput
+class BorhanPdfFlavorParamsOutput extends BorhanFlavorParamsOutput
 {
 	/**
 	 * 
@@ -202,25 +202,25 @@ class KalturaPdfFlavorParamsOutput extends KalturaFlavorParamsOutput
 
 }
 
-class KalturaSwfFlavorParams extends KalturaFlavorParams
+class BorhanSwfFlavorParams extends BorhanFlavorParams
 {
 
 }
 
-class KalturaSwfFlavorParamsOutput extends KalturaFlavorParamsOutput
+class BorhanSwfFlavorParamsOutput extends BorhanFlavorParamsOutput
 {
 
 }
 
 
-class KalturaDocumentsService extends KalturaServiceBase
+class BorhanDocumentsService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function addFromUploadedFile(KalturaDocumentEntry $documentEntry, $uploadTokenId)
+	function addFromUploadedFile(BorhanDocumentEntry $documentEntry, $uploadTokenId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "documentEntry", $documentEntry->toParams());
@@ -230,11 +230,11 @@ class KalturaDocumentsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
-	function addFromEntry($sourceEntryId, KalturaDocumentEntry $documentEntry = null, $sourceFlavorParamsId = null)
+	function addFromEntry($sourceEntryId, BorhanDocumentEntry $documentEntry = null, $sourceFlavorParamsId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "sourceEntryId", $sourceEntryId);
@@ -246,11 +246,11 @@ class KalturaDocumentsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
-	function addFromFlavorAsset($sourceFlavorAssetId, KalturaDocumentEntry $documentEntry = null)
+	function addFromFlavorAsset($sourceFlavorAssetId, BorhanDocumentEntry $documentEntry = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "sourceFlavorAssetId", $sourceFlavorAssetId);
@@ -261,7 +261,7 @@ class KalturaDocumentsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
@@ -294,11 +294,11 @@ class KalturaDocumentsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
-	function update($entryId, KalturaDocumentEntry $documentEntry)
+	function update($entryId, BorhanDocumentEntry $documentEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -308,7 +308,7 @@ class KalturaDocumentsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
@@ -325,7 +325,7 @@ class KalturaDocumentsService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaDocumentEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanDocumentEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -337,7 +337,7 @@ class KalturaDocumentsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentListResponse");
 		return $resultObject;
 	}
 
@@ -390,36 +390,36 @@ class KalturaDocumentsService extends KalturaServiceBase
 		return $resultObject;
 	}
 }
-class KalturaDocumentClientPlugin extends KalturaClientPlugin
+class BorhanDocumentClientPlugin extends BorhanClientPlugin
 {
 	/**
-	 * @var KalturaDocumentClientPlugin
+	 * @var BorhanDocumentClientPlugin
 	 */
 	protected static $instance;
 
 	/**
-	 * @var KalturaDocumentsService
+	 * @var BorhanDocumentsService
 	 */
 	public $documents = null;
 
-	protected function __construct(KalturaClient $client)
+	protected function __construct(BorhanClient $client)
 	{
 		parent::__construct($client);
-		$this->documents = new KalturaDocumentsService($client);
+		$this->documents = new BorhanDocumentsService($client);
 	}
 
 	/**
-	 * @return KalturaDocumentClientPlugin
+	 * @return BorhanDocumentClientPlugin
 	 */
-	public static function get(KalturaClient $client)
+	public static function get(BorhanClient $client)
 	{
 		if(!self::$instance)
-			self::$instance = new KalturaDocumentClientPlugin($client);
+			self::$instance = new BorhanDocumentClientPlugin($client);
 		return self::$instance;
 	}
 
 	/**
-	 * @return array<KalturaServiceBase>
+	 * @return array<BorhanServiceBase>
 	 */
 	public function getServices()
 	{

@@ -1,9 +1,9 @@
 <?php
-require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
-require_once(dirname(__FILE__) . "/../KalturaEnums.php");
-require_once(dirname(__FILE__) . "/../KalturaTypes.php");
+require_once(dirname(__FILE__) . "/../BorhanClientBase.php");
+require_once(dirname(__FILE__) . "/../BorhanEnums.php");
+require_once(dirname(__FILE__) . "/../BorhanTypes.php");
 
-class KalturaAuditTrailAction
+class BorhanAuditTrailAction
 {
 	const CREATED = "CREATED";
 	const COPIED = "COPIED";
@@ -16,7 +16,7 @@ class KalturaAuditTrailAction
 	const RELATION_REMOVED = "RELATION_REMOVED";
 }
 
-class KalturaAuditTrailContext
+class BorhanAuditTrailContext
 {
 	const CLIENT = -1;
 	const SCRIPT = 0;
@@ -24,14 +24,14 @@ class KalturaAuditTrailContext
 	const API_V3 = 2;
 }
 
-class KalturaAuditTrailFileSyncType
+class BorhanAuditTrailFileSyncType
 {
 	const FILE = 1;
 	const LINK = 2;
 	const URL = 3;
 }
 
-class KalturaAuditTrailObjectType
+class BorhanAuditTrailObjectType
 {
 	const ACCESS_CONTROL = "accessControl";
 	const ADMIN_KUSER = "adminKuser";
@@ -66,7 +66,7 @@ class KalturaAuditTrailObjectType
 	const PERMISSION = "Permission";
 }
 
-class KalturaAuditTrailOrderBy
+class BorhanAuditTrailOrderBy
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const CREATED_AT_DESC = "-createdAt";
@@ -74,14 +74,14 @@ class KalturaAuditTrailOrderBy
 	const PARSED_AT_DESC = "-parsedAt";
 }
 
-class KalturaAuditTrailStatus
+class BorhanAuditTrailStatus
 {
 	const PENDING = 1;
 	const READY = 2;
 	const FAILED = 3;
 }
 
-abstract class KalturaAuditTrailBaseFilter extends KalturaFilter
+abstract class BorhanAuditTrailBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -121,7 +121,7 @@ abstract class KalturaAuditTrailBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailStatus
+	 * @var BorhanAuditTrailStatus
 	 */
 	public $statusEqual = null;
 
@@ -135,7 +135,7 @@ abstract class KalturaAuditTrailBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailObjectType
+	 * @var BorhanAuditTrailObjectType
 	 */
 	public $auditObjectTypeEqual = null;
 
@@ -177,7 +177,7 @@ abstract class KalturaAuditTrailBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailObjectType
+	 * @var BorhanAuditTrailObjectType
 	 */
 	public $relatedObjectTypeEqual = null;
 
@@ -261,7 +261,7 @@ abstract class KalturaAuditTrailBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailAction
+	 * @var BorhanAuditTrailAction
 	 */
 	public $actionEqual = null;
 
@@ -282,7 +282,7 @@ abstract class KalturaAuditTrailBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailContext
+	 * @var BorhanAuditTrailContext
 	 */
 	public $contextEqual = null;
 
@@ -345,17 +345,17 @@ abstract class KalturaAuditTrailBaseFilter extends KalturaFilter
 
 }
 
-class KalturaAuditTrailFilter extends KalturaAuditTrailBaseFilter
+class BorhanAuditTrailFilter extends BorhanAuditTrailBaseFilter
 {
 
 }
 
-abstract class KalturaAuditTrailInfo extends KalturaObjectBase
+abstract class BorhanAuditTrailInfo extends BorhanObjectBase
 {
 
 }
 
-class KalturaAuditTrail extends KalturaObjectBase
+class BorhanAuditTrail extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -384,7 +384,7 @@ class KalturaAuditTrail extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailStatus
+	 * @var BorhanAuditTrailStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -392,7 +392,7 @@ class KalturaAuditTrail extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailObjectType
+	 * @var BorhanAuditTrailObjectType
 	 */
 	public $auditObjectType = null;
 
@@ -413,7 +413,7 @@ class KalturaAuditTrail extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailObjectType
+	 * @var BorhanAuditTrailObjectType
 	 */
 	public $relatedObjectType = null;
 
@@ -458,14 +458,14 @@ class KalturaAuditTrail extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailAction
+	 * @var BorhanAuditTrailAction
 	 */
 	public $action = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailInfo
+	 * @var BorhanAuditTrailInfo
 	 */
 	public $data;
 
@@ -480,7 +480,7 @@ class KalturaAuditTrail extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailContext
+	 * @var BorhanAuditTrailContext
 	 * @readonly
 	 */
 	public $context = null;
@@ -542,12 +542,12 @@ class KalturaAuditTrail extends KalturaObjectBase
 
 }
 
-class KalturaAuditTrailListResponse extends KalturaObjectBase
+class BorhanAuditTrailListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaAuditTrail
+	 * @var array of BorhanAuditTrail
 	 * @readonly
 	 */
 	public $objects;
@@ -563,7 +563,7 @@ class KalturaAuditTrailListResponse extends KalturaObjectBase
 
 }
 
-class KalturaAuditTrailChangeItem extends KalturaObjectBase
+class BorhanAuditTrailChangeItem extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -589,19 +589,19 @@ class KalturaAuditTrailChangeItem extends KalturaObjectBase
 
 }
 
-class KalturaAuditTrailChangeInfo extends KalturaAuditTrailInfo
+class BorhanAuditTrailChangeInfo extends BorhanAuditTrailInfo
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaAuditTrailChangeItem
+	 * @var array of BorhanAuditTrailChangeItem
 	 */
 	public $changedItems;
 
 
 }
 
-class KalturaAuditTrailFileSyncCreateInfo extends KalturaAuditTrailInfo
+class BorhanAuditTrailFileSyncCreateInfo extends BorhanAuditTrailInfo
 {
 	/**
 	 * 
@@ -634,14 +634,14 @@ class KalturaAuditTrailFileSyncCreateInfo extends KalturaAuditTrailInfo
 	/**
 	 * 
 	 *
-	 * @var KalturaAuditTrailFileSyncType
+	 * @var BorhanAuditTrailFileSyncType
 	 */
 	public $fileType = null;
 
 
 }
 
-class KalturaAuditTrailTextInfo extends KalturaAuditTrailInfo
+class BorhanAuditTrailTextInfo extends BorhanAuditTrailInfo
 {
 	/**
 	 * 
@@ -654,14 +654,14 @@ class KalturaAuditTrailTextInfo extends KalturaAuditTrailInfo
 }
 
 
-class KalturaAuditTrailService extends KalturaServiceBase
+class BorhanAuditTrailService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function listAction(KalturaAuditTrailFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanAuditTrailFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -673,11 +673,11 @@ class KalturaAuditTrailService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAuditTrailListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanAuditTrailListResponse");
 		return $resultObject;
 	}
 
-	function add(KalturaAuditTrail $auditTrail)
+	function add(BorhanAuditTrail $auditTrail)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "auditTrail", $auditTrail->toParams());
@@ -686,7 +686,7 @@ class KalturaAuditTrailService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAuditTrail");
+		$this->client->validateObjectType($resultObject, "BorhanAuditTrail");
 		return $resultObject;
 	}
 
@@ -699,40 +699,40 @@ class KalturaAuditTrailService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAuditTrail");
+		$this->client->validateObjectType($resultObject, "BorhanAuditTrail");
 		return $resultObject;
 	}
 }
-class KalturaAuditClientPlugin extends KalturaClientPlugin
+class BorhanAuditClientPlugin extends BorhanClientPlugin
 {
 	/**
-	 * @var KalturaAuditClientPlugin
+	 * @var BorhanAuditClientPlugin
 	 */
 	protected static $instance;
 
 	/**
-	 * @var KalturaAuditTrailService
+	 * @var BorhanAuditTrailService
 	 */
 	public $auditTrail = null;
 
-	protected function __construct(KalturaClient $client)
+	protected function __construct(BorhanClient $client)
 	{
 		parent::__construct($client);
-		$this->auditTrail = new KalturaAuditTrailService($client);
+		$this->auditTrail = new BorhanAuditTrailService($client);
 	}
 
 	/**
-	 * @return KalturaAuditClientPlugin
+	 * @return BorhanAuditClientPlugin
 	 */
-	public static function get(KalturaClient $client)
+	public static function get(BorhanClient $client)
 	{
 		if(!self::$instance)
-			self::$instance = new KalturaAuditClientPlugin($client);
+			self::$instance = new BorhanAuditClientPlugin($client);
 		return self::$instance;
 	}
 
 	/**
-	 * @return array<KalturaServiceBase>
+	 * @return array<BorhanServiceBase>
 	 */
 	public function getServices()
 	{

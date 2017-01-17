@@ -1,9 +1,9 @@
 <?php
-require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
-require_once(dirname(__FILE__) . "/../KalturaEnums.php");
-require_once(dirname(__FILE__) . "/../KalturaTypes.php");
+require_once(dirname(__FILE__) . "/../BorhanClientBase.php");
+require_once(dirname(__FILE__) . "/../BorhanEnums.php");
+require_once(dirname(__FILE__) . "/../BorhanTypes.php");
 
-class KalturaStatsKey extends KalturaObjectBase
+class BorhanStatsKey extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -45,12 +45,12 @@ class KalturaStatsKey extends KalturaObjectBase
 
 }
 
-class KalturaStatsKeyListResponse extends KalturaObjectBase
+class BorhanStatsKeyListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaStatsKey
+	 * @var array of BorhanStatsKey
 	 * @readonly
 	 */
 	public $objects;
@@ -67,9 +67,9 @@ class KalturaStatsKeyListResponse extends KalturaObjectBase
 }
 
 
-class KalturaStatskeyService extends KalturaServiceBase
+class BorhanStatskeyService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -83,40 +83,40 @@ class KalturaStatskeyService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaStatsKeyListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanStatsKeyListResponse");
 		return $resultObject;
 	}
 }
-class KalturaStatskeyClientPlugin extends KalturaClientPlugin
+class BorhanStatskeyClientPlugin extends BorhanClientPlugin
 {
 	/**
-	 * @var KalturaStatskeyClientPlugin
+	 * @var BorhanStatskeyClientPlugin
 	 */
 	protected static $instance;
 
 	/**
-	 * @var KalturaStatskeyService
+	 * @var BorhanStatskeyService
 	 */
 	public $Statskey = null;
 
-	protected function __construct(KalturaClient $client)
+	protected function __construct(BorhanClient $client)
 	{
 		parent::__construct($client);
-		$this->Statskey = new KalturaStatskeyService($client);
+		$this->Statskey = new BorhanStatskeyService($client);
 	}
 
 	/**
-	 * @return KalturaStatskeyClientPlugin
+	 * @return BorhanStatskeyClientPlugin
 	 */
-	public static function get(KalturaClient $client)
+	public static function get(BorhanClient $client)
 	{
 		if(!self::$instance)
-			self::$instance = new KalturaStatskeyClientPlugin($client);
+			self::$instance = new BorhanStatskeyClientPlugin($client);
 		return self::$instance;
 	}
 
 	/**
-	 * @return array<KalturaServiceBase>
+	 * @return array<BorhanServiceBase>
 	 */
 	public function getServices()
 	{

@@ -1,9 +1,9 @@
 <?php
-require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
-require_once(dirname(__FILE__) . "/../KalturaEnums.php");
-require_once(dirname(__FILE__) . "/../KalturaTypes.php");
+require_once(dirname(__FILE__) . "/../BorhanClientBase.php");
+require_once(dirname(__FILE__) . "/../BorhanEnums.php");
+require_once(dirname(__FILE__) . "/../BorhanTypes.php");
 
-class KalturaFileSyncOrderBy
+class BorhanFileSyncOrderBy
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const CREATED_AT_DESC = "-createdAt";
@@ -17,7 +17,7 @@ class KalturaFileSyncOrderBy
 	const FILE_SIZE_DESC = "-fileSize";
 }
 
-class KalturaFileSyncStatus
+class BorhanFileSyncStatus
 {
 	const ERROR = -1;
 	const PENDING = 1;
@@ -26,14 +26,14 @@ class KalturaFileSyncStatus
 	const PURGED = 4;
 }
 
-class KalturaFileSyncType
+class BorhanFileSyncType
 {
 	const FILE = 1;
 	const LINK = 2;
 	const URL = 3;
 }
 
-abstract class KalturaFileSyncBaseFilter extends KalturaFilter
+abstract class BorhanFileSyncBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -45,7 +45,7 @@ abstract class KalturaFileSyncBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaFileSyncObjectType
+	 * @var BorhanFileSyncObjectType
 	 */
 	public $fileObjectTypeEqual = null;
 
@@ -178,7 +178,7 @@ abstract class KalturaFileSyncBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaFileSyncStatus
+	 * @var BorhanFileSyncStatus
 	 */
 	public $statusEqual = null;
 
@@ -192,7 +192,7 @@ abstract class KalturaFileSyncBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaFileSyncType
+	 * @var BorhanFileSyncType
 	 */
 	public $fileTypeEqual = null;
 
@@ -241,12 +241,12 @@ abstract class KalturaFileSyncBaseFilter extends KalturaFilter
 
 }
 
-class KalturaFileSyncFilter extends KalturaFileSyncBaseFilter
+class BorhanFileSyncFilter extends BorhanFileSyncBaseFilter
 {
 
 }
 
-class KalturaFileSync extends KalturaObjectBase
+class BorhanFileSync extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -267,7 +267,7 @@ class KalturaFileSync extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaFileSyncObjectType
+	 * @var BorhanFileSyncObjectType
 	 * @readonly
 	 */
 	public $fileObjectType = null;
@@ -347,7 +347,7 @@ class KalturaFileSync extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaFileSyncStatus
+	 * @var BorhanFileSyncStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -355,7 +355,7 @@ class KalturaFileSync extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaFileSyncType
+	 * @var BorhanFileSyncType
 	 * @readonly
 	 */
 	public $fileType = null;
@@ -435,12 +435,12 @@ class KalturaFileSync extends KalturaObjectBase
 
 }
 
-class KalturaFileSyncListResponse extends KalturaObjectBase
+class BorhanFileSyncListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaFileSync
+	 * @var array of BorhanFileSync
 	 * @readonly
 	 */
 	public $objects;
@@ -457,14 +457,14 @@ class KalturaFileSyncListResponse extends KalturaObjectBase
 }
 
 
-class KalturaFileSyncService extends KalturaServiceBase
+class BorhanFileSyncService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function listAction(KalturaFileSyncFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanFileSyncFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -476,7 +476,7 @@ class KalturaFileSyncService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFileSyncListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFileSyncListResponse");
 		return $resultObject;
 	}
 
@@ -491,40 +491,40 @@ class KalturaFileSyncService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFileSync");
+		$this->client->validateObjectType($resultObject, "BorhanFileSync");
 		return $resultObject;
 	}
 }
-class KalturaFileSyncClientPlugin extends KalturaClientPlugin
+class BorhanFileSyncClientPlugin extends BorhanClientPlugin
 {
 	/**
-	 * @var KalturaFileSyncClientPlugin
+	 * @var BorhanFileSyncClientPlugin
 	 */
 	protected static $instance;
 
 	/**
-	 * @var KalturaFileSyncService
+	 * @var BorhanFileSyncService
 	 */
 	public $fileSync = null;
 
-	protected function __construct(KalturaClient $client)
+	protected function __construct(BorhanClient $client)
 	{
 		parent::__construct($client);
-		$this->fileSync = new KalturaFileSyncService($client);
+		$this->fileSync = new BorhanFileSyncService($client);
 	}
 
 	/**
-	 * @return KalturaFileSyncClientPlugin
+	 * @return BorhanFileSyncClientPlugin
 	 */
-	public static function get(KalturaClient $client)
+	public static function get(BorhanClient $client)
 	{
 		if(!self::$instance)
-			self::$instance = new KalturaFileSyncClientPlugin($client);
+			self::$instance = new BorhanFileSyncClientPlugin($client);
 		return self::$instance;
 	}
 
 	/**
-	 * @return array<KalturaServiceBase>
+	 * @return array<BorhanServiceBase>
 	 */
 	public function getServices()
 	{

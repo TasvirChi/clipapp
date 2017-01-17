@@ -22,25 +22,25 @@ if( $configName != 'default' && isset($config[$configName]) ) {
 	$conf = $config['default'];
 }
 
-// Load Kaltura Client
-require_once('client/KalturaClient.php');
+// Load Borhan Client
+require_once('client/BorhanClient.php');
 
 try {
 	// Return a Client
 	$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? "https" : "http";
-	$config = new KalturaConfiguration( $conf['partner_id'] );
+	$config = new BorhanConfiguration( $conf['partner_id'] );
 	$config->serviceUrl = $protocol . '://' . $conf['host'];
-	$client = new KalturaClient( $config );
+	$client = new BorhanClient( $config );
 
 	// Create & Set KS
 	if( isset($conf['ks']) ) {
 		$ks = $conf['ks'];
 	} else {
 		if( isset( $save ) ) {
-			$sessionType = KalturaSessionType::ADMIN;
+			$sessionType = BorhanSessionType::ADMIN;
 			$sessionSecret = $conf['adminsecret'];
 		} else {
-			$sessionType = KalturaSessionType::USER;
+			$sessionType = BorhanSessionType::USER;
 			$sessionSecret = $conf['usersecret'];
 		}
 		$ks = $client->session->start($sessionSecret, $conf['user_id'], $sessionType, $conf['partner_id'], null, null);

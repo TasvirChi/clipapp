@@ -7,32 +7,32 @@ $config['default']['title'] = 'Clipping Application';
 
 /*
  * Service Host URL
- * Description: Service host url, used by client and where we load the kdp & clipper swf files
- * Default: www.kaltura.com
+ * Description: Service host url, used by client and where we load the bdp & clipper swf files
+ * Default: www.borhan.com
  */
-$config['default']['host'] = 'www.kaltura.com';
+$config['default']['host'] = 'www.borhan.com';
 
 /*
  * Partner ID
- * You can get it from KMC > Settings > Integration Settings
+ * You can get it from BMC > Settings > Integration Settings
  */
 $config['default']['partner_id'] = '';
 
 /*
  * User Secret - used for kclip
- * You can get it from KMC > Settings > Integration Settings
+ * You can get it from BMC > Settings > Integration Settings
  */
 $config['default']['usersecret'] = '';
 
 /*
  * Admin Secret - used for saving the clip/trim
- * You can get it from KMC > Settings > Integration Settings
+ * You can get it from BMC > Settings > Integration Settings
 
 $config['default']['adminsecret'] = '';
 
 /*
  * User ID
- * You can get it from KMC > Settings > My User Settings
+ * You can get it from BMC > Settings > My User Settings
  */
 $config['default']['user_id'] = '';
 
@@ -55,7 +55,7 @@ $config['default']['overwrite_entry'] = false;
 $config['default']['redirect_save'] = false;
 
 /* Redirect URL if 'redirect_save' is true */
-$config['default']['redirect_url'] = 'http://www.kaltura.com';
+$config['default']['redirect_url'] = 'http://www.borhan.com';
 
 /* Message the will appear after the user click 'Save' button - Clip mode */
 $config['default']['clip_save_message'] = 'A new clip is now being created. This might take a few minutes. You can copy the embed code and the video will
@@ -71,8 +71,8 @@ $config['default']['show_embed'] = true;
 /* Use HTML5 Embed code: true/false */
 $config['default']['html5_embed'] = true;
 
-/* KDP UIConf ID */
-$config['default']['kdp_uiconf_id'] = 21224102;
+/* BDP UIConf ID */
+$config['default']['bdp_uiconf_id'] = 21224102;
 
 /* Clipper UIConf ID */
 $config['default']['clipper_uiconf_id'] = 21224322;

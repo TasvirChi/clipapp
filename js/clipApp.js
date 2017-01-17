@@ -11,9 +11,9 @@ clipApp.log = function(msg) {
 
 // Set default vars
 clipApp.vars = {
-	host: "www.kaltura.com",
+	host: "www.borhan.com",
 	redirect_save: false,
-	redirect_url: "http://www.kaltura.com/",
+	redirect_url: "http://www.borhan.com/",
 	overwrite_entry: false,
 	seekFromKClip: false,
 	debug: false
@@ -24,13 +24,13 @@ clipApp.init = function( options ) {
 };
 
 var jsCallbackReady = function( videoId ) {
-	clipApp.kdp = $("#" + videoId ).get(0);
+	clipApp.bdp = $("#" + videoId ).get(0);
 	clipApp.player.firstLoad = true;
-	//clipApp.kdp.addJsListener("mediaReady", "clipApp.player.doFirstPlay");
-	clipApp.kdp.addJsListener("playerPlayed", "clipApp.player.playerPlaying");
-	clipApp.kdp.addJsListener("playerPaused", "clipApp.player.playerPaused");
-	clipApp.kdp.addJsListener("doSeek", "clipApp.onSeek");
-	clipApp.kdp.addJsListener("durationChange", "clipApp.player.durationChange");
+	//clipApp.bdp.addJsListener("mediaReady", "clipApp.player.doFirstPlay");
+	clipApp.bdp.addJsListener("playerPlayed", "clipApp.player.playerPlaying");
+	clipApp.bdp.addJsListener("playerPaused", "clipApp.player.playerPaused");
+	clipApp.bdp.addJsListener("doSeek", "clipApp.onSeek");
+	clipApp.bdp.addJsListener("durationChange", "clipApp.player.durationChange");
 
 };
 
@@ -46,7 +46,7 @@ var clipperReady = function() {
 	if ( !clipApp.player.firstLoad ) {
 		clipApp.kClip.addJsListener("playheadDragDrop", "clipApp.player.updatePlayhead");
 	}
-	//in case kClip was loaded after kdp called "durationChange"
+	//in case kClip was loaded after bdp called "durationChange"
 	if ( clipApp.vars.entry && clipApp.vars.entry.msDuration ) {
 		clipApp.kClip.setDuration(clipApp.vars.entry.msDuration);
 	}
@@ -66,20 +66,20 @@ clipApp.player = {
 	/*doFirstPlay: function() {
 		clipApp.log('doFirstPlay');
 		clipApp.player.firstLoad = true;
-		clipApp.kdp.sendNotification("doPlay");
+		clipApp.bdp.sendNotification("doPlay");
 	},*/
 
 	playerPlaying: function() {
 		clipApp.log('clipApp.player.playerPlaying');
 		if( clipApp.player.firstLoad ) {
-			clipApp.log('pauseKdp');
+			clipApp.log('pauseBdp');
 
 			setTimeout( function() {
 				clipApp.player.firstLoad = false;
-				clipApp.kdp.sendNotification("doPause");
+				clipApp.bdp.sendNotification("doPause");
 				//live entry playback starts from the end - seek back to beginning
 				if ( clipApp.vars.entry.mediaType == '201' ) {
-					clipApp.kdp.sendNotification("doSeek", 0);
+					clipApp.bdp.sendNotification("doSeek", 0);
 				}
 				clipApp.kClip.addJsListener("playheadDragDrop", "clipApp.player.updatePlayhead");
 			}, 50);
@@ -88,14 +88,14 @@ clipApp.player = {
 		clipApp.vars.playerPlaying = true;
 
 		clipApp.kClip.removeJsListener("playheadUpdated", "clipApp.player.updatePlayhead");
-		clipApp.kdp.addJsListener("playerUpdatePlayhead", "clipApp.clipper.updatePlayhead");
+		clipApp.bdp.addJsListener("playerUpdatePlayhead", "clipApp.clipper.updatePlayhead");
 	},
 
 	playerPaused: function() {
 		clipApp.vars.playerPlaying = false;
 		setTimeout( function() {
 			clipApp.kClip.addJsListener("playheadUpdated", "clipApp.player.updatePlayhead");
-			clipApp.kdp.removeJsListener("playerUpdatePlayhead", "clipApp.clipper.updatePlayhead");
+			clipApp.bdp.removeJsListener("playerUpdatePlayhead", "clipApp.clipper.updatePlayhead");
 		}, 1);
 	},
 
@@ -107,9 +107,9 @@ clipApp.player = {
 
 		val = Math.floor( val / 1000 );
 		clipApp.vars.seekFromKClip = true;
-		clipApp.kdp.sendNotification("doSeek", val);
+		clipApp.bdp.sendNotification("doSeek", val);
 		setTimeout(function() {
-			clipApp.kdp.sendNotification("doPause");
+			clipApp.bdp.sendNotification("doPause");
 		}, 250);
 	},
 
@@ -133,7 +133,7 @@ clipApp.clipper = {
 		clip_offset = Math.round(clip_offset);
 		clipApp.kClip.addClipAt(clip_offset, clip_length);
 		clipApp.log('addClipAt (Length: ' + clip_length + ')');
-		clipApp.kdp.sendNotification("doPause");
+		clipApp.bdp.sendNotification("doPause");
 	},
 
 	updatePlayhead: function(val) {
@@ -246,7 +246,7 @@ clipApp.setStartTime = function( val ) {
 	};
 
 	clipApp.kClip.updateClipAttributes( clipAttributes );
-	clipApp.kdp.sendNotification("doPause");
+	clipApp.bdp.sendNotification("doPause");
 };
 
 clipApp.setEndTime = function( val ) {
@@ -262,7 +262,7 @@ clipApp.setEndTime = function( val ) {
 	};
 
 	clipApp.kClip.updateClipAttributes( clipAttributes );
-	clipApp.kdp.sendNotification("doPause");
+	clipApp.bdp.sendNotification("doPause");
 };
 
 clipApp.activateButtons = function() {
@@ -311,27 +311,27 @@ clipApp.doPreview = function() {
 
 	clipApp.vars.removeBlackScreen = false;
 
-	clipApp.kdp.removeJsListener("doSeek", "clipApp.onSeek");
+	clipApp.bdp.removeJsListener("doSeek", "clipApp.onSeek");
 	//will re-listen to seek events after this mediaPlayFrom seek has finished
-	clipApp.kdp.addJsListener("playerSeekEnd", "clipApp.onPlayerSeekEnd");
+	clipApp.bdp.addJsListener("playerSeekEnd", "clipApp.onPlayerSeekEnd");
 	clipApp.kClip.updateZoomIndex(0);
 
 	if( clipApp.vars.playerPlaying ){
-		clipApp.kdp.sendNotification("doPause");
+		clipApp.bdp.sendNotification("doPause");
 	}
-	clipApp.kdp.setKDPAttribute("blackScreen", "visible", "true" );
-	clipApp.kdp.setKDPAttribute("mediaProxy", "mediaPlayFrom", startTime );
-	clipApp.kdp.setKDPAttribute("mediaProxy", "mediaPlayTo", endTime );
-	// work around for kdp didn't play at first doPlay
-	clipApp.kdp.sendNotification("doPlay");
-	clipApp.kdp.sendNotification("doPlay");
+	clipApp.bdp.setBDPAttribute("blackScreen", "visible", "true" );
+	clipApp.bdp.setBDPAttribute("mediaProxy", "mediaPlayFrom", startTime );
+	clipApp.bdp.setBDPAttribute("mediaProxy", "mediaPlayTo", endTime );
+	// work around for bdp didn't play at first doPlay
+	clipApp.bdp.sendNotification("doPlay");
+	clipApp.bdp.sendNotification("doPlay");
 
 
 };
 
 clipApp.onPlayerSeekEnd = function() {
 	setTimeout( function() {
-		clipApp.kdp.addJsListener("doSeek", "clipApp.onSeek");
+		clipApp.bdp.addJsListener("doSeek", "clipApp.onSeek");
 	}, 1);
 
 }
@@ -339,7 +339,7 @@ clipApp.onPlayerSeekEnd = function() {
 clipApp.onSeek = function(val) {
 	if( clipApp.vars.removeBlackScreen ) {
 		clipApp.log('onSeek :: Remove black screen');
-		clipApp.kdp.setKDPAttribute("blackScreen", "visible", "false" );
+		clipApp.bdp.setBDPAttribute("blackScreen", "visible", "false" );
 	}
 
 	if( clipApp.vars.seekFromKClip === false ) {
@@ -364,9 +364,9 @@ clipApp.showError = function(error) {
 clipApp.getEmbedCode = function(entry_id) {
 
 	var unique_id = clipApp.getUniqueId();
-	var entry_url = 'http://' + clipApp.vars.host + '/kwidget/wid/_' + clipApp.vars.partner_id + '/uiconf_id/' + clipApp.vars.kdp_uiconf_id + '/entry_id/' + entry_id;
+	var entry_url = 'http://' + clipApp.vars.host + '/bwidget/wid/_' + clipApp.vars.partner_id + '/uiconf_id/' + clipApp.vars.bdp_uiconf_id + '/entry_id/' + entry_id;
 
-	var embed_code = '<object id="kaltura_player_' + unique_id + '" name="kaltura_player_' + unique_id + '" type="application/x-shockwave-flash" allowFullScreen="true"' +
+	var embed_code = '<object id="borhan_player_' + unique_id + '" name="borhan_player_' + unique_id + '" type="application/x-shockwave-flash" allowFullScreen="true"' +
 				' allowNetworking="all" allowScriptAccess="always" height="330" width="400" bgcolor="#000000"' +
 				' resource="' + entry_url + '" data="' + entry_url + '"><param name="allowFullScreen" value="true" /><param name="allowNetworking" value="all" />' +
 				' <param name="allowScriptAccess" value="always" /><param name="bgcolor" value="#000000" /><param name="movie" value="' + entry_url + '" /></object>';
@@ -433,7 +433,7 @@ clipApp.doSave = function() {
 			'config': clipApp.vars.config,
 			'partnerId': clipApp.vars.partner_id,
 			'kclipUiconf': clipApp.vars.kclip_uiconf_id,
-			'kdpUiconf': clipApp.vars.kdp_uiconf_id,
+			'bdpUiconf': clipApp.vars.bdp_uiconf_id,
 			'mode': ((clipApp.vars.overwrite_entry) ? 'trim' : 'clip')
 		} );
 		saveUrl += '?' + queryString;
@@ -460,8 +460,8 @@ clipApp.doSave = function() {
 };
 
 clipApp.deleteClip = function() {
-	// Stop the KDP
-	clipApp.kdp.sendNotification("doPause");
+	// Stop the BDP
+	clipApp.bdp.sendNotification("doPause");
 
 	// Remove clip from clipper
 	clipApp.kClip.deleteSelected();

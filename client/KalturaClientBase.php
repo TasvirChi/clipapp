@@ -1,13 +1,13 @@
 <?php
 /**
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-class KalturaClientBase 
+class BorhanClientBase 
 {
-	const KALTURA_SERVICE_FORMAT_JSON = 1;
-	const KALTURA_SERVICE_FORMAT_XML  = 2;
-	const KALTURA_SERVICE_FORMAT_PHP  = 3;
+	const BORHAN_SERVICE_FORMAT_JSON = 1;
+	const BORHAN_SERVICE_FORMAT_XML  = 2;
+	const BORHAN_SERVICE_FORMAT_PHP  = 3;
 
 	/**
 	 * @var string
@@ -15,7 +15,7 @@ class KalturaClientBase
 	protected $apiVersion = null;
 
 	/**
-	 * @var KalturaConfiguration
+	 * @var BorhanConfiguration
 	 */
 	protected $config;
 	
@@ -42,7 +42,7 @@ class KalturaClientBase
 	/**
 	 * Array of all plugin services
 	 *
-	 * @var array<KalturaServiceBase>
+	 * @var array<BorhanServiceBase>
 	 */
 	protected $pluginServices = array();
 	
@@ -55,11 +55,11 @@ class KalturaClientBase
 	}
 	
 	/**
-	 * Kaltura client constructor
+	 * Borhan client constructor
 	 *
-	 * @param KalturaConfiguration $config
+	 * @param BorhanConfiguration $config
 	 */
-	public function __construct(KalturaConfiguration $config)
+	public function __construct(BorhanConfiguration $config)
 	{
 	    $this->config = $config;
 	    
@@ -70,7 +70,7 @@ class KalturaClientBase
 		}
 		
 		// load all plugins
-		$pluginsFolder = realpath(dirname(__FILE__)) . '/KalturaPlugins';
+		$pluginsFolder = realpath(dirname(__FILE__)) . '/BorhanPlugins';
 		if(is_dir($pluginsFolder))
 		{
 			$dir = dir($pluginsFolder);
@@ -82,11 +82,11 @@ class KalturaClientBase
 					require_once("$pluginsFolder/$fileName");
 					
 					$pluginClass = $matches[1];
-					if(!class_exists($pluginClass) || !in_array('IKalturaClientPlugin', class_implements($pluginClass)))
+					if(!class_exists($pluginClass) || !in_array('IBorhanClientPlugin', class_implements($pluginClass)))
 						continue;
 						
 					$plugin = call_user_func(array($pluginClass, 'get'), $this);
-					if(!($plugin instanceof IKalturaClientPlugin))
+					if(!($plugin instanceof IBorhanClientPlugin))
 						continue;
 						
 					$pluginName = $plugin->getName();
@@ -137,7 +137,7 @@ class KalturaClientBase
 			
 		$this->addParam($params, "ks", $this->ks);
 		
-		$call = new KalturaServiceActionCall($service, $action, $params, $files);
+		$call = new BorhanServiceActionCall($service, $action, $params, $files);
 		$this->callsQueue[] = $call;
 	}
 	
@@ -196,7 +196,7 @@ class KalturaClientBase
 		
 		if ($error)
 		{
-			throw new KalturaClientException($error, KalturaClientException::ERROR_GENERIC);
+			throw new BorhanClientException($error, BorhanClientException::ERROR_GENERIC);
 		}
 		else 
 		{
@@ -205,13 +205,13 @@ class KalturaClientBase
 //			else
 				$this->log("result (serialized): " . $postResult);
 			
-			if ($this->config->format == self::KALTURA_SERVICE_FORMAT_PHP)
+			if ($this->config->format == self::BORHAN_SERVICE_FORMAT_PHP)
 			{
 				$result = @unserialize($postResult);
 
 				if ($result === false && serialize(false) !== $postResult) 
 				{
-					throw new KalturaClientException("failed to unserialize server result\n$postResult", KalturaClientException::ERROR_UNSERIALIZE_FAILED);
+					throw new BorhanClientException("failed to unserialize server result\n$postResult", BorhanClientException::ERROR_UNSERIALIZE_FAILED);
 				}
 				$dump = print_r($result, true);
 //				if(strlen($dump) < 1024)
@@ -219,7 +219,7 @@ class KalturaClientBase
 			}
 			else
 			{
-				throw new KalturaClientException("unsupported format: $postResult", KalturaClientException::ERROR_FORMAT_NOT_SUPPORTED);
+				throw new BorhanClientException("unsupported format: $postResult", BorhanClientException::ERROR_FORMAT_NOT_SUPPORTED);
 			}
 		}
 		
@@ -324,7 +324,7 @@ class KalturaClientBase
 	private function doPostRequest($url, $params = array(), $files = array())
 	{
 		if (count($files) > 0)
-			throw new KalturaClientException("Uploading files is not supported with stream context http request, please use curl", KalturaClientException::ERROR_UPLOAD_NOT_SUPPORTED);
+			throw new BorhanClientException("Uploading files is not supported with stream context http request, please use curl", BorhanClientException::ERROR_UPLOAD_NOT_SUPPORTED);
 			
 		$formattedData = http_build_query($params , "", "&");
 		$params = array('http' => array(
@@ -338,11 +338,11 @@ class KalturaClientBase
 		$fp = @fopen($url, 'rb', false, $ctx);
 		if (!$fp) {
 			$phpErrorMsg = "";
-			throw new KalturaClientException("Problem with $url, $phpErrorMsg", KalturaClientException::ERROR_CONNECTION_FAILED);
+			throw new BorhanClientException("Problem with $url, $phpErrorMsg", BorhanClientException::ERROR_CONNECTION_FAILED);
 		}
 		$response = @stream_get_contents($fp);
 		if ($response === false) {
-		   throw new KalturaClientException("Problem reading data from $url, $phpErrorMsg", KalturaClientException::ERROR_READ_FAILED);
+		   throw new BorhanClientException("Problem reading data from $url, $phpErrorMsg", BorhanClientException::ERROR_READ_FAILED);
 		}
 		return array($response, '');
 	}
@@ -364,7 +364,7 @@ class KalturaClientBase
 	}
 	
 	/**
-	 * @return KalturaConfiguration
+	 * @return BorhanConfiguration
 	 */
 	public function getConfig()
 	{
@@ -372,14 +372,14 @@ class KalturaClientBase
 	}
 	
 	/**
-	 * @param KalturaConfiguration $config
+	 * @param BorhanConfiguration $config
 	 */
-	public function setConfig(KalturaConfiguration $config)
+	public function setConfig(BorhanConfiguration $config)
 	{
 		$this->config = $config;
 		
 		$logger = $this->config->getLogger();
-		if ($logger instanceof IKalturaLogger)
+		if ($logger instanceof IBorhanLogger)
 		{
 			$this->shouldLog = true;	
 		}
@@ -397,7 +397,7 @@ class KalturaClientBase
 		if ($paramValue === null)
 			return;
 			
-		if(is_object($paramValue) && $paramValue instanceof KalturaObjectBase)
+		if(is_object($paramValue) && $paramValue instanceof BorhanObjectBase)
 		{
 			$this->addParam($params, "$paramName:objectType", get_class($paramValue));
 		    foreach($paramValue as $prop => $val)
@@ -432,7 +432,7 @@ class KalturaClientBase
 	{
 		if ($this->isError($resultObject))
 		{
-			throw new KalturaException($resultObject["message"], $resultObject["code"]);
+			throw new BorhanException($resultObject["message"], $resultObject["code"]);
 		}
 	}
 	
@@ -457,11 +457,11 @@ class KalturaClientBase
 		if (is_object($resultObject))
 		{
 			if (!($resultObject instanceof $objectType))
-				throw new KalturaClientException("Invalid object type", KalturaClientException::ERROR_INVALID_OBJECT_TYPE);
+				throw new BorhanClientException("Invalid object type", BorhanClientException::ERROR_INVALID_OBJECT_TYPE);
 		}
 		else if (gettype($resultObject) !== "NULL" && gettype($resultObject) !== $objectType)
 		{
-			throw new KalturaClientException("Invalid object type", KalturaClientException::ERROR_INVALID_OBJECT_TYPE);
+			throw new BorhanClientException("Invalid object type", BorhanClientException::ERROR_INVALID_OBJECT_TYPE);
 		}
 	}
 	
@@ -527,17 +527,17 @@ class KalturaClientBase
 
 /**
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-interface IKalturaClientPlugin
+interface IBorhanClientPlugin
 {
 	/**
-	 * @return KalturaClientPlugin
+	 * @return BorhanClientPlugin
 	 */
-	public static function get(KalturaClient $client);
+	public static function get(BorhanClient $client);
 	
 	/**
-	 * @return array<KalturaServiceBase>
+	 * @return array<BorhanServiceBase>
 	 */
 	public function getServices();
 	
@@ -549,11 +549,11 @@ interface IKalturaClientPlugin
 
 /**
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-abstract class KalturaClientPlugin implements IKalturaClientPlugin
+abstract class BorhanClientPlugin implements IBorhanClientPlugin
 {
-	protected function __construct(KalturaClient $client)
+	protected function __construct(BorhanClient $client)
 	{
 		
 	}
@@ -561,9 +561,9 @@ abstract class KalturaClientPlugin implements IKalturaClientPlugin
 
 /**
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-class KalturaServiceActionCall
+class BorhanServiceActionCall
 {
 	/**
 	 * @var string
@@ -587,7 +587,7 @@ class KalturaServiceActionCall
 	public $files;
 	
 	/**
-	 * Contruct new Kaltura service action call, if params array contain sub arrays (for objects), it will be flattened
+	 * Contruct new Borhan service action call, if params array contain sub arrays (for objects), it will be flattened
 	 *
 	 * @param string $service
 	 * @param string $action
@@ -646,29 +646,29 @@ class KalturaServiceActionCall
  * Abstract base class for all client services
  *  
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-abstract class KalturaServiceBase
+abstract class BorhanServiceBase
 {
 	/**
-	 * @var KalturaClient
+	 * @var BorhanClient
 	 */
 	protected $client;
 	
 	/**
-	 * Initialize the service keeping reference to the KalturaClient
+	 * Initialize the service keeping reference to the BorhanClient
 	 *
-	 * @param KalturaClient $client
+	 * @param BorhanClient $client
 	 */
-	public function __construct(KalturaClient $client = null)
+	public function __construct(BorhanClient $client = null)
 	{
 		$this->client = $client;
 	}
 						
 	/**
-	 * @param KalturaClient $client
+	 * @param BorhanClient $client
 	 */
-	public function setClient(KalturaClient $client)
+	public function setClient(BorhanClient $client)
 	{
 		$this->client = $client;
 	}
@@ -678,15 +678,15 @@ abstract class KalturaServiceBase
  * Abstract base class for all client objects
  * 
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-abstract class KalturaObjectBase
+abstract class BorhanObjectBase
 {
 	protected function addIfNotNull(&$params, $paramName, $paramValue)
 	{
 		if ($paramValue !== null)
 		{
-			if($paramValue instanceof KalturaObjectBase)
+			if($paramValue instanceof BorhanObjectBase)
 			{
 				$params[$paramName] = $paramValue->toParams();
 			}
@@ -711,9 +711,9 @@ abstract class KalturaObjectBase
 
 /**
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-class KalturaException extends Exception 
+class BorhanException extends Exception 
 {
     public function __construct($message, $code) 
     {
@@ -724,9 +724,9 @@ class KalturaException extends Exception
 
 /**
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-class KalturaClientException extends Exception 
+class BorhanClientException extends Exception 
 {
 	const ERROR_GENERIC = -1;
 	const ERROR_UNSERIALIZE_FAILED = -2;
@@ -740,13 +740,13 @@ class KalturaClientException extends Exception
 
 /**
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-class KalturaConfiguration
+class BorhanConfiguration
 {
 	private $logger;
 
-	public $serviceUrl    				= "http://www.kaltura.com/";
+	public $serviceUrl    				= "http://www.borhan.com/";
 	public $partnerId    				= null;
 	public $format        				= 3;
 	public $clientTag 	  				= "php5";
@@ -754,23 +754,23 @@ class KalturaConfiguration
 	public $startZendDebuggerSession 	= false;
 	
 	/**
-	 * Constructs new Kaltura configuration object
+	 * Constructs new Borhan configuration object
 	 *
 	 */
 	public function __construct($partnerId = -1)
 	{
 	    if (!is_numeric($partnerId))
-	        throw new KalturaClientException("Invalid partner id", KalturaClientException::ERROR_INVALID_PARTNER_ID);
+	        throw new BorhanClientException("Invalid partner id", BorhanClientException::ERROR_INVALID_PARTNER_ID);
 	        
 	    $this->partnerId = $partnerId;
 	}
 	
 	/**
-	 * Set logger to get kaltura client debug logs
+	 * Set logger to get borhan client debug logs
 	 *
-	 * @param IKalturaLogger $log
+	 * @param IBorhanLogger $log
 	 */
-	public function setLogger(IKalturaLogger $log)
+	public function setLogger(IBorhanLogger $log)
 	{
 		$this->logger = $log;
 	}
@@ -778,7 +778,7 @@ class KalturaConfiguration
 	/**
 	 * Gets the logger (Internal client use)
 	 *
-	 * @return IKalturaLogger
+	 * @return IBorhanLogger
 	 */
 	public function getLogger()
 	{
@@ -787,12 +787,12 @@ class KalturaConfiguration
 }
 
 /**
- * Implement to get Kaltura Client logs
+ * Implement to get Borhan Client logs
  * 
  * @package External
- * @subpackage Kaltura
+ * @subpackage Borhan
  */
-interface IKalturaLogger 
+interface IBorhanLogger 
 {
 	function log($msg); 
 }

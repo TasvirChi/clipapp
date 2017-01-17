@@ -1,9 +1,9 @@
 <?php
-require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
-require_once(dirname(__FILE__) . "/../KalturaEnums.php");
-require_once(dirname(__FILE__) . "/../KalturaTypes.php");
+require_once(dirname(__FILE__) . "/../BorhanClientBase.php");
+require_once(dirname(__FILE__) . "/../BorhanEnums.php");
+require_once(dirname(__FILE__) . "/../BorhanTypes.php");
 
-class KalturaMediaEntryWithDistributionsOrderBy
+class BorhanMediaEntryWithDistributionsOrderBy
 {
 	const MEDIA_TYPE_ASC = "+mediaType";
 	const MEDIA_TYPE_DESC = "-mediaType";
@@ -29,7 +29,7 @@ class KalturaMediaEntryWithDistributionsOrderBy
 	const PARTNER_SORT_VALUE_DESC = "-partnerSortValue";
 }
 
-class KalturaVampEntryOrderBy
+class BorhanVampEntryOrderBy
 {
 	const PUBLISHING_STARTED_AT_ASC = "+publishingStartedAt";
 	const PUBLISHING_STARTED_AT_DESC = "-publishingStartedAt";
@@ -39,7 +39,7 @@ class KalturaVampEntryOrderBy
 	const UPDATED_AT_DESC = "-updatedAt";
 }
 
-class KalturaVampWorkflowStatus
+class BorhanVampWorkflowStatus
 {
 	const INCOMPLETE = 0;
 	const COMPLETE = 1;
@@ -51,7 +51,7 @@ class KalturaVampWorkflowStatus
 	const REJECTED = 14;
 }
 
-class KalturaVampSystemStatusSummary extends KalturaObjectBase
+class BorhanVampSystemStatusSummary extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -98,12 +98,12 @@ class KalturaVampSystemStatusSummary extends KalturaObjectBase
 
 }
 
-class KalturaEntryDistributionDetails extends KalturaObjectBase
+class BorhanEntryDistributionDetails extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaMediaEntry
+	 * @var BorhanMediaEntry
 	 */
 	public $entry;
 
@@ -117,24 +117,24 @@ class KalturaEntryDistributionDetails extends KalturaObjectBase
 
 }
 
-class KalturaMediaEntryWithDistributions extends KalturaMediaEntry
+class BorhanMediaEntryWithDistributions extends BorhanMediaEntry
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaEntryDistribution
+	 * @var array of BorhanEntryDistribution
 	 */
 	public $entryDistributions;
 
 
 }
 
-class KalturaMediaEntryWithDistributionsResponse extends KalturaObjectBase
+class BorhanMediaEntryWithDistributionsResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaMediaEntryWithDistributions
+	 * @var array of BorhanMediaEntryWithDistributions
 	 * @readonly
 	 */
 	public $objects;
@@ -150,7 +150,7 @@ class KalturaMediaEntryWithDistributionsResponse extends KalturaObjectBase
 
 }
 
-class KalturaVampEntry extends KalturaObjectBase
+class BorhanVampEntry extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -171,7 +171,7 @@ class KalturaVampEntry extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryStatus
+	 * @var BorhanEntryStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -179,7 +179,7 @@ class KalturaVampEntry extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaVampWorkflowStatus
+	 * @var BorhanVampWorkflowStatus
 	 * @readonly
 	 */
 	public $workflowStatus = null;
@@ -211,7 +211,7 @@ class KalturaVampEntry extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaBaseEntry
+	 * @var BorhanBaseEntry
 	 * @readonly
 	 */
 	public $entry;
@@ -219,7 +219,7 @@ class KalturaVampEntry extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var array of KalturaEntryDistribution
+	 * @var array of BorhanEntryDistribution
 	 * @readonly
 	 */
 	public $entryDistributions;
@@ -227,7 +227,7 @@ class KalturaVampEntry extends KalturaObjectBase
 
 }
 
-abstract class KalturaVampEntryBaseFilter extends KalturaFilter
+abstract class BorhanVampEntryBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -267,14 +267,14 @@ abstract class KalturaVampEntryBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryStatus
+	 * @var BorhanEntryStatus
 	 */
 	public $statusEqual = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryStatus
+	 * @var BorhanEntryStatus
 	 */
 	public $statusNotEqual = null;
 
@@ -295,7 +295,7 @@ abstract class KalturaVampEntryBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaVampWorkflowStatus
+	 * @var BorhanVampWorkflowStatus
 	 */
 	public $workflowStatusEqual = null;
 
@@ -316,17 +316,17 @@ abstract class KalturaVampEntryBaseFilter extends KalturaFilter
 
 }
 
-class KalturaVampEntryFilter extends KalturaVampEntryBaseFilter
+class BorhanVampEntryFilter extends BorhanVampEntryBaseFilter
 {
 
 }
 
-class KalturaVampEntryListResponse extends KalturaObjectBase
+class BorhanVampEntryListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaVampEntry
+	 * @var array of BorhanVampEntry
 	 * @readonly
 	 */
 	public $objects;
@@ -342,20 +342,20 @@ class KalturaVampEntryListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaMediaEntryWithDistributionsBaseFilter extends KalturaMediaEntryFilter
+abstract class BorhanMediaEntryWithDistributionsBaseFilter extends BorhanMediaEntryFilter
 {
 
 }
 
-class KalturaMediaEntryWithDistributionsFilter extends KalturaMediaEntryWithDistributionsBaseFilter
+class BorhanMediaEntryWithDistributionsFilter extends BorhanMediaEntryWithDistributionsBaseFilter
 {
 
 }
 
 
-class KalturaDashboardService extends KalturaServiceBase
+class BorhanDashboardService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -368,7 +368,7 @@ class KalturaDashboardService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaVampSystemStatusSummary");
+		$this->client->validateObjectType($resultObject, "BorhanVampSystemStatusSummary");
 		return $resultObject;
 	}
 
@@ -409,7 +409,7 @@ class KalturaDashboardService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listMediaWithEntryDistributions(KalturaMediaEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listMediaWithEntryDistributions(BorhanMediaEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -421,7 +421,7 @@ class KalturaDashboardService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntryWithDistributionsResponse");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntryWithDistributionsResponse");
 		return $resultObject;
 	}
 
@@ -439,9 +439,9 @@ class KalturaDashboardService extends KalturaServiceBase
 	}
 }
 
-class KalturaVampEntryService extends KalturaServiceBase
+class BorhanVampEntryService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -455,11 +455,11 @@ class KalturaVampEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaVampEntry");
+		$this->client->validateObjectType($resultObject, "BorhanVampEntry");
 		return $resultObject;
 	}
 
-	function listAction(KalturaVampEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanVampEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -471,7 +471,7 @@ class KalturaVampEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaVampEntryListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanVampEntryListResponse");
 		return $resultObject;
 	}
 
@@ -528,14 +528,14 @@ class KalturaVampEntryService extends KalturaServiceBase
 	}
 }
 
-class KalturaVampUiConfService extends KalturaServiceBase
+class BorhanVampUiConfService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaUiConf $uiConf)
+	function add(BorhanUiConf $uiConf)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "uiConf", $uiConf->toParams());
@@ -544,11 +544,11 @@ class KalturaVampUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "BorhanUiConf");
 		return $resultObject;
 	}
 
-	function update($id, KalturaUiConf $uiConf)
+	function update($id, BorhanUiConf $uiConf)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -558,7 +558,7 @@ class KalturaVampUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "BorhanUiConf");
 		return $resultObject;
 	}
 
@@ -571,7 +571,7 @@ class KalturaVampUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "BorhanUiConf");
 		return $resultObject;
 	}
 
@@ -597,11 +597,11 @@ class KalturaVampUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "BorhanUiConf");
 		return $resultObject;
 	}
 
-	function listTemplates(KalturaUiConfFilter $filter = null, KalturaFilterPager $pager = null)
+	function listTemplates(BorhanUiConfFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -613,11 +613,11 @@ class KalturaVampUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConfListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUiConfListResponse");
 		return $resultObject;
 	}
 
-	function listAction(KalturaUiConfFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanUiConfFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -629,7 +629,7 @@ class KalturaVampUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConfListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUiConfListResponse");
 		return $resultObject;
 	}
 
@@ -645,48 +645,48 @@ class KalturaVampUiConfService extends KalturaServiceBase
 		return $resultObject;
 	}
 }
-class KalturaVampClientPlugin extends KalturaClientPlugin
+class BorhanVampClientPlugin extends BorhanClientPlugin
 {
 	/**
-	 * @var KalturaVampClientPlugin
+	 * @var BorhanVampClientPlugin
 	 */
 	protected static $instance;
 
 	/**
-	 * @var KalturaDashboardService
+	 * @var BorhanDashboardService
 	 */
 	public $dashboard = null;
 
 	/**
-	 * @var KalturaVampEntryService
+	 * @var BorhanVampEntryService
 	 */
 	public $vampEntry = null;
 
 	/**
-	 * @var KalturaVampUiConfService
+	 * @var BorhanVampUiConfService
 	 */
 	public $vampUiConf = null;
 
-	protected function __construct(KalturaClient $client)
+	protected function __construct(BorhanClient $client)
 	{
 		parent::__construct($client);
-		$this->dashboard = new KalturaDashboardService($client);
-		$this->vampEntry = new KalturaVampEntryService($client);
-		$this->vampUiConf = new KalturaVampUiConfService($client);
+		$this->dashboard = new BorhanDashboardService($client);
+		$this->vampEntry = new BorhanVampEntryService($client);
+		$this->vampUiConf = new BorhanVampUiConfService($client);
 	}
 
 	/**
-	 * @return KalturaVampClientPlugin
+	 * @return BorhanVampClientPlugin
 	 */
-	public static function get(KalturaClient $client)
+	public static function get(BorhanClient $client)
 	{
 		if(!self::$instance)
-			self::$instance = new KalturaVampClientPlugin($client);
+			self::$instance = new BorhanVampClientPlugin($client);
 		return self::$instance;
 	}
 
 	/**
-	 * @return array<KalturaServiceBase>
+	 * @return array<BorhanServiceBase>
 	 */
 	public function getServices()
 	{

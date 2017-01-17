@@ -1,14 +1,14 @@
 <?php
-require_once(dirname(__FILE__) . "/../KalturaClientBase.php");
-require_once(dirname(__FILE__) . "/../KalturaEnums.php");
-require_once(dirname(__FILE__) . "/../KalturaTypes.php");
+require_once(dirname(__FILE__) . "/../BorhanClientBase.php");
+require_once(dirname(__FILE__) . "/../BorhanEnums.php");
+require_once(dirname(__FILE__) . "/../BorhanTypes.php");
 
-class KalturaMetadataObjectType
+class BorhanMetadataObjectType
 {
 	const ENTRY = 1;
 }
 
-class KalturaMetadataOrderBy
+class BorhanMetadataOrderBy
 {
 	const METADATA_PROFILE_VERSION_ASC = "+metadataProfileVersion";
 	const METADATA_PROFILE_VERSION_DESC = "-metadataProfileVersion";
@@ -20,13 +20,13 @@ class KalturaMetadataOrderBy
 	const UPDATED_AT_DESC = "-updatedAt";
 }
 
-class KalturaMetadataProfileCreateMode
+class BorhanMetadataProfileCreateMode
 {
 	const API = 1;
-	const KMC = 2;
+	const BMC = 2;
 }
 
-class KalturaMetadataProfileOrderBy
+class BorhanMetadataProfileOrderBy
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const CREATED_AT_DESC = "-createdAt";
@@ -34,21 +34,21 @@ class KalturaMetadataProfileOrderBy
 	const UPDATED_AT_DESC = "-updatedAt";
 }
 
-class KalturaMetadataProfileStatus
+class BorhanMetadataProfileStatus
 {
 	const ACTIVE = 1;
 	const DEPRECATED = 2;
 	const TRANSFORMING = 3;
 }
 
-class KalturaMetadataStatus
+class BorhanMetadataStatus
 {
 	const VALID = 1;
 	const INVALID = 2;
 	const DELETED = 3;
 }
 
-abstract class KalturaMetadataBaseFilter extends KalturaFilter
+abstract class BorhanMetadataBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -88,7 +88,7 @@ abstract class KalturaMetadataBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataObjectType
+	 * @var BorhanMetadataObjectType
 	 */
 	public $metadataObjectTypeEqual = null;
 
@@ -158,7 +158,7 @@ abstract class KalturaMetadataBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataStatus
+	 * @var BorhanMetadataStatus
 	 */
 	public $statusEqual = null;
 
@@ -172,12 +172,12 @@ abstract class KalturaMetadataBaseFilter extends KalturaFilter
 
 }
 
-class KalturaMetadataFilter extends KalturaMetadataBaseFilter
+class BorhanMetadataFilter extends BorhanMetadataBaseFilter
 {
 
 }
 
-class KalturaMetadata extends KalturaObjectBase
+class BorhanMetadata extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -214,7 +214,7 @@ class KalturaMetadata extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataObjectType
+	 * @var BorhanMetadataObjectType
 	 * @readonly
 	 */
 	public $metadataObjectType = null;
@@ -254,7 +254,7 @@ class KalturaMetadata extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataStatus
+	 * @var BorhanMetadataStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -270,12 +270,12 @@ class KalturaMetadata extends KalturaObjectBase
 
 }
 
-class KalturaMetadataListResponse extends KalturaObjectBase
+class BorhanMetadataListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaMetadata
+	 * @var array of BorhanMetadata
 	 * @readonly
 	 */
 	public $objects;
@@ -291,7 +291,7 @@ class KalturaMetadataListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaMetadataProfileBaseFilter extends KalturaFilter
+abstract class BorhanMetadataProfileBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -310,7 +310,7 @@ abstract class KalturaMetadataProfileBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataObjectType
+	 * @var BorhanMetadataObjectType
 	 */
 	public $metadataObjectTypeEqual = null;
 
@@ -373,7 +373,7 @@ abstract class KalturaMetadataProfileBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataProfileStatus
+	 * @var BorhanMetadataProfileStatus
 	 */
 	public $statusEqual = null;
 
@@ -387,12 +387,12 @@ abstract class KalturaMetadataProfileBaseFilter extends KalturaFilter
 
 }
 
-class KalturaMetadataProfileFilter extends KalturaMetadataProfileBaseFilter
+class BorhanMetadataProfileFilter extends BorhanMetadataProfileBaseFilter
 {
 
 }
 
-class KalturaMetadataProfile extends KalturaObjectBase
+class BorhanMetadataProfile extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -413,7 +413,7 @@ class KalturaMetadataProfile extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataObjectType
+	 * @var BorhanMetadataObjectType
 	 */
 	public $metadataObjectType = null;
 
@@ -465,7 +465,7 @@ class KalturaMetadataProfile extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataProfileStatus
+	 * @var BorhanMetadataProfileStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -489,19 +489,19 @@ class KalturaMetadataProfile extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaMetadataProfileCreateMode
+	 * @var BorhanMetadataProfileCreateMode
 	 */
 	public $createMode = null;
 
 
 }
 
-class KalturaMetadataProfileListResponse extends KalturaObjectBase
+class BorhanMetadataProfileListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaMetadataProfile
+	 * @var array of BorhanMetadataProfile
 	 * @readonly
 	 */
 	public $objects;
@@ -517,7 +517,7 @@ class KalturaMetadataProfileListResponse extends KalturaObjectBase
 
 }
 
-class KalturaMetadataProfileField extends KalturaObjectBase
+class BorhanMetadataProfileField extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -554,12 +554,12 @@ class KalturaMetadataProfileField extends KalturaObjectBase
 
 }
 
-class KalturaMetadataProfileFieldListResponse extends KalturaObjectBase
+class BorhanMetadataProfileFieldListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaMetadataProfileField
+	 * @var array of BorhanMetadataProfileField
 	 * @readonly
 	 */
 	public $objects;
@@ -575,12 +575,12 @@ class KalturaMetadataProfileFieldListResponse extends KalturaObjectBase
 
 }
 
-class KalturaTransformMetadataResponse extends KalturaObjectBase
+class BorhanTransformMetadataResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaMetadata
+	 * @var array of BorhanMetadata
 	 * @readonly
 	 */
 	public $objects;
@@ -604,7 +604,7 @@ class KalturaTransformMetadataResponse extends KalturaObjectBase
 
 }
 
-class KalturaUpgradeMetadataResponse extends KalturaObjectBase
+class BorhanUpgradeMetadataResponse extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -625,7 +625,7 @@ class KalturaUpgradeMetadataResponse extends KalturaObjectBase
 
 }
 
-class KalturaMetadataSearchItem extends KalturaSearchOperator
+class BorhanMetadataSearchItem extends BorhanSearchOperator
 {
 	/**
 	 * 
@@ -637,7 +637,7 @@ class KalturaMetadataSearchItem extends KalturaSearchOperator
 
 }
 
-class KalturaImportMetadataJobData extends KalturaJobData
+class BorhanImportMetadataJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -663,7 +663,7 @@ class KalturaImportMetadataJobData extends KalturaJobData
 
 }
 
-class KalturaTransformMetadataJobData extends KalturaJobData
+class BorhanTransformMetadataJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -704,14 +704,14 @@ class KalturaTransformMetadataJobData extends KalturaJobData
 }
 
 
-class KalturaMetadataService extends KalturaServiceBase
+class BorhanMetadataService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function listAction(KalturaMetadataFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanMetadataFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -723,7 +723,7 @@ class KalturaMetadataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataListResponse");
 		return $resultObject;
 	}
 
@@ -739,7 +739,7 @@ class KalturaMetadataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadata");
+		$this->client->validateObjectType($resultObject, "BorhanMetadata");
 		return $resultObject;
 	}
 
@@ -756,7 +756,7 @@ class KalturaMetadataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadata");
+		$this->client->validateObjectType($resultObject, "BorhanMetadata");
 		return $resultObject;
 	}
 
@@ -772,7 +772,7 @@ class KalturaMetadataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadata");
+		$this->client->validateObjectType($resultObject, "BorhanMetadata");
 		return $resultObject;
 	}
 
@@ -788,7 +788,7 @@ class KalturaMetadataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadata");
+		$this->client->validateObjectType($resultObject, "BorhanMetadata");
 		return $resultObject;
 	}
 
@@ -827,7 +827,7 @@ class KalturaMetadataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadata");
+		$this->client->validateObjectType($resultObject, "BorhanMetadata");
 		return $resultObject;
 	}
 
@@ -841,7 +841,7 @@ class KalturaMetadataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadata");
+		$this->client->validateObjectType($resultObject, "BorhanMetadata");
 		return $resultObject;
 	}
 
@@ -856,7 +856,7 @@ class KalturaMetadataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadata");
+		$this->client->validateObjectType($resultObject, "BorhanMetadata");
 		return $resultObject;
 	}
 
@@ -870,14 +870,14 @@ class KalturaMetadataService extends KalturaServiceBase
 	}
 }
 
-class KalturaMetadataProfileService extends KalturaServiceBase
+class BorhanMetadataProfileService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function listAction(KalturaMetadataProfileFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanMetadataProfileFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -889,7 +889,7 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfileListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfileListResponse");
 		return $resultObject;
 	}
 
@@ -902,11 +902,11 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfileFieldListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfileFieldListResponse");
 		return $resultObject;
 	}
 
-	function add(KalturaMetadataProfile $metadataProfile, $xsdData, $viewsData = null)
+	function add(BorhanMetadataProfile $metadataProfile, $xsdData, $viewsData = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "metadataProfile", $metadataProfile->toParams());
@@ -917,11 +917,11 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfile");
 		return $resultObject;
 	}
 
-	function addFromFile(KalturaMetadataProfile $metadataProfile, $xsdFile, $viewsFile = null)
+	function addFromFile(BorhanMetadataProfile $metadataProfile, $xsdFile, $viewsFile = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "metadataProfile", $metadataProfile->toParams());
@@ -933,7 +933,7 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfile");
 		return $resultObject;
 	}
 
@@ -959,11 +959,11 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfile");
 		return $resultObject;
 	}
 
-	function update($id, KalturaMetadataProfile $metadataProfile, $xsdData = null, $viewsData = null)
+	function update($id, BorhanMetadataProfile $metadataProfile, $xsdData = null, $viewsData = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -975,7 +975,7 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfile");
 		return $resultObject;
 	}
 
@@ -989,7 +989,7 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfile");
 		return $resultObject;
 	}
 
@@ -1004,7 +1004,7 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfile");
 		return $resultObject;
 	}
 
@@ -1019,7 +1019,7 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "BorhanMetadataProfile");
 		return $resultObject;
 	}
 
@@ -1042,14 +1042,14 @@ class KalturaMetadataProfileService extends KalturaServiceBase
 	}
 }
 
-class KalturaMetadataBatchService extends KalturaServiceBase
+class BorhanMetadataBatchService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function getExclusiveImportMetadataJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveImportMetadataJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1066,7 +1066,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveImportMetadataJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveImportMetadataJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1077,11 +1077,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveImportMetadataJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveImportMetadataJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1092,11 +1092,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveTransformMetadataJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveTransformMetadataJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1113,7 +1113,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveTransformMetadataJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveTransformMetadataJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1124,11 +1124,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveTransformMetadataJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveTransformMetadataJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1139,11 +1139,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getTransformMetadataObjects($metadataProfileId, $srcVersion, $destVersion, KalturaFilterPager $pager = null)
+	function getTransformMetadataObjects($metadataProfileId, $srcVersion, $destVersion, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "metadataProfileId", $metadataProfileId);
@@ -1156,11 +1156,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaTransformMetadataResponse");
+		$this->client->validateObjectType($resultObject, "BorhanTransformMetadataResponse");
 		return $resultObject;
 	}
 
-	function upgradeMetadataObjects($metadataProfileId, $srcVersion, $destVersion, KalturaFilterPager $pager = null)
+	function upgradeMetadataObjects($metadataProfileId, $srcVersion, $destVersion, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "metadataProfileId", $metadataProfileId);
@@ -1173,11 +1173,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUpgradeMetadataResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUpgradeMetadataResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveImportJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveImportJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1194,7 +1194,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveImportJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveImportJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1205,11 +1205,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveImportJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveImportJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1220,11 +1220,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveBulkUploadJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveBulkUploadJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1241,7 +1241,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneBulkUploadJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneBulkUploadJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1258,7 +1258,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveBulkUploadJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveBulkUploadJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1269,11 +1269,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveBulkUploadJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveBulkUploadJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1284,11 +1284,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function addBulkUploadResult(KalturaBulkUploadResult $bulkUploadResult, array $pluginDataArray = null)
+	function addBulkUploadResult(BorhanBulkUploadResult $bulkUploadResult, array $pluginDataArray = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "bulkUploadResult", $bulkUploadResult->toParams());
@@ -1302,7 +1302,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBulkUploadResult");
+		$this->client->validateObjectType($resultObject, "BorhanBulkUploadResult");
 		return $resultObject;
 	}
 
@@ -1315,7 +1315,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBulkUploadResult");
+		$this->client->validateObjectType($resultObject, "BorhanBulkUploadResult");
 		return $resultObject;
 	}
 
@@ -1345,7 +1345,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneConvertCollectionJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneConvertCollectionJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1362,7 +1362,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneConvertProfileJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneConvertProfileJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1379,7 +1379,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveConvertCollectionJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job, array $flavorsData = null)
+	function updateExclusiveConvertCollectionJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job, array $flavorsData = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1395,11 +1395,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function updateExclusiveConvertProfileJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveConvertProfileJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1410,11 +1410,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveConvertCollectionJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveConvertCollectionJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1425,11 +1425,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function freeExclusiveConvertProfileJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveConvertProfileJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1440,11 +1440,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveConvertCollectionJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveConvertCollectionJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1461,7 +1461,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveConvertJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveConvertJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1478,7 +1478,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneConvertJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneConvertJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1495,7 +1495,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveConvertJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveConvertJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1506,11 +1506,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function updateExclusiveConvertJobSubType($id, KalturaExclusiveLockKey $lockKey, $subType)
+	function updateExclusiveConvertJobSubType($id, BorhanExclusiveLockKey $lockKey, $subType)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1521,11 +1521,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveConvertJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveConvertJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1536,11 +1536,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusivePostConvertJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusivePostConvertJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1557,7 +1557,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusivePostConvertJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusivePostConvertJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1568,11 +1568,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusivePostConvertJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusivePostConvertJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1583,11 +1583,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveCaptureThumbJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveCaptureThumbJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1604,7 +1604,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveCaptureThumbJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveCaptureThumbJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1615,11 +1615,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveCaptureThumbJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveCaptureThumbJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1630,11 +1630,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveExtractMediaJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveExtractMediaJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1651,7 +1651,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveExtractMediaJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveExtractMediaJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1662,11 +1662,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function addMediaInfo(KalturaMediaInfo $mediaInfo)
+	function addMediaInfo(BorhanMediaInfo $mediaInfo)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mediaInfo", $mediaInfo->toParams());
@@ -1675,11 +1675,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaInfo");
+		$this->client->validateObjectType($resultObject, "BorhanMediaInfo");
 		return $resultObject;
 	}
 
-	function freeExclusiveExtractMediaJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveExtractMediaJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1690,11 +1690,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveStorageExportJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveStorageExportJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1711,7 +1711,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveStorageExportJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveStorageExportJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1722,11 +1722,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveStorageExportJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveStorageExportJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1737,11 +1737,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveStorageDeleteJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveStorageDeleteJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1758,7 +1758,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveStorageDeleteJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveStorageDeleteJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1769,11 +1769,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveStorageDeleteJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveStorageDeleteJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1784,11 +1784,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveNotificationJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveNotificationJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1801,11 +1801,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchGetExclusiveNotificationJobsResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchGetExclusiveNotificationJobsResponse");
 		return $resultObject;
 	}
 
-	function updateExclusiveNotificationJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveNotificationJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1816,11 +1816,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveNotificationJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveNotificationJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1831,11 +1831,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveMailJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveMailJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1852,7 +1852,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveMailJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveMailJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1863,11 +1863,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveMailJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveMailJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1878,11 +1878,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveBulkDownloadJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveBulkDownloadJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1899,7 +1899,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneBulkDownloadJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneBulkDownloadJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1916,7 +1916,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveBulkDownloadJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveBulkDownloadJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1927,11 +1927,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveBulkDownloadJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveBulkDownloadJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1942,11 +1942,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveProvisionProvideJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveProvisionProvideJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1963,7 +1963,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneProvisionProvideJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneProvisionProvideJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1980,7 +1980,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveProvisionProvideJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveProvisionProvideJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1991,11 +1991,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveProvisionProvideJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveProvisionProvideJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2006,11 +2006,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveProvisionDeleteJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveProvisionDeleteJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -2027,7 +2027,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneProvisionDeleteJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneProvisionDeleteJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -2044,7 +2044,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveProvisionDeleteJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveProvisionDeleteJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2055,11 +2055,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveProvisionDeleteJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveProvisionDeleteJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2070,11 +2070,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function resetJobExecutionAttempts($id, KalturaExclusiveLockKey $lockKey, $jobType)
+	function resetJobExecutionAttempts($id, BorhanExclusiveLockKey $lockKey, $jobType)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2089,7 +2089,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function freeExclusiveJob($id, KalturaExclusiveLockKey $lockKey, $jobType, $resetExecutionAttempts = false)
+	function freeExclusiveJob($id, BorhanExclusiveLockKey $lockKey, $jobType, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2101,11 +2101,11 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getQueueSize(KalturaWorkerQueueFilter $workerQueueFilter)
+	function getQueueSize(BorhanWorkerQueueFilter $workerQueueFilter)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "workerQueueFilter", $workerQueueFilter->toParams());
@@ -2118,7 +2118,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null, $jobType = null)
+	function getExclusiveJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null, $jobType = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -2136,7 +2136,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDone(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null, $jobType = null)
+	function getExclusiveAlmostDone(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null, $jobType = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -2154,7 +2154,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2165,7 +2165,7 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
@@ -2205,52 +2205,52 @@ class KalturaMetadataBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFileExistsResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFileExistsResponse");
 		return $resultObject;
 	}
 }
-class KalturaMetadataClientPlugin extends KalturaClientPlugin
+class BorhanMetadataClientPlugin extends BorhanClientPlugin
 {
 	/**
-	 * @var KalturaMetadataClientPlugin
+	 * @var BorhanMetadataClientPlugin
 	 */
 	protected static $instance;
 
 	/**
-	 * @var KalturaMetadataService
+	 * @var BorhanMetadataService
 	 */
 	public $metadata = null;
 
 	/**
-	 * @var KalturaMetadataProfileService
+	 * @var BorhanMetadataProfileService
 	 */
 	public $metadataProfile = null;
 
 	/**
-	 * @var KalturaMetadataBatchService
+	 * @var BorhanMetadataBatchService
 	 */
 	public $metadataBatch = null;
 
-	protected function __construct(KalturaClient $client)
+	protected function __construct(BorhanClient $client)
 	{
 		parent::__construct($client);
-		$this->metadata = new KalturaMetadataService($client);
-		$this->metadataProfile = new KalturaMetadataProfileService($client);
-		$this->metadataBatch = new KalturaMetadataBatchService($client);
+		$this->metadata = new BorhanMetadataService($client);
+		$this->metadataProfile = new BorhanMetadataProfileService($client);
+		$this->metadataBatch = new BorhanMetadataBatchService($client);
 	}
 
 	/**
-	 * @return KalturaMetadataClientPlugin
+	 * @return BorhanMetadataClientPlugin
 	 */
-	public static function get(KalturaClient $client)
+	public static function get(BorhanClient $client)
 	{
 		if(!self::$instance)
-			self::$instance = new KalturaMetadataClientPlugin($client);
+			self::$instance = new BorhanMetadataClientPlugin($client);
 		return self::$instance;
 	}
 
 	/**
-	 * @return array<KalturaServiceBase>
+	 * @return array<BorhanServiceBase>
 	 */
 	public function getServices()
 	{

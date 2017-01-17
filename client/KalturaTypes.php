@@ -1,12 +1,12 @@
 <?php
-require_once("KalturaClientBase.php");
+require_once("BorhanClientBase.php");
 
-class KalturaBaseRestriction extends KalturaObjectBase
+class BorhanBaseRestriction extends BorhanObjectBase
 {
 
 }
 
-class KalturaAccessControl extends KalturaObjectBase
+class BorhanAccessControl extends BorhanObjectBase
 {
 	/**
 	 * The id of the Access Control Profile
@@ -62,7 +62,7 @@ class KalturaAccessControl extends KalturaObjectBase
 	 * True if this Conversion Profile is the default
 	 * 
 	 *
-	 * @var KalturaNullableBoolean
+	 * @var BorhanNullableBoolean
 	 */
 	public $isDefault = null;
 
@@ -70,19 +70,19 @@ class KalturaAccessControl extends KalturaObjectBase
 	 * Array of Access Control Restrictions
 	 * 
 	 *
-	 * @var array of KalturaBaseRestriction
+	 * @var array of BorhanBaseRestriction
 	 */
 	public $restrictions;
 
 
 }
 
-abstract class KalturaSearchItem extends KalturaObjectBase
+abstract class BorhanSearchItem extends BorhanObjectBase
 {
 
 }
 
-class KalturaFilter extends KalturaObjectBase
+class BorhanFilter extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -94,14 +94,14 @@ class KalturaFilter extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaSearchItem
+	 * @var BorhanSearchItem
 	 */
 	public $advancedSearch;
 
 
 }
 
-abstract class KalturaAccessControlBaseFilter extends KalturaFilter
+abstract class BorhanAccessControlBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -148,12 +148,12 @@ abstract class KalturaAccessControlBaseFilter extends KalturaFilter
 
 }
 
-class KalturaAccessControlFilter extends KalturaAccessControlBaseFilter
+class BorhanAccessControlFilter extends BorhanAccessControlBaseFilter
 {
 
 }
 
-class KalturaFilterPager extends KalturaObjectBase
+class BorhanFilterPager extends BorhanObjectBase
 {
 	/**
 	 * The number of objects to retrieve. (Default is 30, maximum page size is 500).
@@ -174,12 +174,12 @@ class KalturaFilterPager extends KalturaObjectBase
 
 }
 
-class KalturaAccessControlListResponse extends KalturaObjectBase
+class BorhanAccessControlListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaAccessControl
+	 * @var array of BorhanAccessControl
 	 * @readonly
 	 */
 	public $objects;
@@ -195,7 +195,7 @@ class KalturaAccessControlListResponse extends KalturaObjectBase
 
 }
 
-class KalturaUser extends KalturaObjectBase
+class BorhanUser extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -299,14 +299,14 @@ class KalturaUser extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaGender
+	 * @var BorhanGender
 	 */
 	public $gender = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaUserStatus
+	 * @var BorhanUserStatus
 	 */
 	public $status = null;
 
@@ -442,22 +442,22 @@ class KalturaUser extends KalturaObjectBase
 
 }
 
-class KalturaAdminUser extends KalturaUser
+class BorhanAdminUser extends BorhanUser
 {
 
 }
 
-class KalturaDynamicEnum extends KalturaObjectBase
+class BorhanDynamicEnum extends BorhanObjectBase
 {
 
 }
 
-abstract class KalturaOperationAttributes extends KalturaObjectBase
+abstract class BorhanOperationAttributes extends BorhanObjectBase
 {
 
 }
 
-class KalturaBaseEntry extends KalturaObjectBase
+class BorhanBaseEntry extends BorhanObjectBase
 {
 	/**
 	 * Auto generated 10 characters alphanumeric string
@@ -533,7 +533,7 @@ class KalturaBaseEntry extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryStatus
+	 * @var BorhanEntryStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -542,7 +542,7 @@ class KalturaBaseEntry extends KalturaObjectBase
 	 * Entry moderation status
 	 * 
 	 *
-	 * @var KalturaEntryModerationStatus
+	 * @var BorhanEntryModerationStatus
 	 * @readonly
 	 */
 	public $moderationStatus = null;
@@ -560,7 +560,7 @@ class KalturaBaseEntry extends KalturaObjectBase
 	 * The type of the entry, this is auto filled by the derived entry object
 	 * 
 	 *
-	 * @var KalturaEntryType
+	 * @var BorhanEntryType
 	 */
 	public $type = null;
 
@@ -645,7 +645,7 @@ class KalturaBaseEntry extends KalturaObjectBase
 	 * License type used for this entry
 	 * 
 	 *
-	 * @var KalturaLicenseType
+	 * @var BorhanLicenseType
 	 */
 	public $licenseType = null;
 
@@ -720,7 +720,7 @@ class KalturaBaseEntry extends KalturaObjectBase
 	 * Status of the replacement readiness and approval
 	 * 
 	 *
-	 * @var KalturaEntryReplacementStatus
+	 * @var BorhanEntryReplacementStatus
 	 * @readonly
 	 */
 	public $replacementStatus = null;
@@ -754,19 +754,19 @@ class KalturaBaseEntry extends KalturaObjectBase
 	 * clipping, skipping and cropping attributes that used to create this entry  
 	 * 
 	 *
-	 * @var array of KalturaOperationAttributes
+	 * @var array of BorhanOperationAttributes
 	 */
 	public $operationAttributes;
 
 
 }
 
-abstract class KalturaResource extends KalturaObjectBase
+abstract class BorhanResource extends BorhanObjectBase
 {
 
 }
 
-abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
+abstract class BorhanBaseEntryBaseFilter extends BorhanFilter
 {
 	/**
 	 * This filter should be in use for retrieving only a specific entry (identified by its entryId).
@@ -824,7 +824,7 @@ abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
 	public $nameEqual = null;
 
 	/**
-	 * This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+	 * This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Borhan Partner (identified by Partner ID).
 	 * @var int
 	 *
 	 * @var int
@@ -832,7 +832,7 @@ abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
 	public $partnerIdEqual = null;
 
 	/**
-	 * This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+	 * This filter should be in use for retrieving only entries within Borhan network which were uploaded by/assigned to users of few Borhan Partners  (string should include comma separated list of PartnerIDs)
 	 * @var string
 	 *
 	 * @var string
@@ -924,32 +924,32 @@ abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
 	public $categoriesIdsMatchOr = null;
 
 	/**
-	 * This filter should be in use for retrieving only entries, at a specific {@link ?object=KalturaEntryStatus KalturaEntryStatus}.
-	 * @var KalturaEntryStatus
+	 * This filter should be in use for retrieving only entries, at a specific {@link ?object=BorhanEntryStatus BorhanEntryStatus}.
+	 * @var BorhanEntryStatus
 	 *
-	 * @var KalturaEntryStatus
+	 * @var BorhanEntryStatus
 	 */
 	public $statusEqual = null;
 
 	/**
-	 * This filter should be in use for retrieving only entries, not at a specific {@link ?object=KalturaEntryStatus KalturaEntryStatus}.
-	 * @var KalturaEntryStatus
+	 * This filter should be in use for retrieving only entries, not at a specific {@link ?object=BorhanEntryStatus BorhanEntryStatus}.
+	 * @var BorhanEntryStatus
 	 *
-	 * @var KalturaEntryStatus
+	 * @var BorhanEntryStatus
 	 */
 	public $statusNotEqual = null;
 
 	/**
-	 * This filter should be in use for retrieving only entries, at few specific {@link ?object=KalturaEntryStatus KalturaEntryStatus} (comma separated).
-	 * @dynamicType KalturaEntryStatus
+	 * This filter should be in use for retrieving only entries, at few specific {@link ?object=BorhanEntryStatus BorhanEntryStatus} (comma separated).
+	 * @dynamicType BorhanEntryStatus
 	 *
 	 * @var string
 	 */
 	public $statusIn = null;
 
 	/**
-	 * This filter should be in use for retrieving only entries, not at few specific {@link ?object=KalturaEntryStatus KalturaEntryStatus} (comma separated).
-	 * @dynamicType KalturaEntryStatus
+	 * This filter should be in use for retrieving only entries, not at few specific {@link ?object=BorhanEntryStatus BorhanEntryStatus} (comma separated).
+	 * @dynamicType BorhanEntryStatus
 	 *
 	 * @var string
 	 */
@@ -958,14 +958,14 @@ abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryModerationStatus
+	 * @var BorhanEntryModerationStatus
 	 */
 	public $moderationStatusEqual = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryModerationStatus
+	 * @var BorhanEntryModerationStatus
 	 */
 	public $moderationStatusNotEqual = null;
 
@@ -986,20 +986,20 @@ abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryType
+	 * @var BorhanEntryType
 	 */
 	public $typeEqual = null;
 
 	/**
-	 * This filter should be in use for retrieving entries of few {@link ?object=KalturaEntryType KalturaEntryType} (string should include a comma separated list of {@link ?object=KalturaEntryType KalturaEntryType} enumerated parameters).
-	 * @dynamicType KalturaEntryType
+	 * This filter should be in use for retrieving entries of few {@link ?object=BorhanEntryType BorhanEntryType} (string should include a comma separated list of {@link ?object=BorhanEntryType BorhanEntryType} enumerated parameters).
+	 * @dynamicType BorhanEntryType
 	 *
 	 * @var string
 	 */
 	public $typeIn = null;
 
 	/**
-	 * This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+	 * This filter parameter should be in use for retrieving only entries which were created at Borhan system after a specific time/date (standard timestamp format).
 	 * @var int
 	 *
 	 * @var int
@@ -1007,7 +1007,7 @@ abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
 	public $createdAtGreaterThanOrEqual = null;
 
 	/**
-	 * This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+	 * This filter parameter should be in use for retrieving only entries which were created at Borhan system before a specific time/date (standard timestamp format).
 	 * @var int
 	 *
 	 * @var int
@@ -1166,7 +1166,7 @@ abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryReplacementStatus
+	 * @var BorhanEntryReplacementStatus
 	 */
 	public $replacementStatusEqual = null;
 
@@ -1250,7 +1250,7 @@ abstract class KalturaBaseEntryBaseFilter extends KalturaFilter
 
 }
 
-class KalturaBaseEntryFilter extends KalturaBaseEntryBaseFilter
+class BorhanBaseEntryFilter extends BorhanBaseEntryBaseFilter
 {
 	/**
 	 * 
@@ -1269,12 +1269,12 @@ class KalturaBaseEntryFilter extends KalturaBaseEntryBaseFilter
 
 }
 
-class KalturaBaseEntryListResponse extends KalturaObjectBase
+class BorhanBaseEntryListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaBaseEntry
+	 * @var array of BorhanBaseEntry
 	 * @readonly
 	 */
 	public $objects;
@@ -1290,7 +1290,7 @@ class KalturaBaseEntryListResponse extends KalturaObjectBase
 
 }
 
-class KalturaModerationFlag extends KalturaObjectBase
+class BorhanModerationFlag extends BorhanObjectBase
 {
 	/**
 	 * Moderation flag id
@@ -1319,7 +1319,7 @@ class KalturaModerationFlag extends KalturaObjectBase
 	/**
 	 * The type of the moderation flag (entry or user)
 	 *
-	 * @var KalturaModerationObjectType
+	 * @var BorhanModerationObjectType
 	 * @readonly
 	 */
 	public $moderationObjectType = null;
@@ -1341,7 +1341,7 @@ class KalturaModerationFlag extends KalturaObjectBase
 	/**
 	 * The moderation flag status
 	 *
-	 * @var KalturaModerationFlagStatus
+	 * @var BorhanModerationFlagStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -1356,7 +1356,7 @@ class KalturaModerationFlag extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaModerationFlagType
+	 * @var BorhanModerationFlagType
 	 */
 	public $flagType = null;
 
@@ -1379,12 +1379,12 @@ class KalturaModerationFlag extends KalturaObjectBase
 
 }
 
-class KalturaModerationFlagListResponse extends KalturaObjectBase
+class BorhanModerationFlagListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaModerationFlag
+	 * @var array of BorhanModerationFlag
 	 * @readonly
 	 */
 	public $objects;
@@ -1400,7 +1400,7 @@ class KalturaModerationFlagListResponse extends KalturaObjectBase
 
 }
 
-class KalturaEntryContextDataParams extends KalturaObjectBase
+class BorhanEntryContextDataParams extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -1412,7 +1412,7 @@ class KalturaEntryContextDataParams extends KalturaObjectBase
 
 }
 
-class KalturaEntryContextDataResult extends KalturaObjectBase
+class BorhanEntryContextDataResult extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -1466,7 +1466,7 @@ class KalturaEntryContextDataResult extends KalturaObjectBase
 
 }
 
-class KalturaSchedulerStatus extends KalturaObjectBase
+class BorhanSchedulerStatus extends BorhanObjectBase
 {
 	/**
 	 * The id of the Category
@@ -1497,7 +1497,7 @@ class KalturaSchedulerStatus extends KalturaObjectBase
 	 * The type of the job worker.
 	 * 
 	 *
-	 * @var KalturaBatchJobType
+	 * @var BorhanBatchJobType
 	 */
 	public $workerType = null;
 
@@ -1505,7 +1505,7 @@ class KalturaSchedulerStatus extends KalturaObjectBase
 	 * The status type
 	 * 
 	 *
-	 * @var KalturaSchedulerStatusType
+	 * @var BorhanSchedulerStatusType
 	 */
 	public $type = null;
 
@@ -1538,7 +1538,7 @@ class KalturaSchedulerStatus extends KalturaObjectBase
 
 }
 
-class KalturaSchedulerConfig extends KalturaObjectBase
+class BorhanSchedulerConfig extends BorhanObjectBase
 {
 	/**
 	 * The id of the Category
@@ -1656,7 +1656,7 @@ class KalturaSchedulerConfig extends KalturaObjectBase
 
 }
 
-class KalturaBaseJob extends KalturaObjectBase
+class BorhanBaseJob extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -1725,12 +1725,12 @@ class KalturaBaseJob extends KalturaObjectBase
 
 }
 
-class KalturaJobData extends KalturaObjectBase
+class BorhanJobData extends BorhanObjectBase
 {
 
 }
 
-class KalturaBatchJob extends KalturaBaseJob
+class BorhanBatchJob extends BorhanBaseJob
 {
 	/**
 	 * 
@@ -1749,7 +1749,7 @@ class KalturaBatchJob extends KalturaBaseJob
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobType
+	 * @var BorhanBatchJobType
 	 * @readonly
 	 */
 	public $jobType = null;
@@ -1771,14 +1771,14 @@ class KalturaBatchJob extends KalturaBaseJob
 	/**
 	 * 
 	 *
-	 * @var KalturaJobData
+	 * @var BorhanJobData
 	 */
 	public $data;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobStatus
+	 * @var BorhanBatchJobStatus
 	 */
 	public $status = null;
 
@@ -1876,7 +1876,7 @@ class KalturaBatchJob extends KalturaBaseJob
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobErrorTypes
+	 * @var BorhanBatchJobErrorTypes
 	 */
 	public $errType = null;
 
@@ -1946,7 +1946,7 @@ class KalturaBatchJob extends KalturaBaseJob
 
 }
 
-class KalturaSchedulerWorker extends KalturaObjectBase
+class BorhanSchedulerWorker extends BorhanObjectBase
 {
 	/**
 	 * The id of the Worker
@@ -1985,7 +1985,7 @@ class KalturaSchedulerWorker extends KalturaObjectBase
 	 * The worker type
 	 * 
 	 *
-	 * @var KalturaBatchJobType
+	 * @var BorhanBatchJobType
 	 */
 	public $type = null;
 
@@ -2009,7 +2009,7 @@ class KalturaSchedulerWorker extends KalturaObjectBase
 	 * Array of the last statuses
 	 * 
 	 *
-	 * @var array of KalturaSchedulerStatus
+	 * @var array of BorhanSchedulerStatus
 	 */
 	public $statuses;
 
@@ -2017,7 +2017,7 @@ class KalturaSchedulerWorker extends KalturaObjectBase
 	 * Array of the last configs
 	 * 
 	 *
-	 * @var array of KalturaSchedulerConfig
+	 * @var array of BorhanSchedulerConfig
 	 */
 	public $configs;
 
@@ -2025,7 +2025,7 @@ class KalturaSchedulerWorker extends KalturaObjectBase
 	 * Array of jobs that locked to this worker
 	 * 
 	 *
-	 * @var array of KalturaBatchJob
+	 * @var array of BorhanBatchJob
 	 */
 	public $lockedJobs;
 
@@ -2064,7 +2064,7 @@ class KalturaSchedulerWorker extends KalturaObjectBase
 
 }
 
-class KalturaScheduler extends KalturaObjectBase
+class BorhanScheduler extends BorhanObjectBase
 {
 	/**
 	 * The id of the Scheduler
@@ -2103,7 +2103,7 @@ class KalturaScheduler extends KalturaObjectBase
 	 * Array of the last statuses
 	 * 
 	 *
-	 * @var array of KalturaSchedulerStatus
+	 * @var array of BorhanSchedulerStatus
 	 * @readonly
 	 */
 	public $statuses;
@@ -2112,7 +2112,7 @@ class KalturaScheduler extends KalturaObjectBase
 	 * Array of the last configs
 	 * 
 	 *
-	 * @var array of KalturaSchedulerConfig
+	 * @var array of BorhanSchedulerConfig
 	 * @readonly
 	 */
 	public $configs;
@@ -2121,7 +2121,7 @@ class KalturaScheduler extends KalturaObjectBase
 	 * Array of the workers
 	 * 
 	 *
-	 * @var array of KalturaSchedulerWorker
+	 * @var array of BorhanSchedulerWorker
 	 * @readonly
 	 */
 	public $workers;
@@ -2156,7 +2156,7 @@ class KalturaScheduler extends KalturaObjectBase
 
 }
 
-abstract class KalturaBaseJobBaseFilter extends KalturaFilter
+abstract class BorhanBaseJobBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -2266,12 +2266,12 @@ abstract class KalturaBaseJobBaseFilter extends KalturaFilter
 
 }
 
-class KalturaBaseJobFilter extends KalturaBaseJobBaseFilter
+class BorhanBaseJobFilter extends BorhanBaseJobBaseFilter
 {
 
 }
 
-abstract class KalturaBatchJobBaseFilter extends KalturaBaseJobFilter
+abstract class BorhanBatchJobBaseFilter extends BorhanBaseJobFilter
 {
 	/**
 	 * 
@@ -2283,7 +2283,7 @@ abstract class KalturaBatchJobBaseFilter extends KalturaBaseJobFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobType
+	 * @var BorhanBatchJobType
 	 */
 	public $jobTypeEqual = null;
 
@@ -2346,7 +2346,7 @@ abstract class KalturaBatchJobBaseFilter extends KalturaBaseJobFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobStatus
+	 * @var BorhanBatchJobStatus
 	 */
 	public $statusEqual = null;
 
@@ -2563,7 +2563,7 @@ abstract class KalturaBatchJobBaseFilter extends KalturaBaseJobFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobErrorTypes
+	 * @var BorhanBatchJobErrorTypes
 	 */
 	public $errTypeEqual = null;
 
@@ -2752,12 +2752,12 @@ abstract class KalturaBatchJobBaseFilter extends KalturaBaseJobFilter
 
 }
 
-class KalturaBatchJobFilter extends KalturaBatchJobBaseFilter
+class BorhanBatchJobFilter extends BorhanBatchJobBaseFilter
 {
 
 }
 
-class KalturaWorkerQueueFilter extends KalturaObjectBase
+class BorhanWorkerQueueFilter extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -2776,26 +2776,26 @@ class KalturaWorkerQueueFilter extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobType
+	 * @var BorhanBatchJobType
 	 */
 	public $jobType = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobFilter
+	 * @var BorhanBatchJobFilter
 	 */
 	public $filter;
 
 
 }
 
-class KalturaBatchQueuesStatus extends KalturaObjectBase
+class BorhanBatchQueuesStatus extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobType
+	 * @var BorhanBatchJobType
 	 */
 	public $jobType = null;
 
@@ -2834,7 +2834,7 @@ class KalturaBatchQueuesStatus extends KalturaObjectBase
 
 }
 
-class KalturaControlPanelCommand extends KalturaObjectBase
+class BorhanControlPanelCommand extends BorhanObjectBase
 {
 	/**
 	 * The id of the Category
@@ -2931,7 +2931,7 @@ class KalturaControlPanelCommand extends KalturaObjectBase
 	 * The command type - stop / start / config
 	 * 
 	 *
-	 * @var KalturaControlPanelCommandType
+	 * @var BorhanControlPanelCommandType
 	 */
 	public $type = null;
 
@@ -2939,7 +2939,7 @@ class KalturaControlPanelCommand extends KalturaObjectBase
 	 * The command target type - data center / scheduler / job / job type
 	 * 
 	 *
-	 * @var KalturaControlPanelCommandTargetType
+	 * @var BorhanControlPanelCommandTargetType
 	 */
 	public $targetType = null;
 
@@ -2947,7 +2947,7 @@ class KalturaControlPanelCommand extends KalturaObjectBase
 	 * The command status
 	 * 
 	 *
-	 * @var KalturaControlPanelCommandStatus
+	 * @var BorhanControlPanelCommandStatus
 	 */
 	public $status = null;
 
@@ -2978,13 +2978,13 @@ class KalturaControlPanelCommand extends KalturaObjectBase
 
 }
 
-class KalturaSchedulerStatusResponse extends KalturaObjectBase
+class BorhanSchedulerStatusResponse extends BorhanObjectBase
 {
 	/**
 	 * The status of all queues on the server
 	 * 
 	 *
-	 * @var array of KalturaBatchQueuesStatus
+	 * @var array of BorhanBatchQueuesStatus
 	 */
 	public $queuesStatus;
 
@@ -2992,7 +2992,7 @@ class KalturaSchedulerStatusResponse extends KalturaObjectBase
 	 * The commands that sent from the control panel
 	 * 
 	 *
-	 * @var array of KalturaControlPanelCommand
+	 * @var array of BorhanControlPanelCommand
 	 */
 	public $controlPanelCommands;
 
@@ -3000,14 +3000,14 @@ class KalturaSchedulerStatusResponse extends KalturaObjectBase
 	 * The configuration that sent from the control panel
 	 * 
 	 *
-	 * @var array of KalturaSchedulerConfig
+	 * @var array of BorhanSchedulerConfig
 	 */
 	public $schedulerConfigs;
 
 
 }
 
-abstract class KalturaControlPanelCommandBaseFilter extends KalturaFilter
+abstract class BorhanControlPanelCommandBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -3047,7 +3047,7 @@ abstract class KalturaControlPanelCommandBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaControlPanelCommandType
+	 * @var BorhanControlPanelCommandType
 	 */
 	public $typeEqual = null;
 
@@ -3061,7 +3061,7 @@ abstract class KalturaControlPanelCommandBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaControlPanelCommandTargetType
+	 * @var BorhanControlPanelCommandTargetType
 	 */
 	public $targetTypeEqual = null;
 
@@ -3075,7 +3075,7 @@ abstract class KalturaControlPanelCommandBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaControlPanelCommandStatus
+	 * @var BorhanControlPanelCommandStatus
 	 */
 	public $statusEqual = null;
 
@@ -3089,17 +3089,17 @@ abstract class KalturaControlPanelCommandBaseFilter extends KalturaFilter
 
 }
 
-class KalturaControlPanelCommandFilter extends KalturaControlPanelCommandBaseFilter
+class BorhanControlPanelCommandFilter extends BorhanControlPanelCommandBaseFilter
 {
 
 }
 
-class KalturaControlPanelCommandListResponse extends KalturaObjectBase
+class BorhanControlPanelCommandListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaControlPanelCommand
+	 * @var array of BorhanControlPanelCommand
 	 * @readonly
 	 */
 	public $objects;
@@ -3115,12 +3115,12 @@ class KalturaControlPanelCommandListResponse extends KalturaObjectBase
 
 }
 
-class KalturaSchedulerListResponse extends KalturaObjectBase
+class BorhanSchedulerListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaScheduler
+	 * @var array of BorhanScheduler
 	 * @readonly
 	 */
 	public $objects;
@@ -3136,12 +3136,12 @@ class KalturaSchedulerListResponse extends KalturaObjectBase
 
 }
 
-class KalturaSchedulerWorkerListResponse extends KalturaObjectBase
+class BorhanSchedulerWorkerListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaSchedulerWorker
+	 * @var array of BorhanSchedulerWorker
 	 * @readonly
 	 */
 	public $objects;
@@ -3157,7 +3157,7 @@ class KalturaSchedulerWorkerListResponse extends KalturaObjectBase
 
 }
 
-class KalturaExclusiveLockKey extends KalturaObjectBase
+class BorhanExclusiveLockKey extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -3183,12 +3183,12 @@ class KalturaExclusiveLockKey extends KalturaObjectBase
 
 }
 
-class KalturaFreeJobResponse extends KalturaObjectBase
+class BorhanFreeJobResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJob
+	 * @var BorhanBatchJob
 	 * @readonly
 	 */
 	public $job;
@@ -3196,7 +3196,7 @@ class KalturaFreeJobResponse extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobType
+	 * @var BorhanBatchJobType
 	 * @readonly
 	 */
 	public $jobType = null;
@@ -3212,7 +3212,7 @@ class KalturaFreeJobResponse extends KalturaObjectBase
 
 }
 
-class KalturaBulkUploadPluginData extends KalturaObjectBase
+class BorhanBulkUploadPluginData extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -3231,7 +3231,7 @@ class KalturaBulkUploadPluginData extends KalturaObjectBase
 
 }
 
-class KalturaBulkUploadResult extends KalturaObjectBase
+class BorhanBulkUploadResult extends BorhanObjectBase
 {
 	/**
 	 * The id of the result
@@ -3388,14 +3388,14 @@ class KalturaBulkUploadResult extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var array of KalturaBulkUploadPluginData
+	 * @var array of BorhanBulkUploadPluginData
 	 */
 	public $pluginsData;
 
 
 }
 
-class KalturaConvertCollectionFlavorData extends KalturaObjectBase
+class BorhanConvertCollectionFlavorData extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -3449,7 +3449,7 @@ class KalturaConvertCollectionFlavorData extends KalturaObjectBase
 
 }
 
-class KalturaMediaInfo extends KalturaObjectBase
+class BorhanMediaInfo extends BorhanObjectBase
 {
 	/**
 	 * The id of the media info
@@ -3552,7 +3552,7 @@ class KalturaMediaInfo extends KalturaObjectBase
 	 * The video bit rate mode
 	 * 
 	 *
-	 * @var KalturaBitRateMode
+	 * @var BorhanBitRateMode
 	 */
 	public $videoBitRateMode = null;
 
@@ -3631,7 +3631,7 @@ class KalturaMediaInfo extends KalturaObjectBase
 	 * The audio bit rate mode
 	 * 
 	 *
-	 * @var KalturaBitRateMode
+	 * @var BorhanBitRateMode
 	 */
 	public $audioBitRateMode = null;
 
@@ -3699,7 +3699,7 @@ class KalturaMediaInfo extends KalturaObjectBase
 
 }
 
-class KalturaNotification extends KalturaBaseJob
+class BorhanNotification extends BorhanBaseJob
 {
 	/**
 	 * 
@@ -3711,7 +3711,7 @@ class KalturaNotification extends KalturaBaseJob
 	/**
 	 * 
 	 *
-	 * @var KalturaNotificationType
+	 * @var BorhanNotificationType
 	 */
 	public $type = null;
 
@@ -3725,7 +3725,7 @@ class KalturaNotification extends KalturaBaseJob
 	/**
 	 * 
 	 *
-	 * @var KalturaNotificationStatus
+	 * @var BorhanNotificationStatus
 	 */
 	public $status = null;
 
@@ -3753,14 +3753,14 @@ class KalturaNotification extends KalturaBaseJob
 	/**
 	 * 
 	 *
-	 * @var KalturaNotificationObjectType
+	 * @var BorhanNotificationObjectType
 	 */
 	public $objType = null;
 
 
 }
 
-class KalturaKeyValue extends KalturaObjectBase
+class BorhanKeyValue extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -3779,7 +3779,7 @@ class KalturaKeyValue extends KalturaObjectBase
 
 }
 
-class KalturaPartner extends KalturaObjectBase
+class BorhanPartner extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -3849,7 +3849,7 @@ class KalturaPartner extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaCommercialUseType
+	 * @var BorhanCommercialUseType
 	 */
 	public $commercialUse = null;
 
@@ -3877,7 +3877,7 @@ class KalturaPartner extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaPartnerType
+	 * @var BorhanPartnerType
 	 */
 	public $type = null;
 
@@ -3919,7 +3919,7 @@ class KalturaPartner extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaPartnerStatus
+	 * @var BorhanPartnerStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -4038,7 +4038,7 @@ class KalturaPartner extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var array of KalturaKeyValue
+	 * @var array of BorhanKeyValue
 	 * @insertonly
 	 */
 	public $additionalParams;
@@ -4046,12 +4046,12 @@ class KalturaPartner extends KalturaObjectBase
 
 }
 
-class KalturaBatchGetExclusiveNotificationJobsResponse extends KalturaObjectBase
+class BorhanBatchGetExclusiveNotificationJobsResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaNotification
+	 * @var array of BorhanNotification
 	 * @readonly
 	 */
 	public $notifications;
@@ -4059,7 +4059,7 @@ class KalturaBatchGetExclusiveNotificationJobsResponse extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var array of KalturaPartner
+	 * @var array of BorhanPartner
 	 * @readonly
 	 */
 	public $partners;
@@ -4067,7 +4067,7 @@ class KalturaBatchGetExclusiveNotificationJobsResponse extends KalturaObjectBase
 
 }
 
-class KalturaFileExistsResponse extends KalturaObjectBase
+class BorhanFileExistsResponse extends BorhanObjectBase
 {
 	/**
 	 * Indicates if the file exists
@@ -4088,7 +4088,7 @@ class KalturaFileExistsResponse extends KalturaObjectBase
 
 }
 
-class KalturaBulkUpload extends KalturaObjectBase
+class BorhanBulkUpload extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -4128,7 +4128,7 @@ class KalturaBulkUpload extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobStatus
+	 * @var BorhanBatchJobStatus
 	 */
 	public $status = null;
 
@@ -4156,7 +4156,7 @@ class KalturaBulkUpload extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var array of KalturaBulkUploadResult
+	 * @var array of BorhanBulkUploadResult
 	 */
 	public $results;
 
@@ -4170,7 +4170,7 @@ class KalturaBulkUpload extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaBatchJobErrorTypes
+	 * @var BorhanBatchJobErrorTypes
 	 */
 	public $errorType = null;
 
@@ -4184,12 +4184,12 @@ class KalturaBulkUpload extends KalturaObjectBase
 
 }
 
-class KalturaBulkUploadListResponse extends KalturaObjectBase
+class BorhanBulkUploadListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaBulkUpload
+	 * @var array of BorhanBulkUpload
 	 * @readonly
 	 */
 	public $objects;
@@ -4205,7 +4205,7 @@ class KalturaBulkUploadListResponse extends KalturaObjectBase
 
 }
 
-class KalturaCategory extends KalturaObjectBase
+class BorhanCategory extends BorhanObjectBase
 {
 	/**
 	 * The id of the Category
@@ -4278,7 +4278,7 @@ class KalturaCategory extends KalturaObjectBase
 
 }
 
-abstract class KalturaCategoryBaseFilter extends KalturaFilter
+abstract class BorhanCategoryBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -4332,17 +4332,17 @@ abstract class KalturaCategoryBaseFilter extends KalturaFilter
 
 }
 
-class KalturaCategoryFilter extends KalturaCategoryBaseFilter
+class BorhanCategoryFilter extends BorhanCategoryBaseFilter
 {
 
 }
 
-class KalturaCategoryListResponse extends KalturaObjectBase
+class BorhanCategoryListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaCategory
+	 * @var array of BorhanCategory
 	 * @readonly
 	 */
 	public $objects;
@@ -4358,7 +4358,7 @@ class KalturaCategoryListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaConversionProfileAssetParamsBaseFilter extends KalturaFilter
+abstract class BorhanConversionProfileAssetParamsBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -4391,7 +4391,7 @@ abstract class KalturaConversionProfileAssetParamsBaseFilter extends KalturaFilt
 	/**
 	 * 
 	 *
-	 * @var KalturaFlavorReadyBehaviorType
+	 * @var BorhanFlavorReadyBehaviorType
 	 */
 	public $readyBehaviorEqual = null;
 
@@ -4405,7 +4405,7 @@ abstract class KalturaConversionProfileAssetParamsBaseFilter extends KalturaFilt
 	/**
 	 * 
 	 *
-	 * @var KalturaAssetParamsOrigin
+	 * @var BorhanAssetParamsOrigin
 	 */
 	public $originEqual = null;
 
@@ -4433,7 +4433,7 @@ abstract class KalturaConversionProfileAssetParamsBaseFilter extends KalturaFilt
 
 }
 
-abstract class KalturaConversionProfileBaseFilter extends KalturaFilter
+abstract class BorhanConversionProfileBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -4452,7 +4452,7 @@ abstract class KalturaConversionProfileBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaConversionProfileStatus
+	 * @var BorhanConversionProfileStatus
 	 */
 	public $statusEqual = null;
 
@@ -4515,12 +4515,12 @@ abstract class KalturaConversionProfileBaseFilter extends KalturaFilter
 
 }
 
-class KalturaConversionProfileFilter extends KalturaConversionProfileBaseFilter
+class BorhanConversionProfileFilter extends BorhanConversionProfileBaseFilter
 {
 
 }
 
-abstract class KalturaAssetParamsBaseFilter extends KalturaFilter
+abstract class BorhanAssetParamsBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -4539,7 +4539,7 @@ abstract class KalturaAssetParamsBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaNullableBoolean
+	 * @var BorhanNullableBoolean
 	 */
 	public $isSystemDefaultEqual = null;
 
@@ -4553,38 +4553,38 @@ abstract class KalturaAssetParamsBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaContainerFormat
+	 * @var BorhanContainerFormat
 	 */
 	public $formatEqual = null;
 
 
 }
 
-class KalturaAssetParamsFilter extends KalturaAssetParamsBaseFilter
+class BorhanAssetParamsFilter extends BorhanAssetParamsBaseFilter
 {
 
 }
 
-class KalturaConversionProfileAssetParamsFilter extends KalturaConversionProfileAssetParamsBaseFilter
+class BorhanConversionProfileAssetParamsFilter extends BorhanConversionProfileAssetParamsBaseFilter
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaConversionProfileFilter
+	 * @var BorhanConversionProfileFilter
 	 */
 	public $conversionProfileIdFilter;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaAssetParamsFilter
+	 * @var BorhanAssetParamsFilter
 	 */
 	public $assetParamsIdFilter;
 
 
 }
 
-class KalturaConversionProfileAssetParams extends KalturaObjectBase
+class BorhanConversionProfileAssetParams extends BorhanObjectBase
 {
 	/**
 	 * The id of the conversion profile
@@ -4608,7 +4608,7 @@ class KalturaConversionProfileAssetParams extends KalturaObjectBase
 	 * The ingestion origin of the asset params
 	 * 
 	 *
-	 * @var KalturaFlavorReadyBehaviorType
+	 * @var BorhanFlavorReadyBehaviorType
 	 */
 	public $readyBehavior = null;
 
@@ -4616,7 +4616,7 @@ class KalturaConversionProfileAssetParams extends KalturaObjectBase
 	 * The ingestion origin of the asset params
 	 * 
 	 *
-	 * @var KalturaAssetParamsOrigin
+	 * @var BorhanAssetParamsOrigin
 	 */
 	public $origin = null;
 
@@ -4631,12 +4631,12 @@ class KalturaConversionProfileAssetParams extends KalturaObjectBase
 
 }
 
-class KalturaConversionProfileAssetParamsListResponse extends KalturaObjectBase
+class BorhanConversionProfileAssetParamsListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaConversionProfileAssetParams
+	 * @var array of BorhanConversionProfileAssetParams
 	 * @readonly
 	 */
 	public $objects;
@@ -4652,7 +4652,7 @@ class KalturaConversionProfileAssetParamsListResponse extends KalturaObjectBase
 
 }
 
-class KalturaCropDimensions extends KalturaObjectBase
+class BorhanCropDimensions extends BorhanObjectBase
 {
 	/**
 	 * Crop left point
@@ -4689,7 +4689,7 @@ class KalturaCropDimensions extends KalturaObjectBase
 
 }
 
-class KalturaConversionProfile extends KalturaObjectBase
+class BorhanConversionProfile extends BorhanObjectBase
 {
 	/**
 	 * The id of the Conversion Profile
@@ -4711,7 +4711,7 @@ class KalturaConversionProfile extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaConversionProfileStatus
+	 * @var BorhanConversionProfileStatus
 	 */
 	public $status = null;
 
@@ -4776,7 +4776,7 @@ class KalturaConversionProfile extends KalturaObjectBase
 	 * Indicates that this conversion profile is system default
 	 * 
 	 *
-	 * @var KalturaNullableBoolean
+	 * @var BorhanNullableBoolean
 	 */
 	public $isDefault = null;
 
@@ -4793,7 +4793,7 @@ class KalturaConversionProfile extends KalturaObjectBase
 	 * Cropping dimensions
 	 * DEPRECATED
 	 *
-	 * @var KalturaCropDimensions
+	 * @var BorhanCropDimensions
 	 */
 	public $cropDimensions;
 
@@ -4832,12 +4832,12 @@ class KalturaConversionProfile extends KalturaObjectBase
 
 }
 
-class KalturaConversionProfileListResponse extends KalturaObjectBase
+class BorhanConversionProfileListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaConversionProfile
+	 * @var array of BorhanConversionProfile
 	 * @readonly
 	 */
 	public $objects;
@@ -4853,7 +4853,7 @@ class KalturaConversionProfileListResponse extends KalturaObjectBase
 
 }
 
-class KalturaDataEntry extends KalturaBaseEntry
+class BorhanDataEntry extends BorhanBaseEntry
 {
 	/**
 	 * The data of the entry
@@ -4873,22 +4873,22 @@ class KalturaDataEntry extends KalturaBaseEntry
 
 }
 
-abstract class KalturaDataEntryBaseFilter extends KalturaBaseEntryFilter
+abstract class BorhanDataEntryBaseFilter extends BorhanBaseEntryFilter
 {
 
 }
 
-class KalturaDataEntryFilter extends KalturaDataEntryBaseFilter
+class BorhanDataEntryFilter extends BorhanDataEntryBaseFilter
 {
 
 }
 
-class KalturaDataListResponse extends KalturaObjectBase
+class BorhanDataListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaDataEntry
+	 * @var array of BorhanDataEntry
 	 * @readonly
 	 */
 	public $objects;
@@ -4904,7 +4904,7 @@ class KalturaDataListResponse extends KalturaObjectBase
 
 }
 
-class KalturaConversionAttribute extends KalturaObjectBase
+class BorhanConversionAttribute extends BorhanObjectBase
 {
 	/**
 	 * The id of the flavor params, set to null for source flavor
@@ -4933,7 +4933,7 @@ class KalturaConversionAttribute extends KalturaObjectBase
 
 }
 
-class KalturaEmailIngestionProfile extends KalturaObjectBase
+class BorhanEmailIngestionProfile extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -4989,14 +4989,14 @@ class KalturaEmailIngestionProfile extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaEntryModerationStatus
+	 * @var BorhanEntryModerationStatus
 	 */
 	public $moderationStatus = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaEmailIngestionProfileStatus
+	 * @var BorhanEmailIngestionProfileStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -5054,7 +5054,7 @@ class KalturaEmailIngestionProfile extends KalturaObjectBase
 
 }
 
-class KalturaPlayableEntry extends KalturaBaseEntry
+class BorhanPlayableEntry extends BorhanBaseEntry
 {
 	/**
 	 * Number of plays
@@ -5114,7 +5114,7 @@ class KalturaPlayableEntry extends KalturaBaseEntry
 	 * The duration type (short for 0-4 mins, medium for 4-20 mins, long for 20+ mins)
 	 * 
 	 *
-	 * @var KalturaDurationType
+	 * @var BorhanDurationType
 	 * @readonly
 	 */
 	public $durationType = null;
@@ -5122,13 +5122,13 @@ class KalturaPlayableEntry extends KalturaBaseEntry
 
 }
 
-class KalturaMediaEntry extends KalturaPlayableEntry
+class BorhanMediaEntry extends BorhanPlayableEntry
 {
 	/**
 	 * The media type of the entry
 	 * 
 	 *
-	 * @var KalturaMediaType
+	 * @var BorhanMediaType
 	 * @insertonly
 	 */
 	public $mediaType = null;
@@ -5145,7 +5145,7 @@ class KalturaMediaEntry extends KalturaPlayableEntry
 	/**
 	 * The source type of the entry 
 	 *
-	 * @var KalturaSourceType
+	 * @var BorhanSourceType
 	 * @insertonly
 	 */
 	public $sourceType = null;
@@ -5153,7 +5153,7 @@ class KalturaMediaEntry extends KalturaPlayableEntry
 	/**
 	 * The search provider type used to import this entry
 	 *
-	 * @var KalturaSearchProviderType
+	 * @var BorhanSearchProviderType
 	 * @insertonly
 	 */
 	public $searchProviderType = null;
@@ -5208,7 +5208,7 @@ class KalturaMediaEntry extends KalturaPlayableEntry
 
 }
 
-class KalturaAsset extends KalturaObjectBase
+class BorhanAsset extends BorhanObjectBase
 {
 	/**
 	 * The ID of the Flavor Asset
@@ -5240,7 +5240,7 @@ class KalturaAsset extends KalturaObjectBase
 	 * The status of the Flavor Asset
 	 * 
 	 *
-	 * @var KalturaFlavorAssetStatus
+	 * @var BorhanFlavorAssetStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -5315,7 +5315,7 @@ class KalturaAsset extends KalturaObjectBase
 
 }
 
-class KalturaFlavorAsset extends KalturaAsset
+class BorhanFlavorAsset extends BorhanAsset
 {
 	/**
 	 * The Flavor Params used to create this Flavor Asset
@@ -5372,7 +5372,7 @@ class KalturaFlavorAsset extends KalturaAsset
 	public $isOriginal = null;
 
 	/**
-	 * True if this Flavor Asset is playable in KDP
+	 * True if this Flavor Asset is playable in BDP
 	 * 
 	 *
 	 * @var bool
@@ -5401,12 +5401,12 @@ class KalturaFlavorAsset extends KalturaAsset
 
 }
 
-abstract class KalturaContentResource extends KalturaResource
+abstract class BorhanContentResource extends BorhanResource
 {
 
 }
 
-abstract class KalturaAssetBaseFilter extends KalturaFilter
+abstract class BorhanAssetBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -5453,7 +5453,7 @@ abstract class KalturaAssetBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaFlavorAssetStatus
+	 * @var BorhanFlavorAssetStatus
 	 */
 	public $statusEqual = null;
 
@@ -5530,17 +5530,17 @@ abstract class KalturaAssetBaseFilter extends KalturaFilter
 
 }
 
-class KalturaAssetFilter extends KalturaAssetBaseFilter
+class BorhanAssetFilter extends BorhanAssetBaseFilter
 {
 
 }
 
-class KalturaFlavorAssetListResponse extends KalturaObjectBase
+class BorhanFlavorAssetListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaFlavorAsset
+	 * @var array of BorhanFlavorAsset
 	 * @readonly
 	 */
 	public $objects;
@@ -5556,7 +5556,7 @@ class KalturaFlavorAssetListResponse extends KalturaObjectBase
 
 }
 
-class KalturaString extends KalturaObjectBase
+class BorhanString extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -5568,7 +5568,7 @@ class KalturaString extends KalturaObjectBase
 
 }
 
-class KalturaAssetParams extends KalturaObjectBase
+class BorhanAssetParams extends BorhanObjectBase
 {
 	/**
 	 * The id of the Flavor Params
@@ -5624,7 +5624,7 @@ class KalturaAssetParams extends KalturaObjectBase
 	 * True if those Flavor Params are part of system defaults
 	 * 
 	 *
-	 * @var KalturaNullableBoolean
+	 * @var BorhanNullableBoolean
 	 * @readonly
 	 */
 	public $isSystemDefault = null;
@@ -5641,7 +5641,7 @@ class KalturaAssetParams extends KalturaObjectBase
 	 * The container format of the Flavor Params
 	 * 
 	 *
-	 * @var KalturaContainerFormat
+	 * @var BorhanContainerFormat
 	 */
 	public $format = null;
 
@@ -5649,20 +5649,20 @@ class KalturaAssetParams extends KalturaObjectBase
 	 * Array of partner permisison names that required for using this asset params
 	 * 
 	 *
-	 * @var array of KalturaString
+	 * @var array of BorhanString
 	 */
 	public $requiredPermissions;
 
 
 }
 
-class KalturaFlavorParams extends KalturaAssetParams
+class BorhanFlavorParams extends BorhanAssetParams
 {
 	/**
 	 * The video codec of the Flavor Params
 	 * 
 	 *
-	 * @var KalturaVideoCodec
+	 * @var BorhanVideoCodec
 	 */
 	public $videoCodec = null;
 
@@ -5678,7 +5678,7 @@ class KalturaFlavorParams extends KalturaAssetParams
 	 * The audio codec of the Flavor Params
 	 * 
 	 *
-	 * @var KalturaAudioCodec
+	 * @var BorhanAudioCodec
 	 */
 	public $audioCodec = null;
 
@@ -5792,13 +5792,13 @@ class KalturaFlavorParams extends KalturaAssetParams
 
 }
 
-class KalturaFlavorAssetWithParams extends KalturaObjectBase
+class BorhanFlavorAssetWithParams extends BorhanObjectBase
 {
 	/**
 	 * The Flavor Asset (Can be null when there are params without asset)
 	 * 
 	 *
-	 * @var KalturaFlavorAsset
+	 * @var BorhanFlavorAsset
 	 */
 	public $flavorAsset;
 
@@ -5806,7 +5806,7 @@ class KalturaFlavorAssetWithParams extends KalturaObjectBase
 	 * The Flavor Params
 	 * 
 	 *
-	 * @var KalturaFlavorParams
+	 * @var BorhanFlavorParams
 	 */
 	public $flavorParams;
 
@@ -5821,22 +5821,22 @@ class KalturaFlavorAssetWithParams extends KalturaObjectBase
 
 }
 
-abstract class KalturaFlavorParamsBaseFilter extends KalturaAssetParamsFilter
+abstract class BorhanFlavorParamsBaseFilter extends BorhanAssetParamsFilter
 {
 
 }
 
-class KalturaFlavorParamsFilter extends KalturaFlavorParamsBaseFilter
+class BorhanFlavorParamsFilter extends BorhanFlavorParamsBaseFilter
 {
 
 }
 
-class KalturaFlavorParamsListResponse extends KalturaObjectBase
+class BorhanFlavorParamsListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaFlavorParams
+	 * @var array of BorhanFlavorParams
 	 * @readonly
 	 */
 	public $objects;
@@ -5852,13 +5852,13 @@ class KalturaFlavorParamsListResponse extends KalturaObjectBase
 
 }
 
-class KalturaBatchJobResponse extends KalturaObjectBase
+class BorhanBatchJobResponse extends BorhanObjectBase
 {
 	/**
 	 * The main batch job
 	 * 
 	 *
-	 * @var KalturaBatchJob
+	 * @var BorhanBatchJob
 	 */
 	public $batchJob;
 
@@ -5866,19 +5866,19 @@ class KalturaBatchJobResponse extends KalturaObjectBase
 	 * All batch jobs that reference the main job as root
 	 * 
 	 *
-	 * @var array of KalturaBatchJob
+	 * @var array of BorhanBatchJob
 	 */
 	public $childBatchJobs;
 
 
 }
 
-class KalturaMailJobData extends KalturaJobData
+class BorhanMailJobData extends BorhanJobData
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaMailType
+	 * @var BorhanMailType
 	 */
 	public $mailType = null;
 
@@ -5892,7 +5892,7 @@ class KalturaMailJobData extends KalturaJobData
 	/**
 	 * 
 	 *
-	 * @var KalturaMailJobStatus
+	 * @var BorhanMailJobStatus
 	 */
 	public $status = null;
 
@@ -5983,7 +5983,7 @@ class KalturaMailJobData extends KalturaJobData
 
 }
 
-class KalturaBatchJobFilterExt extends KalturaBatchJobFilter
+class BorhanBatchJobFilterExt extends BorhanBatchJobFilter
 {
 	/**
 	 * 
@@ -5995,12 +5995,12 @@ class KalturaBatchJobFilterExt extends KalturaBatchJobFilter
 
 }
 
-class KalturaBatchJobListResponse extends KalturaObjectBase
+class BorhanBatchJobListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaBatchJob
+	 * @var array of BorhanBatchJob
 	 * @readonly
 	 */
 	public $objects;
@@ -6016,7 +6016,7 @@ class KalturaBatchJobListResponse extends KalturaObjectBase
 
 }
 
-class KalturaLiveStreamBitrate extends KalturaObjectBase
+class BorhanLiveStreamBitrate extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -6042,7 +6042,7 @@ class KalturaLiveStreamBitrate extends KalturaObjectBase
 
 }
 
-class KalturaLiveStreamEntry extends KalturaMediaEntry
+class BorhanLiveStreamEntry extends BorhanMediaEntry
 {
 	/**
 	 * The message to be presented when the stream is offline
@@ -6074,7 +6074,7 @@ class KalturaLiveStreamEntry extends KalturaMediaEntry
 	 * Array of supported bitrates
 	 * 
 	 *
-	 * @var array of KalturaLiveStreamBitrate
+	 * @var array of BorhanLiveStreamBitrate
 	 */
 	public $bitrates;
 
@@ -6102,7 +6102,7 @@ class KalturaLiveStreamEntry extends KalturaMediaEntry
 
 }
 
-class KalturaLiveStreamAdminEntry extends KalturaLiveStreamEntry
+class BorhanLiveStreamAdminEntry extends BorhanLiveStreamEntry
 {
 	/**
 	 * The broadcast primary ip
@@ -6140,7 +6140,7 @@ class KalturaLiveStreamAdminEntry extends KalturaLiveStreamEntry
 
 }
 
-abstract class KalturaPlayableEntryBaseFilter extends KalturaBaseEntryFilter
+abstract class BorhanPlayableEntryBaseFilter extends BorhanBaseEntryFilter
 {
 	/**
 	 * 
@@ -6208,17 +6208,17 @@ abstract class KalturaPlayableEntryBaseFilter extends KalturaBaseEntryFilter
 
 }
 
-class KalturaPlayableEntryFilter extends KalturaPlayableEntryBaseFilter
+class BorhanPlayableEntryFilter extends BorhanPlayableEntryBaseFilter
 {
 
 }
 
-abstract class KalturaMediaEntryBaseFilter extends KalturaPlayableEntryFilter
+abstract class BorhanMediaEntryBaseFilter extends BorhanPlayableEntryFilter
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaMediaType
+	 * @var BorhanMediaType
 	 */
 	public $mediaTypeEqual = null;
 
@@ -6260,27 +6260,27 @@ abstract class KalturaMediaEntryBaseFilter extends KalturaPlayableEntryFilter
 
 }
 
-class KalturaMediaEntryFilter extends KalturaMediaEntryBaseFilter
+class BorhanMediaEntryFilter extends BorhanMediaEntryBaseFilter
 {
 
 }
 
-abstract class KalturaLiveStreamEntryBaseFilter extends KalturaMediaEntryFilter
+abstract class BorhanLiveStreamEntryBaseFilter extends BorhanMediaEntryFilter
 {
 
 }
 
-class KalturaLiveStreamEntryFilter extends KalturaLiveStreamEntryBaseFilter
+class BorhanLiveStreamEntryFilter extends BorhanLiveStreamEntryBaseFilter
 {
 
 }
 
-class KalturaLiveStreamListResponse extends KalturaObjectBase
+class BorhanLiveStreamListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaLiveStreamEntry
+	 * @var array of BorhanLiveStreamEntry
 	 * @readonly
 	 */
 	public $objects;
@@ -6296,7 +6296,7 @@ class KalturaLiveStreamListResponse extends KalturaObjectBase
 
 }
 
-class KalturaSearch extends KalturaObjectBase
+class BorhanSearch extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -6308,14 +6308,14 @@ class KalturaSearch extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaSearchProviderType
+	 * @var BorhanSearchProviderType
 	 */
 	public $searchSource = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaMediaType
+	 * @var BorhanMediaType
 	 */
 	public $mediaType = null;
 
@@ -6339,7 +6339,7 @@ class KalturaSearch extends KalturaObjectBase
 
 }
 
-class KalturaSearchResult extends KalturaSearch
+class BorhanSearchResult extends BorhanSearch
 {
 	/**
 	 * 
@@ -6400,7 +6400,7 @@ class KalturaSearchResult extends KalturaSearch
 	/**
 	 * 
 	 *
-	 * @var KalturaLicenseType
+	 * @var BorhanLicenseType
 	 */
 	public $licenseType = null;
 
@@ -6414,12 +6414,12 @@ class KalturaSearchResult extends KalturaSearch
 
 }
 
-class KalturaMediaListResponse extends KalturaObjectBase
+class BorhanMediaListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaMediaEntry
+	 * @var array of BorhanMediaEntry
 	 * @readonly
 	 */
 	public $objects;
@@ -6435,7 +6435,7 @@ class KalturaMediaListResponse extends KalturaObjectBase
 
 }
 
-class KalturaMixEntry extends KalturaPlayableEntry
+class BorhanMixEntry extends BorhanPlayableEntry
 {
 	/**
 	 * Indicates whether the user has submited a real thumbnail to the mix (Not the one that was generated automaticaly)
@@ -6450,7 +6450,7 @@ class KalturaMixEntry extends KalturaPlayableEntry
 	 * The editor type used to edit the metadata
 	 * 
 	 *
-	 * @var KalturaEditorType
+	 * @var BorhanEditorType
 	 */
 	public $editorType = null;
 
@@ -6464,22 +6464,22 @@ class KalturaMixEntry extends KalturaPlayableEntry
 
 }
 
-abstract class KalturaMixEntryBaseFilter extends KalturaPlayableEntryFilter
+abstract class BorhanMixEntryBaseFilter extends BorhanPlayableEntryFilter
 {
 
 }
 
-class KalturaMixEntryFilter extends KalturaMixEntryBaseFilter
+class BorhanMixEntryFilter extends BorhanMixEntryBaseFilter
 {
 
 }
 
-class KalturaMixListResponse extends KalturaObjectBase
+class BorhanMixListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaMixEntry
+	 * @var array of BorhanMixEntry
 	 * @readonly
 	 */
 	public $objects;
@@ -6495,7 +6495,7 @@ class KalturaMixListResponse extends KalturaObjectBase
 
 }
 
-class KalturaClientNotification extends KalturaObjectBase
+class BorhanClientNotification extends BorhanObjectBase
 {
 	/**
 	 * The URL where the notification should be sent to 
@@ -6514,7 +6514,7 @@ class KalturaClientNotification extends KalturaObjectBase
 
 }
 
-class KalturaPartnerUsage extends KalturaObjectBase
+class BorhanPartnerUsage extends BorhanObjectBase
 {
 	/**
 	 * Partner total hosting in GB on the disk
@@ -6575,7 +6575,7 @@ class KalturaPartnerUsage extends KalturaObjectBase
 
 }
 
-abstract class KalturaPermissionItem extends KalturaObjectBase
+abstract class BorhanPermissionItem extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -6588,7 +6588,7 @@ abstract class KalturaPermissionItem extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaPermissionItemType
+	 * @var BorhanPermissionItemType
 	 * @readonly
 	 */
 	public $type = null;
@@ -6627,7 +6627,7 @@ abstract class KalturaPermissionItem extends KalturaObjectBase
 
 }
 
-abstract class KalturaPermissionItemBaseFilter extends KalturaFilter
+abstract class BorhanPermissionItemBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -6646,7 +6646,7 @@ abstract class KalturaPermissionItemBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaPermissionItemType
+	 * @var BorhanPermissionItemType
 	 */
 	public $typeEqual = null;
 
@@ -6716,17 +6716,17 @@ abstract class KalturaPermissionItemBaseFilter extends KalturaFilter
 
 }
 
-class KalturaPermissionItemFilter extends KalturaPermissionItemBaseFilter
+class BorhanPermissionItemFilter extends BorhanPermissionItemBaseFilter
 {
 
 }
 
-class KalturaPermissionItemListResponse extends KalturaObjectBase
+class BorhanPermissionItemListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaPermissionItem
+	 * @var array of BorhanPermissionItem
 	 * @readonly
 	 */
 	public $objects;
@@ -6742,7 +6742,7 @@ class KalturaPermissionItemListResponse extends KalturaObjectBase
 
 }
 
-class KalturaPermission extends KalturaObjectBase
+class BorhanPermission extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -6755,7 +6755,7 @@ class KalturaPermission extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaPermissionType
+	 * @var BorhanPermissionType
 	 * @readonly
 	 */
 	public $type = null;
@@ -6784,7 +6784,7 @@ class KalturaPermission extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaPermissionStatus
+	 * @var BorhanPermissionStatus
 	 */
 	public $status = null;
 
@@ -6843,7 +6843,7 @@ class KalturaPermission extends KalturaObjectBase
 
 }
 
-abstract class KalturaPermissionBaseFilter extends KalturaFilter
+abstract class BorhanPermissionBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -6862,7 +6862,7 @@ abstract class KalturaPermissionBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaPermissionType
+	 * @var BorhanPermissionType
 	 */
 	public $typeEqual = null;
 
@@ -6904,7 +6904,7 @@ abstract class KalturaPermissionBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaPermissionStatus
+	 * @var BorhanPermissionStatus
 	 */
 	public $statusEqual = null;
 
@@ -6988,17 +6988,17 @@ abstract class KalturaPermissionBaseFilter extends KalturaFilter
 
 }
 
-class KalturaPermissionFilter extends KalturaPermissionBaseFilter
+class BorhanPermissionFilter extends BorhanPermissionBaseFilter
 {
 
 }
 
-class KalturaPermissionListResponse extends KalturaObjectBase
+class BorhanPermissionListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaPermission
+	 * @var array of BorhanPermission
 	 * @readonly
 	 */
 	public $objects;
@@ -7014,7 +7014,7 @@ class KalturaPermissionListResponse extends KalturaObjectBase
 
 }
 
-class KalturaMediaEntryFilterForPlaylist extends KalturaMediaEntryFilter
+class BorhanMediaEntryFilterForPlaylist extends BorhanMediaEntryFilter
 {
 	/**
 	 * 
@@ -7026,7 +7026,7 @@ class KalturaMediaEntryFilterForPlaylist extends KalturaMediaEntryFilter
 
 }
 
-class KalturaPlaylist extends KalturaBaseEntry
+class BorhanPlaylist extends BorhanBaseEntry
 {
 	/**
 	 * Content of the playlist - 
@@ -7041,7 +7041,7 @@ class KalturaPlaylist extends KalturaBaseEntry
 	/**
 	 * 
 	 *
-	 * @var array of KalturaMediaEntryFilterForPlaylist
+	 * @var array of BorhanMediaEntryFilterForPlaylist
 	 */
 	public $filters;
 
@@ -7055,7 +7055,7 @@ class KalturaPlaylist extends KalturaBaseEntry
 	/**
 	 * Type of playlist  
 	 *
-	 * @var KalturaPlaylistType
+	 * @var BorhanPlaylistType
 	 */
 	public $playlistType = null;
 
@@ -7086,22 +7086,22 @@ class KalturaPlaylist extends KalturaBaseEntry
 
 }
 
-abstract class KalturaPlaylistBaseFilter extends KalturaBaseEntryFilter
+abstract class BorhanPlaylistBaseFilter extends BorhanBaseEntryFilter
 {
 
 }
 
-class KalturaPlaylistFilter extends KalturaPlaylistBaseFilter
+class BorhanPlaylistFilter extends BorhanPlaylistBaseFilter
 {
 
 }
 
-class KalturaPlaylistListResponse extends KalturaObjectBase
+class BorhanPlaylistListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaPlaylist
+	 * @var array of BorhanPlaylist
 	 * @readonly
 	 */
 	public $objects;
@@ -7117,7 +7117,7 @@ class KalturaPlaylistListResponse extends KalturaObjectBase
 
 }
 
-class KalturaReportInputFilter extends KalturaObjectBase
+class BorhanReportInputFilter extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7171,7 +7171,7 @@ class KalturaReportInputFilter extends KalturaObjectBase
 
 }
 
-class KalturaReportGraph extends KalturaObjectBase
+class BorhanReportGraph extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7190,7 +7190,7 @@ class KalturaReportGraph extends KalturaObjectBase
 
 }
 
-class KalturaReportTotal extends KalturaObjectBase
+class BorhanReportTotal extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7209,7 +7209,7 @@ class KalturaReportTotal extends KalturaObjectBase
 
 }
 
-class KalturaReportTable extends KalturaObjectBase
+class BorhanReportTable extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7238,12 +7238,12 @@ class KalturaReportTable extends KalturaObjectBase
 
 }
 
-class KalturaSearchResultResponse extends KalturaObjectBase
+class BorhanSearchResultResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaSearchResult
+	 * @var array of BorhanSearchResult
 	 * @readonly
 	 */
 	public $objects;
@@ -7259,7 +7259,7 @@ class KalturaSearchResultResponse extends KalturaObjectBase
 
 }
 
-class KalturaSearchAuthData extends KalturaObjectBase
+class BorhanSearchAuthData extends BorhanObjectBase
 {
 	/**
 	 * The authentication data that further should be used for search
@@ -7286,7 +7286,7 @@ class KalturaSearchAuthData extends KalturaObjectBase
 
 }
 
-class KalturaStartWidgetSessionResponse extends KalturaObjectBase
+class BorhanStartWidgetSessionResponse extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7315,7 +7315,7 @@ class KalturaStartWidgetSessionResponse extends KalturaObjectBase
 
 }
 
-class KalturaStatsEvent extends KalturaObjectBase
+class BorhanStatsEvent extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7327,7 +7327,7 @@ class KalturaStatsEvent extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaStatsEventType
+	 * @var BorhanStatsEventType
 	 */
 	public $eventType = null;
 
@@ -7455,7 +7455,7 @@ class KalturaStatsEvent extends KalturaObjectBase
 
 }
 
-class KalturaStatsKmcEvent extends KalturaObjectBase
+class BorhanStatsBmcEvent extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7469,14 +7469,14 @@ class KalturaStatsKmcEvent extends KalturaObjectBase
 	 *
 	 * @var string
 	 */
-	public $kmcEventActionPath = null;
+	public $bmcEventActionPath = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaStatsKmcEventType
+	 * @var BorhanStatsBmcEventType
 	 */
-	public $kmcEventType = null;
+	public $bmcEventType = null;
 
 	/**
 	 * the client's timestamp of this event
@@ -7539,7 +7539,7 @@ class KalturaStatsKmcEvent extends KalturaObjectBase
 
 }
 
-class KalturaCEError extends KalturaObjectBase
+class BorhanCEError extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7615,7 +7615,7 @@ class KalturaCEError extends KalturaObjectBase
 
 }
 
-abstract class KalturaStorageProfileBaseFilter extends KalturaFilter
+abstract class BorhanStorageProfileBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -7690,7 +7690,7 @@ abstract class KalturaStorageProfileBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaStorageProfileStatus
+	 * @var BorhanStorageProfileStatus
 	 */
 	public $statusEqual = null;
 
@@ -7704,7 +7704,7 @@ abstract class KalturaStorageProfileBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaStorageProfileProtocol
+	 * @var BorhanStorageProfileProtocol
 	 */
 	public $protocolEqual = null;
 
@@ -7718,12 +7718,12 @@ abstract class KalturaStorageProfileBaseFilter extends KalturaFilter
 
 }
 
-class KalturaStorageProfileFilter extends KalturaStorageProfileBaseFilter
+class BorhanStorageProfileFilter extends BorhanStorageProfileBaseFilter
 {
 
 }
 
-class KalturaStorageProfile extends KalturaObjectBase
+class BorhanStorageProfile extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7781,14 +7781,14 @@ class KalturaStorageProfile extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaStorageProfileStatus
+	 * @var BorhanStorageProfileStatus
 	 */
 	public $status = null;
 
 	/**
 	 * 
 	 *
-	 * @var KalturaStorageProfileProtocol
+	 * @var BorhanStorageProfileProtocol
 	 */
 	public $protocol = null;
 
@@ -7901,12 +7901,12 @@ class KalturaStorageProfile extends KalturaObjectBase
 
 }
 
-class KalturaStorageProfileListResponse extends KalturaObjectBase
+class BorhanStorageProfileListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaStorageProfile
+	 * @var array of BorhanStorageProfile
 	 * @readonly
 	 */
 	public $objects;
@@ -7922,7 +7922,7 @@ class KalturaStorageProfileListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaBaseSyndicationFeed extends KalturaObjectBase
+abstract class BorhanBaseSyndicationFeed extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -7969,7 +7969,7 @@ abstract class KalturaBaseSyndicationFeed extends KalturaObjectBase
 	 * feed status
 	 * 
 	 *
-	 * @var KalturaSyndicationFeedStatus
+	 * @var BorhanSyndicationFeedStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -7978,7 +7978,7 @@ abstract class KalturaBaseSyndicationFeed extends KalturaObjectBase
 	 * feed type
 	 * 
 	 *
-	 * @var KalturaSyndicationFeedType
+	 * @var BorhanSyndicationFeedType
 	 * @insertonly
 	 */
 	public $type = null;
@@ -8011,7 +8011,7 @@ abstract class KalturaBaseSyndicationFeed extends KalturaObjectBase
 	public $allowEmbed = null;
 
 	/**
-	 * Select a uiconf ID as player skin to include in the kwidget url
+	 * Select a uiconf ID as player skin to include in the bwidget url
 	 *
 	 * @var int
 	 */
@@ -8048,22 +8048,22 @@ abstract class KalturaBaseSyndicationFeed extends KalturaObjectBase
 
 }
 
-abstract class KalturaBaseSyndicationFeedBaseFilter extends KalturaFilter
+abstract class BorhanBaseSyndicationFeedBaseFilter extends BorhanFilter
 {
 
 }
 
-class KalturaBaseSyndicationFeedFilter extends KalturaBaseSyndicationFeedBaseFilter
+class BorhanBaseSyndicationFeedFilter extends BorhanBaseSyndicationFeedBaseFilter
 {
 
 }
 
-class KalturaBaseSyndicationFeedListResponse extends KalturaObjectBase
+class BorhanBaseSyndicationFeedListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaBaseSyndicationFeed
+	 * @var array of BorhanBaseSyndicationFeed
 	 * @readonly
 	 */
 	public $objects;
@@ -8079,7 +8079,7 @@ class KalturaBaseSyndicationFeedListResponse extends KalturaObjectBase
 
 }
 
-class KalturaSyndicationFeedEntryCount extends KalturaObjectBase
+class BorhanSyndicationFeedEntryCount extends BorhanObjectBase
 {
 	/**
 	 * the total count of entries that should appear in the feed without flavor filtering
@@ -8105,7 +8105,7 @@ class KalturaSyndicationFeedEntryCount extends KalturaObjectBase
 
 }
 
-class KalturaThumbAsset extends KalturaAsset
+class BorhanThumbAsset extends BorhanAsset
 {
 	/**
 	 * The Flavor Params used to create this Flavor Asset
@@ -8137,12 +8137,12 @@ class KalturaThumbAsset extends KalturaAsset
 
 }
 
-class KalturaThumbParams extends KalturaAssetParams
+class BorhanThumbParams extends BorhanAssetParams
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaThumbCropType
+	 * @var BorhanThumbCropType
 	 */
 	public $cropType = null;
 
@@ -8233,12 +8233,12 @@ class KalturaThumbParams extends KalturaAssetParams
 
 }
 
-class KalturaThumbAssetListResponse extends KalturaObjectBase
+class BorhanThumbAssetListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaThumbAsset
+	 * @var array of BorhanThumbAsset
 	 * @readonly
 	 */
 	public $objects;
@@ -8254,22 +8254,22 @@ class KalturaThumbAssetListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaThumbParamsBaseFilter extends KalturaAssetParamsFilter
+abstract class BorhanThumbParamsBaseFilter extends BorhanAssetParamsFilter
 {
 
 }
 
-class KalturaThumbParamsFilter extends KalturaThumbParamsBaseFilter
+class BorhanThumbParamsFilter extends BorhanThumbParamsBaseFilter
 {
 
 }
 
-class KalturaThumbParamsListResponse extends KalturaObjectBase
+class BorhanThumbParamsListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaThumbParams
+	 * @var array of BorhanThumbParams
 	 * @readonly
 	 */
 	public $objects;
@@ -8285,7 +8285,7 @@ class KalturaThumbParamsListResponse extends KalturaObjectBase
 
 }
 
-class KalturaUiConf extends KalturaObjectBase
+class BorhanUiConf extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -8320,7 +8320,7 @@ class KalturaUiConf extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaUiConfObjType
+	 * @var BorhanUiConfObjType
 	 */
 	public $objType = null;
 
@@ -8429,14 +8429,14 @@ class KalturaUiConf extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaUiConfCreationMode
+	 * @var BorhanUiConfCreationMode
 	 */
 	public $creationMode = null;
 
 
 }
 
-abstract class KalturaUiConfBaseFilter extends KalturaFilter
+abstract class BorhanUiConfBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -8476,7 +8476,7 @@ abstract class KalturaUiConfBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaUiConfObjType
+	 * @var BorhanUiConfObjType
 	 */
 	public $objTypeEqual = null;
 
@@ -8532,7 +8532,7 @@ abstract class KalturaUiConfBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaUiConfCreationMode
+	 * @var BorhanUiConfCreationMode
 	 */
 	public $creationModeEqual = null;
 
@@ -8546,17 +8546,17 @@ abstract class KalturaUiConfBaseFilter extends KalturaFilter
 
 }
 
-class KalturaUiConfFilter extends KalturaUiConfBaseFilter
+class BorhanUiConfFilter extends BorhanUiConfBaseFilter
 {
 
 }
 
-class KalturaUiConfListResponse extends KalturaObjectBase
+class BorhanUiConfListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaUiConf
+	 * @var array of BorhanUiConf
 	 * @readonly
 	 */
 	public $objects;
@@ -8572,13 +8572,13 @@ class KalturaUiConfListResponse extends KalturaObjectBase
 
 }
 
-class KalturaUiConfTypeInfo extends KalturaObjectBase
+class BorhanUiConfTypeInfo extends BorhanObjectBase
 {
 	/**
 	 * UiConf Type
 	 * 
 	 *
-	 * @var KalturaUiConfObjType
+	 * @var BorhanUiConfObjType
 	 */
 	public $type = null;
 
@@ -8586,7 +8586,7 @@ class KalturaUiConfTypeInfo extends KalturaObjectBase
 	 * Available versions
 	 * 
 	 *
-	 * @var array of KalturaString
+	 * @var array of BorhanString
 	 */
 	public $versions;
 
@@ -8609,7 +8609,7 @@ class KalturaUiConfTypeInfo extends KalturaObjectBase
 
 }
 
-class KalturaUploadResponse extends KalturaObjectBase
+class BorhanUploadResponse extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -8628,7 +8628,7 @@ class KalturaUploadResponse extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaUploadErrorCode
+	 * @var BorhanUploadErrorCode
 	 */
 	public $errorCode = null;
 
@@ -8642,7 +8642,7 @@ class KalturaUploadResponse extends KalturaObjectBase
 
 }
 
-class KalturaUploadToken extends KalturaObjectBase
+class BorhanUploadToken extends BorhanObjectBase
 {
 	/**
 	 * Upload token unique ID
@@ -8671,7 +8671,7 @@ class KalturaUploadToken extends KalturaObjectBase
 	/**
 	 * Status of the upload token
 	 *
-	 * @var KalturaUploadTokenStatus
+	 * @var BorhanUploadTokenStatus
 	 * @readonly
 	 */
 	public $status = null;
@@ -8719,7 +8719,7 @@ class KalturaUploadToken extends KalturaObjectBase
 
 }
 
-abstract class KalturaUploadTokenBaseFilter extends KalturaFilter
+abstract class BorhanUploadTokenBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -8745,7 +8745,7 @@ abstract class KalturaUploadTokenBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaUploadTokenStatus
+	 * @var BorhanUploadTokenStatus
 	 */
 	public $statusEqual = null;
 
@@ -8759,17 +8759,17 @@ abstract class KalturaUploadTokenBaseFilter extends KalturaFilter
 
 }
 
-class KalturaUploadTokenFilter extends KalturaUploadTokenBaseFilter
+class BorhanUploadTokenFilter extends BorhanUploadTokenBaseFilter
 {
 
 }
 
-class KalturaUploadTokenListResponse extends KalturaObjectBase
+class BorhanUploadTokenListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaUploadToken
+	 * @var array of BorhanUploadToken
 	 * @readonly
 	 */
 	public $objects;
@@ -8785,7 +8785,7 @@ class KalturaUploadTokenListResponse extends KalturaObjectBase
 
 }
 
-class KalturaUserRole extends KalturaObjectBase
+class BorhanUserRole extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -8812,7 +8812,7 @@ class KalturaUserRole extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaUserRoleStatus
+	 * @var BorhanUserRoleStatus
 	 */
 	public $status = null;
 
@@ -8857,7 +8857,7 @@ class KalturaUserRole extends KalturaObjectBase
 
 }
 
-abstract class KalturaUserRoleBaseFilter extends KalturaFilter
+abstract class BorhanUserRoleBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -8897,7 +8897,7 @@ abstract class KalturaUserRoleBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaUserRoleStatus
+	 * @var BorhanUserRoleStatus
 	 */
 	public $statusEqual = null;
 
@@ -8967,17 +8967,17 @@ abstract class KalturaUserRoleBaseFilter extends KalturaFilter
 
 }
 
-class KalturaUserRoleFilter extends KalturaUserRoleBaseFilter
+class BorhanUserRoleFilter extends BorhanUserRoleBaseFilter
 {
 
 }
 
-class KalturaUserRoleListResponse extends KalturaObjectBase
+class BorhanUserRoleListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaUserRole
+	 * @var array of BorhanUserRole
 	 * @readonly
 	 */
 	public $objects;
@@ -8993,7 +8993,7 @@ class KalturaUserRoleListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaUserBaseFilter extends KalturaFilter
+abstract class BorhanUserBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -9047,7 +9047,7 @@ abstract class KalturaUserBaseFilter extends KalturaFilter
 	/**
 	 * 
 	 *
-	 * @var KalturaUserStatus
+	 * @var BorhanUserStatus
 	 */
 	public $statusEqual = null;
 
@@ -9082,7 +9082,7 @@ abstract class KalturaUserBaseFilter extends KalturaFilter
 
 }
 
-class KalturaUserFilter extends KalturaUserBaseFilter
+class BorhanUserFilter extends BorhanUserBaseFilter
 {
 	/**
 	 * 
@@ -9108,12 +9108,12 @@ class KalturaUserFilter extends KalturaUserBaseFilter
 
 }
 
-class KalturaUserListResponse extends KalturaObjectBase
+class BorhanUserListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaUser
+	 * @var array of BorhanUser
 	 * @readonly
 	 */
 	public $objects;
@@ -9129,7 +9129,7 @@ class KalturaUserListResponse extends KalturaObjectBase
 
 }
 
-class KalturaWidget extends KalturaObjectBase
+class BorhanWidget extends BorhanObjectBase
 {
 	/**
 	 * 
@@ -9179,7 +9179,7 @@ class KalturaWidget extends KalturaObjectBase
 	/**
 	 * 
 	 *
-	 * @var KalturaWidgetSecurityType
+	 * @var BorhanWidgetSecurityType
 	 */
 	public $securityType = null;
 
@@ -9224,7 +9224,7 @@ class KalturaWidget extends KalturaObjectBase
 
 }
 
-abstract class KalturaWidgetBaseFilter extends KalturaFilter
+abstract class BorhanWidgetBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -9313,17 +9313,17 @@ abstract class KalturaWidgetBaseFilter extends KalturaFilter
 
 }
 
-class KalturaWidgetFilter extends KalturaWidgetBaseFilter
+class BorhanWidgetFilter extends BorhanWidgetBaseFilter
 {
 
 }
 
-class KalturaWidgetListResponse extends KalturaObjectBase
+class BorhanWidgetListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaWidget
+	 * @var array of BorhanWidget
 	 * @readonly
 	 */
 	public $objects;
@@ -9339,7 +9339,7 @@ class KalturaWidgetListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaPartnerBaseFilter extends KalturaFilter
+abstract class BorhanPartnerBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -9428,17 +9428,17 @@ abstract class KalturaPartnerBaseFilter extends KalturaFilter
 
 }
 
-class KalturaPartnerFilter extends KalturaPartnerBaseFilter
+class BorhanPartnerFilter extends BorhanPartnerBaseFilter
 {
 
 }
 
-class KalturaPartnerListResponse extends KalturaObjectBase
+class BorhanPartnerListResponse extends BorhanObjectBase
 {
 	/**
 	 * 
 	 *
-	 * @var array of KalturaPartner
+	 * @var array of BorhanPartner
 	 * @readonly
 	 */
 	public $objects;
@@ -9454,7 +9454,7 @@ class KalturaPartnerListResponse extends KalturaObjectBase
 
 }
 
-abstract class KalturaFlavorParamsOutputBaseFilter extends KalturaFlavorParamsFilter
+abstract class BorhanFlavorParamsOutputBaseFilter extends BorhanFlavorParamsFilter
 {
 	/**
 	 * 
@@ -9487,12 +9487,12 @@ abstract class KalturaFlavorParamsOutputBaseFilter extends KalturaFlavorParamsFi
 
 }
 
-class KalturaFlavorParamsOutputFilter extends KalturaFlavorParamsOutputBaseFilter
+class BorhanFlavorParamsOutputFilter extends BorhanFlavorParamsOutputBaseFilter
 {
 
 }
 
-class KalturaFlavorParamsOutput extends KalturaFlavorParams
+class BorhanFlavorParamsOutput extends BorhanFlavorParams
 {
 	/**
 	 * 
@@ -9539,7 +9539,7 @@ class KalturaFlavorParamsOutput extends KalturaFlavorParams
 
 }
 
-abstract class KalturaThumbParamsOutputBaseFilter extends KalturaThumbParamsFilter
+abstract class BorhanThumbParamsOutputBaseFilter extends BorhanThumbParamsFilter
 {
 	/**
 	 * 
@@ -9572,12 +9572,12 @@ abstract class KalturaThumbParamsOutputBaseFilter extends KalturaThumbParamsFilt
 
 }
 
-class KalturaThumbParamsOutputFilter extends KalturaThumbParamsOutputBaseFilter
+class BorhanThumbParamsOutputFilter extends BorhanThumbParamsOutputBaseFilter
 {
 
 }
 
-class KalturaThumbParamsOutput extends KalturaThumbParams
+class BorhanThumbParamsOutput extends BorhanThumbParams
 {
 	/**
 	 * 
@@ -9610,7 +9610,7 @@ class KalturaThumbParamsOutput extends KalturaThumbParams
 
 }
 
-abstract class KalturaMediaInfoBaseFilter extends KalturaFilter
+abstract class BorhanMediaInfoBaseFilter extends BorhanFilter
 {
 	/**
 	 * 
@@ -9622,18 +9622,18 @@ abstract class KalturaMediaInfoBaseFilter extends KalturaFilter
 
 }
 
-class KalturaMediaInfoFilter extends KalturaMediaInfoBaseFilter
+class BorhanMediaInfoFilter extends BorhanMediaInfoBaseFilter
 {
 
 }
 
-class KalturaCountryRestriction extends KalturaBaseRestriction
+class BorhanCountryRestriction extends BorhanBaseRestriction
 {
 	/**
 	 * Country restriction type (Allow or deny)
 	 * 
 	 *
-	 * @var KalturaCountryRestrictionType
+	 * @var BorhanCountryRestrictionType
 	 */
 	public $countryRestrictionType = null;
 
@@ -9648,26 +9648,26 @@ class KalturaCountryRestriction extends KalturaBaseRestriction
 
 }
 
-class KalturaDirectoryRestriction extends KalturaBaseRestriction
+class BorhanDirectoryRestriction extends BorhanBaseRestriction
 {
 	/**
-	 * Kaltura directory restriction type
+	 * Borhan directory restriction type
 	 * 
 	 *
-	 * @var KalturaDirectoryRestrictionType
+	 * @var BorhanDirectoryRestrictionType
 	 */
 	public $directoryRestrictionType = null;
 
 
 }
 
-class KalturaIpAddressRestriction extends KalturaBaseRestriction
+class BorhanIpAddressRestriction extends BorhanBaseRestriction
 {
 	/**
 	 * Ip address restriction type (Allow or deny)
 	 * 
 	 *
-	 * @var KalturaIpAddressRestrictionType
+	 * @var BorhanIpAddressRestrictionType
 	 */
 	public $ipAddressRestrictionType = null;
 
@@ -9682,12 +9682,12 @@ class KalturaIpAddressRestriction extends KalturaBaseRestriction
 
 }
 
-class KalturaSessionRestriction extends KalturaBaseRestriction
+class BorhanSessionRestriction extends BorhanBaseRestriction
 {
 
 }
 
-class KalturaPreviewRestriction extends KalturaSessionRestriction
+class BorhanPreviewRestriction extends BorhanSessionRestriction
 {
 	/**
 	 * The preview restriction length 
@@ -9700,13 +9700,13 @@ class KalturaPreviewRestriction extends KalturaSessionRestriction
 
 }
 
-class KalturaSiteRestriction extends KalturaBaseRestriction
+class BorhanSiteRestriction extends BorhanBaseRestriction
 {
 	/**
 	 * The site restriction type (allow or deny)
 	 * 
 	 *
-	 * @var KalturaSiteRestrictionType
+	 * @var BorhanSiteRestrictionType
 	 */
 	public $siteRestrictionType = null;
 
@@ -9721,7 +9721,7 @@ class KalturaSiteRestriction extends KalturaBaseRestriction
 
 }
 
-class KalturaSearchCondition extends KalturaSearchItem
+class BorhanSearchCondition extends BorhanSearchItem
 {
 	/**
 	 * 
@@ -9740,58 +9740,58 @@ class KalturaSearchCondition extends KalturaSearchItem
 
 }
 
-class KalturaSearchComparableCondition extends KalturaSearchCondition
+class BorhanSearchComparableCondition extends BorhanSearchCondition
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaSearchConditionComparison
+	 * @var BorhanSearchConditionComparison
 	 */
 	public $comparison = null;
 
 
 }
 
-class KalturaSearchOperator extends KalturaSearchItem
+class BorhanSearchOperator extends BorhanSearchItem
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaSearchOperatorType
+	 * @var BorhanSearchOperatorType
 	 */
 	public $type = null;
 
 	/**
 	 * 
 	 *
-	 * @var array of KalturaSearchItem
+	 * @var array of BorhanSearchItem
 	 */
 	public $items;
 
 
 }
 
-abstract class KalturaMailJobBaseFilter extends KalturaBaseJobFilter
+abstract class BorhanMailJobBaseFilter extends BorhanBaseJobFilter
 {
 
 }
 
-class KalturaMailJobFilter extends KalturaMailJobBaseFilter
+class BorhanMailJobFilter extends BorhanMailJobBaseFilter
 {
 
 }
 
-abstract class KalturaNotificationBaseFilter extends KalturaBaseJobFilter
+abstract class BorhanNotificationBaseFilter extends BorhanBaseJobFilter
 {
 
 }
 
-class KalturaNotificationFilter extends KalturaNotificationBaseFilter
+class BorhanNotificationFilter extends BorhanNotificationBaseFilter
 {
 
 }
 
-abstract class KalturaAssetParamsOutputBaseFilter extends KalturaAssetParamsFilter
+abstract class BorhanAssetParamsOutputBaseFilter extends BorhanAssetParamsFilter
 {
 	/**
 	 * 
@@ -9824,152 +9824,152 @@ abstract class KalturaAssetParamsOutputBaseFilter extends KalturaAssetParamsFilt
 
 }
 
-class KalturaAssetParamsOutputFilter extends KalturaAssetParamsOutputBaseFilter
+class BorhanAssetParamsOutputFilter extends BorhanAssetParamsOutputBaseFilter
 {
 
 }
 
-abstract class KalturaFlavorAssetBaseFilter extends KalturaAssetFilter
+abstract class BorhanFlavorAssetBaseFilter extends BorhanAssetFilter
 {
 
 }
 
-class KalturaFlavorAssetFilter extends KalturaFlavorAssetBaseFilter
+class BorhanFlavorAssetFilter extends BorhanFlavorAssetBaseFilter
 {
 
 }
 
-abstract class KalturaMediaFlavorParamsBaseFilter extends KalturaFlavorParamsFilter
+abstract class BorhanMediaFlavorParamsBaseFilter extends BorhanFlavorParamsFilter
 {
 
 }
 
-class KalturaMediaFlavorParamsFilter extends KalturaMediaFlavorParamsBaseFilter
+class BorhanMediaFlavorParamsFilter extends BorhanMediaFlavorParamsBaseFilter
 {
 
 }
 
-abstract class KalturaMediaFlavorParamsOutputBaseFilter extends KalturaFlavorParamsOutputFilter
+abstract class BorhanMediaFlavorParamsOutputBaseFilter extends BorhanFlavorParamsOutputFilter
 {
 
 }
 
-class KalturaMediaFlavorParamsOutputFilter extends KalturaMediaFlavorParamsOutputBaseFilter
+class BorhanMediaFlavorParamsOutputFilter extends BorhanMediaFlavorParamsOutputBaseFilter
 {
 
 }
 
-abstract class KalturaThumbAssetBaseFilter extends KalturaAssetFilter
+abstract class BorhanThumbAssetBaseFilter extends BorhanAssetFilter
 {
 
 }
 
-class KalturaThumbAssetFilter extends KalturaThumbAssetBaseFilter
+class BorhanThumbAssetFilter extends BorhanThumbAssetBaseFilter
 {
 
 }
 
-abstract class KalturaLiveStreamAdminEntryBaseFilter extends KalturaLiveStreamEntryFilter
+abstract class BorhanLiveStreamAdminEntryBaseFilter extends BorhanLiveStreamEntryFilter
 {
 
 }
 
-class KalturaLiveStreamAdminEntryFilter extends KalturaLiveStreamAdminEntryBaseFilter
+class BorhanLiveStreamAdminEntryFilter extends BorhanLiveStreamAdminEntryBaseFilter
 {
 
 }
 
-abstract class KalturaAdminUserBaseFilter extends KalturaUserFilter
+abstract class BorhanAdminUserBaseFilter extends BorhanUserFilter
 {
 
 }
 
-class KalturaAdminUserFilter extends KalturaAdminUserBaseFilter
+class BorhanAdminUserFilter extends BorhanAdminUserBaseFilter
 {
 
 }
 
-abstract class KalturaGoogleVideoSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter
+abstract class BorhanGoogleVideoSyndicationFeedBaseFilter extends BorhanBaseSyndicationFeedFilter
 {
 
 }
 
-class KalturaGoogleVideoSyndicationFeedFilter extends KalturaGoogleVideoSyndicationFeedBaseFilter
+class BorhanGoogleVideoSyndicationFeedFilter extends BorhanGoogleVideoSyndicationFeedBaseFilter
 {
 
 }
 
-abstract class KalturaITunesSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter
+abstract class BorhanITunesSyndicationFeedBaseFilter extends BorhanBaseSyndicationFeedFilter
 {
 
 }
 
-class KalturaITunesSyndicationFeedFilter extends KalturaITunesSyndicationFeedBaseFilter
+class BorhanITunesSyndicationFeedFilter extends BorhanITunesSyndicationFeedBaseFilter
 {
 
 }
 
-abstract class KalturaTubeMogulSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter
+abstract class BorhanTubeMogulSyndicationFeedBaseFilter extends BorhanBaseSyndicationFeedFilter
 {
 
 }
 
-class KalturaTubeMogulSyndicationFeedFilter extends KalturaTubeMogulSyndicationFeedBaseFilter
+class BorhanTubeMogulSyndicationFeedFilter extends BorhanTubeMogulSyndicationFeedBaseFilter
 {
 
 }
 
-abstract class KalturaYahooSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter
+abstract class BorhanYahooSyndicationFeedBaseFilter extends BorhanBaseSyndicationFeedFilter
 {
 
 }
 
-class KalturaYahooSyndicationFeedFilter extends KalturaYahooSyndicationFeedBaseFilter
+class BorhanYahooSyndicationFeedFilter extends BorhanYahooSyndicationFeedBaseFilter
 {
 
 }
 
-abstract class KalturaApiActionPermissionItemBaseFilter extends KalturaPermissionItemFilter
+abstract class BorhanApiActionPermissionItemBaseFilter extends BorhanPermissionItemFilter
 {
 
 }
 
-class KalturaApiActionPermissionItemFilter extends KalturaApiActionPermissionItemBaseFilter
+class BorhanApiActionPermissionItemFilter extends BorhanApiActionPermissionItemBaseFilter
 {
 
 }
 
-abstract class KalturaApiParameterPermissionItemBaseFilter extends KalturaPermissionItemFilter
+abstract class BorhanApiParameterPermissionItemBaseFilter extends BorhanPermissionItemFilter
 {
 
 }
 
-class KalturaApiParameterPermissionItemFilter extends KalturaApiParameterPermissionItemBaseFilter
+class BorhanApiParameterPermissionItemFilter extends BorhanApiParameterPermissionItemBaseFilter
 {
 
 }
 
-abstract class KalturaGenericSyndicationFeedBaseFilter extends KalturaBaseSyndicationFeedFilter
+abstract class BorhanGenericSyndicationFeedBaseFilter extends BorhanBaseSyndicationFeedFilter
 {
 
 }
 
-class KalturaGenericSyndicationFeedFilter extends KalturaGenericSyndicationFeedBaseFilter
+class BorhanGenericSyndicationFeedFilter extends BorhanGenericSyndicationFeedBaseFilter
 {
 
 }
 
-abstract class KalturaGenericXsltSyndicationFeedBaseFilter extends KalturaGenericSyndicationFeedFilter
+abstract class BorhanGenericXsltSyndicationFeedBaseFilter extends BorhanGenericSyndicationFeedFilter
 {
 
 }
 
-class KalturaGenericXsltSyndicationFeedFilter extends KalturaGenericXsltSyndicationFeedBaseFilter
+class BorhanGenericXsltSyndicationFeedFilter extends BorhanGenericXsltSyndicationFeedBaseFilter
 {
 
 }
 
-class KalturaClipAttributes extends KalturaOperationAttributes
+class BorhanClipAttributes extends BorhanOperationAttributes
 {
 	/**
 	 * Offset in milliseconds
@@ -9988,12 +9988,12 @@ class KalturaClipAttributes extends KalturaOperationAttributes
 
 }
 
-class KalturaAssetParamsResourceContainer extends KalturaResource
+class BorhanAssetParamsResourceContainer extends BorhanResource
 {
 	/**
 	 * The content resource to associate with asset params
 	 *
-	 * @var KalturaContentResource
+	 * @var BorhanContentResource
 	 */
 	public $resource;
 
@@ -10007,7 +10007,7 @@ class KalturaAssetParamsResourceContainer extends KalturaResource
 
 }
 
-class KalturaAssetResource extends KalturaContentResource
+class BorhanAssetResource extends BorhanContentResource
 {
 	/**
 	 * ID of the source asset 
@@ -10019,24 +10019,24 @@ class KalturaAssetResource extends KalturaContentResource
 
 }
 
-class KalturaAssetsParamsResourceContainers extends KalturaResource
+class BorhanAssetsParamsResourceContainers extends BorhanResource
 {
 	/**
 	 * Array of resources associated with asset params ids
 	 *
-	 * @var array of KalturaAssetParamsResourceContainer
+	 * @var array of BorhanAssetParamsResourceContainer
 	 */
 	public $resources;
 
 
 }
 
-abstract class KalturaDataCenterContentResource extends KalturaContentResource
+abstract class BorhanDataCenterContentResource extends BorhanContentResource
 {
 
 }
 
-class KalturaEntryResource extends KalturaContentResource
+class BorhanEntryResource extends BorhanContentResource
 {
 	/**
 	 * ID of the source entry 
@@ -10055,7 +10055,7 @@ class KalturaEntryResource extends KalturaContentResource
 
 }
 
-class KalturaFileSyncResource extends KalturaContentResource
+class BorhanFileSyncResource extends BorhanContentResource
 {
 	/**
 	 * The object type of the file sync object 
@@ -10088,7 +10088,7 @@ class KalturaFileSyncResource extends KalturaContentResource
 
 }
 
-class KalturaLocalFileResource extends KalturaDataCenterContentResource
+class BorhanLocalFileResource extends BorhanDataCenterContentResource
 {
 	/**
 	 * Full path to the local file 
@@ -10100,19 +10100,19 @@ class KalturaLocalFileResource extends KalturaDataCenterContentResource
 
 }
 
-class KalturaOperationResource extends KalturaContentResource
+class BorhanOperationResource extends BorhanContentResource
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaContentResource
+	 * @var BorhanContentResource
 	 */
 	public $resource;
 
 	/**
 	 * 
 	 *
-	 * @var array of KalturaOperationAttributes
+	 * @var array of BorhanOperationAttributes
 	 */
 	public $operationAttributes;
 
@@ -10126,7 +10126,7 @@ class KalturaOperationResource extends KalturaContentResource
 
 }
 
-class KalturaUrlResource extends KalturaContentResource
+class BorhanUrlResource extends BorhanContentResource
 {
 	/**
 	 * Remote URL, FTP, HTTP or HTTPS 
@@ -10138,7 +10138,7 @@ class KalturaUrlResource extends KalturaContentResource
 
 }
 
-class KalturaRemoteStorageResource extends KalturaUrlResource
+class BorhanRemoteStorageResource extends BorhanUrlResource
 {
 	/**
 	 * ID of storage profile to be associated with the created file sync, used for file serving URL composing. 
@@ -10150,7 +10150,7 @@ class KalturaRemoteStorageResource extends KalturaUrlResource
 
 }
 
-class KalturaUploadedFileTokenResource extends KalturaDataCenterContentResource
+class BorhanUploadedFileTokenResource extends BorhanDataCenterContentResource
 {
 	/**
 	 * Token that returned from upload.upload action or uploadToken.add action. 
@@ -10162,7 +10162,7 @@ class KalturaUploadedFileTokenResource extends KalturaDataCenterContentResource
 
 }
 
-class KalturaWebcamTokenResource extends KalturaDataCenterContentResource
+class BorhanWebcamTokenResource extends BorhanDataCenterContentResource
 {
 	/**
 	 * Token that returned from media server such as FMS or red5. 
@@ -10174,12 +10174,12 @@ class KalturaWebcamTokenResource extends KalturaDataCenterContentResource
 
 }
 
-class KalturaMailJob extends KalturaBaseJob
+class BorhanMailJob extends BorhanBaseJob
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaMailType
+	 * @var BorhanMailType
 	 */
 	public $mailType = null;
 
@@ -10193,7 +10193,7 @@ class KalturaMailJob extends KalturaBaseJob
 	/**
 	 * 
 	 *
-	 * @var KalturaMailJobStatus
+	 * @var BorhanMailJobStatus
 	 */
 	public $status = null;
 
@@ -10277,7 +10277,7 @@ class KalturaMailJob extends KalturaBaseJob
 
 }
 
-class KalturaBulkDownloadJobData extends KalturaJobData
+class BorhanBulkDownloadJobData extends BorhanJobData
 {
 	/**
 	 * Comma separated list of entry ids
@@ -10306,7 +10306,7 @@ class KalturaBulkDownloadJobData extends KalturaJobData
 
 }
 
-class KalturaBulkUploadJobData extends KalturaJobData
+class BorhanBulkUploadJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10365,7 +10365,7 @@ class KalturaBulkUploadJobData extends KalturaJobData
 
 }
 
-class KalturaCaptureThumbJobData extends KalturaJobData
+class BorhanCaptureThumbJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10398,7 +10398,7 @@ class KalturaCaptureThumbJobData extends KalturaJobData
 	/**
 	 * 
 	 *
-	 * @var KalturaThumbParamsOutput
+	 * @var BorhanThumbParamsOutput
 	 */
 	public $thumbParamsOutput;
 
@@ -10412,7 +10412,7 @@ class KalturaCaptureThumbJobData extends KalturaJobData
 	/**
 	 * 
 	 *
-	 * @var KalturaAssetType
+	 * @var BorhanAssetType
 	 */
 	public $srcAssetType = null;
 
@@ -10426,7 +10426,7 @@ class KalturaCaptureThumbJobData extends KalturaJobData
 
 }
 
-class KalturaConvartableJobData extends KalturaJobData
+class BorhanConvartableJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10466,7 +10466,7 @@ class KalturaConvartableJobData extends KalturaJobData
 	/**
 	 * 
 	 *
-	 * @var KalturaFlavorParamsOutput
+	 * @var BorhanFlavorParamsOutput
 	 */
 	public $flavorParamsOutput;
 
@@ -10494,7 +10494,7 @@ class KalturaConvartableJobData extends KalturaJobData
 
 }
 
-class KalturaConvertCollectionJobData extends KalturaConvartableJobData
+class BorhanConvertCollectionJobData extends BorhanConvartableJobData
 {
 	/**
 	 * 
@@ -10541,14 +10541,14 @@ class KalturaConvertCollectionJobData extends KalturaConvartableJobData
 	/**
 	 * 
 	 *
-	 * @var array of KalturaConvertCollectionFlavorData
+	 * @var array of BorhanConvertCollectionFlavorData
 	 */
 	public $flavors;
 
 
 }
 
-class KalturaConvertJobData extends KalturaConvartableJobData
+class BorhanConvertJobData extends BorhanConvartableJobData
 {
 	/**
 	 * 
@@ -10588,7 +10588,7 @@ class KalturaConvertJobData extends KalturaConvartableJobData
 
 }
 
-class KalturaConvertProfileJobData extends KalturaJobData
+class BorhanConvertProfileJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10616,7 +10616,7 @@ class KalturaConvertProfileJobData extends KalturaJobData
 
 }
 
-class KalturaExtractMediaJobData extends KalturaConvartableJobData
+class BorhanExtractMediaJobData extends BorhanConvartableJobData
 {
 	/**
 	 * 
@@ -10628,12 +10628,12 @@ class KalturaExtractMediaJobData extends KalturaConvartableJobData
 
 }
 
-class KalturaFlattenJobData extends KalturaJobData
+class BorhanFlattenJobData extends BorhanJobData
 {
 
 }
 
-class KalturaImportJobData extends KalturaJobData
+class BorhanImportJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10659,7 +10659,7 @@ class KalturaImportJobData extends KalturaJobData
 
 }
 
-class KalturaNotificationJobData extends KalturaJobData
+class BorhanNotificationJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10671,7 +10671,7 @@ class KalturaNotificationJobData extends KalturaJobData
 	/**
 	 * 
 	 *
-	 * @var KalturaNotificationType
+	 * @var BorhanNotificationType
 	 */
 	public $type = null;
 
@@ -10692,7 +10692,7 @@ class KalturaNotificationJobData extends KalturaJobData
 	/**
 	 * 
 	 *
-	 * @var KalturaNotificationStatus
+	 * @var BorhanNotificationStatus
 	 */
 	public $status = null;
 
@@ -10720,14 +10720,14 @@ class KalturaNotificationJobData extends KalturaJobData
 	/**
 	 * 
 	 *
-	 * @var KalturaNotificationObjectType
+	 * @var BorhanNotificationObjectType
 	 */
 	public $objType = null;
 
 
 }
 
-class KalturaPostConvertJobData extends KalturaConvartableJobData
+class BorhanPostConvertJobData extends BorhanConvartableJobData
 {
 	/**
 	 * 
@@ -10779,7 +10779,7 @@ class KalturaPostConvertJobData extends KalturaConvartableJobData
 
 }
 
-class KalturaProvisionJobData extends KalturaJobData
+class BorhanProvisionJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10875,7 +10875,7 @@ class KalturaProvisionJobData extends KalturaJobData
 
 }
 
-class KalturaPullJobData extends KalturaJobData
+class BorhanPullJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10894,7 +10894,7 @@ class KalturaPullJobData extends KalturaJobData
 
 }
 
-class KalturaRemoteConvertJobData extends KalturaConvartableJobData
+class BorhanRemoteConvertJobData extends BorhanConvartableJobData
 {
 	/**
 	 * 
@@ -10914,7 +10914,7 @@ class KalturaRemoteConvertJobData extends KalturaConvartableJobData
 
 }
 
-class KalturaStorageJobData extends KalturaJobData
+class BorhanStorageJobData extends BorhanJobData
 {
 	/**
 	 * 
@@ -10961,12 +10961,12 @@ class KalturaStorageJobData extends KalturaJobData
 
 }
 
-class KalturaStorageDeleteJobData extends KalturaStorageJobData
+class BorhanStorageDeleteJobData extends BorhanStorageJobData
 {
 
 }
 
-class KalturaStorageExportJobData extends KalturaStorageJobData
+class BorhanStorageExportJobData extends BorhanStorageJobData
 {
 	/**
 	 * 
@@ -10985,7 +10985,7 @@ class KalturaStorageExportJobData extends KalturaStorageJobData
 
 }
 
-class KalturaAssetParamsOutput extends KalturaAssetParams
+class BorhanAssetParamsOutput extends BorhanAssetParams
 {
 	/**
 	 * 
@@ -11025,17 +11025,17 @@ class KalturaAssetParamsOutput extends KalturaAssetParams
 
 }
 
-class KalturaMediaFlavorParams extends KalturaFlavorParams
+class BorhanMediaFlavorParams extends BorhanFlavorParams
 {
 
 }
 
-class KalturaMediaFlavorParamsOutput extends KalturaFlavorParamsOutput
+class BorhanMediaFlavorParamsOutput extends BorhanFlavorParamsOutput
 {
 
 }
 
-class KalturaApiActionPermissionItem extends KalturaPermissionItem
+class BorhanApiActionPermissionItem extends BorhanPermissionItem
 {
 	/**
 	 * 
@@ -11054,7 +11054,7 @@ class KalturaApiActionPermissionItem extends KalturaPermissionItem
 
 }
 
-class KalturaApiParameterPermissionItem extends KalturaPermissionItem
+class BorhanApiParameterPermissionItem extends BorhanPermissionItem
 {
 	/**
 	 * 
@@ -11073,14 +11073,14 @@ class KalturaApiParameterPermissionItem extends KalturaPermissionItem
 	/**
 	 * 
 	 *
-	 * @var KalturaApiParameterPermissionItemAction
+	 * @var BorhanApiParameterPermissionItemAction
 	 */
 	public $action = null;
 
 
 }
 
-class KalturaGenericSyndicationFeed extends KalturaBaseSyndicationFeed
+class BorhanGenericSyndicationFeed extends BorhanBaseSyndicationFeed
 {
 	/**
 	 * feed description
@@ -11101,7 +11101,7 @@ class KalturaGenericSyndicationFeed extends KalturaBaseSyndicationFeed
 
 }
 
-class KalturaGenericXsltSyndicationFeed extends KalturaGenericSyndicationFeed
+class BorhanGenericXsltSyndicationFeed extends BorhanGenericSyndicationFeed
 {
 	/**
 	 * 
@@ -11113,19 +11113,19 @@ class KalturaGenericXsltSyndicationFeed extends KalturaGenericSyndicationFeed
 
 }
 
-class KalturaGoogleVideoSyndicationFeed extends KalturaBaseSyndicationFeed
+class BorhanGoogleVideoSyndicationFeed extends BorhanBaseSyndicationFeed
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaGoogleSyndicationFeedAdultValues
+	 * @var BorhanGoogleSyndicationFeedAdultValues
 	 */
 	public $adultContent = null;
 
 
 }
 
-class KalturaITunesSyndicationFeed extends KalturaBaseSyndicationFeed
+class BorhanITunesSyndicationFeed extends BorhanBaseSyndicationFeed
 {
 	/**
 	 * feed description
@@ -11178,7 +11178,7 @@ class KalturaITunesSyndicationFeed extends KalturaBaseSyndicationFeed
 	/**
 	 * 
 	 *
-	 * @var KalturaITunesSyndicationFeedCategories
+	 * @var BorhanITunesSyndicationFeedCategories
 	 * @readonly
 	 */
 	public $category = null;
@@ -11186,7 +11186,7 @@ class KalturaITunesSyndicationFeed extends KalturaBaseSyndicationFeed
 	/**
 	 * 
 	 *
-	 * @var KalturaITunesSyndicationFeedAdultValues
+	 * @var BorhanITunesSyndicationFeedAdultValues
 	 */
 	public $adultContent = null;
 
@@ -11200,12 +11200,12 @@ class KalturaITunesSyndicationFeed extends KalturaBaseSyndicationFeed
 
 }
 
-class KalturaTubeMogulSyndicationFeed extends KalturaBaseSyndicationFeed
+class BorhanTubeMogulSyndicationFeed extends BorhanBaseSyndicationFeed
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaTubeMogulSyndicationFeedCategories
+	 * @var BorhanTubeMogulSyndicationFeedCategories
 	 * @readonly
 	 */
 	public $category = null;
@@ -11213,12 +11213,12 @@ class KalturaTubeMogulSyndicationFeed extends KalturaBaseSyndicationFeed
 
 }
 
-class KalturaYahooSyndicationFeed extends KalturaBaseSyndicationFeed
+class BorhanYahooSyndicationFeed extends BorhanBaseSyndicationFeed
 {
 	/**
 	 * 
 	 *
-	 * @var KalturaYahooSyndicationFeedCategories
+	 * @var BorhanYahooSyndicationFeedCategories
 	 * @readonly
 	 */
 	public $category = null;
@@ -11226,7 +11226,7 @@ class KalturaYahooSyndicationFeed extends KalturaBaseSyndicationFeed
 	/**
 	 * 
 	 *
-	 * @var KalturaYahooSyndicationFeedAdultValues
+	 * @var BorhanYahooSyndicationFeedAdultValues
 	 */
 	public $adultContent = null;
 

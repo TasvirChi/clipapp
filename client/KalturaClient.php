@@ -1,17 +1,17 @@
 <?php
-require_once("KalturaClientBase.php");
-require_once("KalturaEnums.php");
-require_once("KalturaTypes.php");
+require_once("BorhanClientBase.php");
+require_once("BorhanEnums.php");
+require_once("BorhanTypes.php");
 
 
-class KalturaAccessControlService extends KalturaServiceBase
+class BorhanAccessControlService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaAccessControl $accessControl)
+	function add(BorhanAccessControl $accessControl)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "accessControl", $accessControl->toParams());
@@ -20,7 +20,7 @@ class KalturaAccessControlService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAccessControl");
+		$this->client->validateObjectType($resultObject, "BorhanAccessControl");
 		return $resultObject;
 	}
 
@@ -33,11 +33,11 @@ class KalturaAccessControlService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAccessControl");
+		$this->client->validateObjectType($resultObject, "BorhanAccessControl");
 		return $resultObject;
 	}
 
-	function update($id, KalturaAccessControl $accessControl)
+	function update($id, BorhanAccessControl $accessControl)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -47,7 +47,7 @@ class KalturaAccessControlService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAccessControl");
+		$this->client->validateObjectType($resultObject, "BorhanAccessControl");
 		return $resultObject;
 	}
 
@@ -64,7 +64,7 @@ class KalturaAccessControlService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaAccessControlFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanAccessControlFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -76,14 +76,14 @@ class KalturaAccessControlService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAccessControlListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanAccessControlListResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaAdminUserService extends KalturaServiceBase
+class BorhanAdminUserService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -100,7 +100,7 @@ class KalturaAdminUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaAdminUser");
+		$this->client->validateObjectType($resultObject, "BorhanAdminUser");
 		return $resultObject;
 	}
 
@@ -147,14 +147,14 @@ class KalturaAdminUserService extends KalturaServiceBase
 	}
 }
 
-class KalturaBaseEntryService extends KalturaServiceBase
+class BorhanBaseEntryService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaBaseEntry $entry, $type = null)
+	function add(BorhanBaseEntry $entry, $type = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entry", $entry->toParams());
@@ -164,11 +164,11 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
-	function addContent($entryId, KalturaResource $resource)
+	function addContent($entryId, BorhanResource $resource)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -178,11 +178,11 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
-	function addFromUploadedFile(KalturaBaseEntry $entry, $uploadTokenId, $type = null)
+	function addFromUploadedFile(BorhanBaseEntry $entry, $uploadTokenId, $type = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entry", $entry->toParams());
@@ -193,7 +193,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
@@ -207,11 +207,11 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
-	function update($entryId, KalturaBaseEntry $baseEntry)
+	function update($entryId, BorhanBaseEntry $baseEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -221,11 +221,11 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
-	function updateContent($entryId, KalturaResource $resource, $conversionProfileId = null)
+	function updateContent($entryId, BorhanResource $resource, $conversionProfileId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -236,7 +236,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
@@ -266,7 +266,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaBaseEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanBaseEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -278,11 +278,11 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntryListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntryListResponse");
 		return $resultObject;
 	}
 
-	function count(KalturaBaseEntryFilter $filter = null)
+	function count(BorhanBaseEntryFilter $filter = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -321,7 +321,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
@@ -335,7 +335,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
@@ -350,11 +350,11 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
-	function flag(KalturaModerationFlag $moderationFlag)
+	function flag(BorhanModerationFlag $moderationFlag)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "moderationFlag", $moderationFlag->toParams());
@@ -393,7 +393,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listFlags($entryId, KalturaFilterPager $pager = null)
+	function listFlags($entryId, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -404,7 +404,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaModerationFlagListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanModerationFlagListResponse");
 		return $resultObject;
 	}
 
@@ -422,7 +422,7 @@ class KalturaBaseEntryService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getContextData($entryId, KalturaEntryContextDataParams $contextDataParams)
+	function getContextData($entryId, BorhanEntryContextDataParams $contextDataParams)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -432,19 +432,19 @@ class KalturaBaseEntryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaEntryContextDataResult");
+		$this->client->validateObjectType($resultObject, "BorhanEntryContextDataResult");
 		return $resultObject;
 	}
 }
 
-class KalturaBatchcontrolService extends KalturaServiceBase
+class BorhanBatchcontrolService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function reportStatus(KalturaScheduler $scheduler, array $schedulerStatuses, array $workerQueueFilters)
+	function reportStatus(BorhanScheduler $scheduler, array $schedulerStatuses, array $workerQueueFilters)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "scheduler", $scheduler->toParams());
@@ -461,11 +461,11 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSchedulerStatusResponse");
+		$this->client->validateObjectType($resultObject, "BorhanSchedulerStatusResponse");
 		return $resultObject;
 	}
 
-	function configLoaded(KalturaScheduler $scheduler, $configParam, $configValue, $configParamPart = null, $workerConfigId = null, $workerName = null)
+	function configLoaded(BorhanScheduler $scheduler, $configParam, $configValue, $configParamPart = null, $workerConfigId = null, $workerName = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "scheduler", $scheduler->toParams());
@@ -479,7 +479,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSchedulerConfig");
+		$this->client->validateObjectType($resultObject, "BorhanSchedulerConfig");
 		return $resultObject;
 	}
 
@@ -494,7 +494,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 
@@ -509,7 +509,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 
@@ -525,7 +525,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 
@@ -540,7 +540,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 
@@ -558,7 +558,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 
@@ -576,7 +576,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 
@@ -591,11 +591,11 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 
-	function listCommands(KalturaControlPanelCommandFilter $filter = null, KalturaFilterPager $pager = null)
+	function listCommands(BorhanControlPanelCommandFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -607,7 +607,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommandListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommandListResponse");
 		return $resultObject;
 	}
 
@@ -620,7 +620,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 
@@ -632,7 +632,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSchedulerListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanSchedulerListResponse");
 		return $resultObject;
 	}
 
@@ -644,7 +644,7 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSchedulerWorkerListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanSchedulerWorkerListResponse");
 		return $resultObject;
 	}
 
@@ -656,19 +656,19 @@ class KalturaBatchcontrolService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaControlPanelCommand");
+		$this->client->validateObjectType($resultObject, "BorhanControlPanelCommand");
 		return $resultObject;
 	}
 }
 
-class KalturaBatchService extends KalturaServiceBase
+class BorhanBatchService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function getExclusiveImportJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveImportJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -685,7 +685,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveImportJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveImportJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -696,11 +696,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveImportJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveImportJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -711,11 +711,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveBulkUploadJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveBulkUploadJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -732,7 +732,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneBulkUploadJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneBulkUploadJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -749,7 +749,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveBulkUploadJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveBulkUploadJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -760,11 +760,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveBulkUploadJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveBulkUploadJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -775,11 +775,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function addBulkUploadResult(KalturaBulkUploadResult $bulkUploadResult, array $pluginDataArray = null)
+	function addBulkUploadResult(BorhanBulkUploadResult $bulkUploadResult, array $pluginDataArray = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "bulkUploadResult", $bulkUploadResult->toParams());
@@ -793,7 +793,7 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBulkUploadResult");
+		$this->client->validateObjectType($resultObject, "BorhanBulkUploadResult");
 		return $resultObject;
 	}
 
@@ -806,7 +806,7 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBulkUploadResult");
+		$this->client->validateObjectType($resultObject, "BorhanBulkUploadResult");
 		return $resultObject;
 	}
 
@@ -836,7 +836,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneConvertCollectionJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneConvertCollectionJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -853,7 +853,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneConvertProfileJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneConvertProfileJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -870,7 +870,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveConvertCollectionJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job, array $flavorsData = null)
+	function updateExclusiveConvertCollectionJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job, array $flavorsData = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -886,11 +886,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function updateExclusiveConvertProfileJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveConvertProfileJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -901,11 +901,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveConvertCollectionJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveConvertCollectionJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -916,11 +916,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function freeExclusiveConvertProfileJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveConvertProfileJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -931,11 +931,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveConvertCollectionJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveConvertCollectionJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -952,7 +952,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveConvertJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveConvertJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -969,7 +969,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneConvertJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneConvertJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -986,7 +986,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveConvertJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveConvertJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -997,11 +997,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function updateExclusiveConvertJobSubType($id, KalturaExclusiveLockKey $lockKey, $subType)
+	function updateExclusiveConvertJobSubType($id, BorhanExclusiveLockKey $lockKey, $subType)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1012,11 +1012,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveConvertJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveConvertJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1027,11 +1027,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusivePostConvertJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusivePostConvertJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1048,7 +1048,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusivePostConvertJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusivePostConvertJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1059,11 +1059,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusivePostConvertJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusivePostConvertJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1074,11 +1074,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveCaptureThumbJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveCaptureThumbJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1095,7 +1095,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveCaptureThumbJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveCaptureThumbJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1106,11 +1106,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveCaptureThumbJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveCaptureThumbJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1121,11 +1121,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveExtractMediaJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveExtractMediaJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1142,7 +1142,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveExtractMediaJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveExtractMediaJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1153,11 +1153,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function addMediaInfo(KalturaMediaInfo $mediaInfo)
+	function addMediaInfo(BorhanMediaInfo $mediaInfo)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mediaInfo", $mediaInfo->toParams());
@@ -1166,11 +1166,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaInfo");
+		$this->client->validateObjectType($resultObject, "BorhanMediaInfo");
 		return $resultObject;
 	}
 
-	function freeExclusiveExtractMediaJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveExtractMediaJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1181,11 +1181,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveStorageExportJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveStorageExportJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1202,7 +1202,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveStorageExportJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveStorageExportJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1213,11 +1213,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveStorageExportJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveStorageExportJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1228,11 +1228,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveStorageDeleteJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveStorageDeleteJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1249,7 +1249,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveStorageDeleteJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveStorageDeleteJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1260,11 +1260,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveStorageDeleteJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveStorageDeleteJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1275,11 +1275,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveNotificationJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveNotificationJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1292,11 +1292,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchGetExclusiveNotificationJobsResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchGetExclusiveNotificationJobsResponse");
 		return $resultObject;
 	}
 
-	function updateExclusiveNotificationJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveNotificationJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1307,11 +1307,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveNotificationJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveNotificationJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1322,11 +1322,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveMailJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveMailJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1343,7 +1343,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveMailJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveMailJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1354,11 +1354,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveMailJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveMailJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1369,11 +1369,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveBulkDownloadJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveBulkDownloadJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1390,7 +1390,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneBulkDownloadJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneBulkDownloadJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1407,7 +1407,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveBulkDownloadJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveBulkDownloadJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1418,11 +1418,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveBulkDownloadJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveBulkDownloadJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1433,11 +1433,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveProvisionProvideJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveProvisionProvideJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1454,7 +1454,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneProvisionProvideJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneProvisionProvideJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1471,7 +1471,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveProvisionProvideJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveProvisionProvideJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1482,11 +1482,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveProvisionProvideJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveProvisionProvideJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1497,11 +1497,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getExclusiveProvisionDeleteJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveProvisionDeleteJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1518,7 +1518,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDoneProvisionDeleteJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null)
+	function getExclusiveAlmostDoneProvisionDeleteJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1535,7 +1535,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveProvisionDeleteJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveProvisionDeleteJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1546,11 +1546,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function freeExclusiveProvisionDeleteJob($id, KalturaExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
+	function freeExclusiveProvisionDeleteJob($id, BorhanExclusiveLockKey $lockKey, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1561,11 +1561,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function resetJobExecutionAttempts($id, KalturaExclusiveLockKey $lockKey, $jobType)
+	function resetJobExecutionAttempts($id, BorhanExclusiveLockKey $lockKey, $jobType)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1580,7 +1580,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function freeExclusiveJob($id, KalturaExclusiveLockKey $lockKey, $jobType, $resetExecutionAttempts = false)
+	function freeExclusiveJob($id, BorhanExclusiveLockKey $lockKey, $jobType, $resetExecutionAttempts = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1592,11 +1592,11 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFreeJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFreeJobResponse");
 		return $resultObject;
 	}
 
-	function getQueueSize(KalturaWorkerQueueFilter $workerQueueFilter)
+	function getQueueSize(BorhanWorkerQueueFilter $workerQueueFilter)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "workerQueueFilter", $workerQueueFilter->toParams());
@@ -1609,7 +1609,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveJobs(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null, $jobType = null)
+	function getExclusiveJobs(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null, $jobType = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1627,7 +1627,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getExclusiveAlmostDone(KalturaExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, KalturaBatchJobFilter $filter = null, $jobType = null)
+	function getExclusiveAlmostDone(BorhanExclusiveLockKey $lockKey, $maxExecutionTime, $numberOfJobs, BorhanBatchJobFilter $filter = null, $jobType = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "lockKey", $lockKey->toParams());
@@ -1645,7 +1645,7 @@ class KalturaBatchService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function updateExclusiveJob($id, KalturaExclusiveLockKey $lockKey, KalturaBatchJob $job)
+	function updateExclusiveJob($id, BorhanExclusiveLockKey $lockKey, BorhanBatchJob $job)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1656,7 +1656,7 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
@@ -1696,14 +1696,14 @@ class KalturaBatchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFileExistsResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFileExistsResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaBulkUploadService extends KalturaServiceBase
+class BorhanBulkUploadService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -1720,7 +1720,7 @@ class KalturaBulkUploadService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "BorhanBulkUpload");
 		return $resultObject;
 	}
 
@@ -1733,11 +1733,11 @@ class KalturaBulkUploadService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "BorhanBulkUpload");
 		return $resultObject;
 	}
 
-	function listAction(KalturaFilterPager $pager = null)
+	function listAction(BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($pager !== null)
@@ -1747,19 +1747,19 @@ class KalturaBulkUploadService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBulkUploadListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBulkUploadListResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaCategoryService extends KalturaServiceBase
+class BorhanCategoryService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaCategory $category)
+	function add(BorhanCategory $category)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "category", $category->toParams());
@@ -1768,7 +1768,7 @@ class KalturaCategoryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaCategory");
+		$this->client->validateObjectType($resultObject, "BorhanCategory");
 		return $resultObject;
 	}
 
@@ -1781,11 +1781,11 @@ class KalturaCategoryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaCategory");
+		$this->client->validateObjectType($resultObject, "BorhanCategory");
 		return $resultObject;
 	}
 
-	function update($id, KalturaCategory $category)
+	function update($id, BorhanCategory $category)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1795,7 +1795,7 @@ class KalturaCategoryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaCategory");
+		$this->client->validateObjectType($resultObject, "BorhanCategory");
 		return $resultObject;
 	}
 
@@ -1812,7 +1812,7 @@ class KalturaCategoryService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaCategoryFilter $filter = null)
+	function listAction(BorhanCategoryFilter $filter = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -1822,19 +1822,19 @@ class KalturaCategoryService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaCategoryListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanCategoryListResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaConversionProfileAssetParamsService extends KalturaServiceBase
+class BorhanConversionProfileAssetParamsService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function listAction(KalturaConversionProfileAssetParamsFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanConversionProfileAssetParamsFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -1846,11 +1846,11 @@ class KalturaConversionProfileAssetParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaConversionProfileAssetParamsListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanConversionProfileAssetParamsListResponse");
 		return $resultObject;
 	}
 
-	function update($conversionProfileId, $assetParamsId, KalturaConversionProfileAssetParams $conversionProfileAssetParams)
+	function update($conversionProfileId, $assetParamsId, BorhanConversionProfileAssetParams $conversionProfileAssetParams)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
@@ -1861,14 +1861,14 @@ class KalturaConversionProfileAssetParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaConversionProfileAssetParams");
+		$this->client->validateObjectType($resultObject, "BorhanConversionProfileAssetParams");
 		return $resultObject;
 	}
 }
 
-class KalturaConversionProfileService extends KalturaServiceBase
+class BorhanConversionProfileService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -1882,7 +1882,7 @@ class KalturaConversionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaConversionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanConversionProfile");
 		return $resultObject;
 	}
 
@@ -1894,11 +1894,11 @@ class KalturaConversionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaConversionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanConversionProfile");
 		return $resultObject;
 	}
 
-	function add(KalturaConversionProfile $conversionProfile)
+	function add(BorhanConversionProfile $conversionProfile)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "conversionProfile", $conversionProfile->toParams());
@@ -1907,7 +1907,7 @@ class KalturaConversionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaConversionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanConversionProfile");
 		return $resultObject;
 	}
 
@@ -1920,11 +1920,11 @@ class KalturaConversionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaConversionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanConversionProfile");
 		return $resultObject;
 	}
 
-	function update($id, KalturaConversionProfile $conversionProfile)
+	function update($id, BorhanConversionProfile $conversionProfile)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -1934,7 +1934,7 @@ class KalturaConversionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaConversionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanConversionProfile");
 		return $resultObject;
 	}
 
@@ -1951,7 +1951,7 @@ class KalturaConversionProfileService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaConversionProfileFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanConversionProfileFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -1963,19 +1963,19 @@ class KalturaConversionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaConversionProfileListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanConversionProfileListResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaDataService extends KalturaServiceBase
+class BorhanDataService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaDataEntry $dataEntry)
+	function add(BorhanDataEntry $dataEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "dataEntry", $dataEntry->toParams());
@@ -1984,7 +1984,7 @@ class KalturaDataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDataEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDataEntry");
 		return $resultObject;
 	}
 
@@ -1998,11 +1998,11 @@ class KalturaDataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDataEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDataEntry");
 		return $resultObject;
 	}
 
-	function update($entryId, KalturaDataEntry $documentEntry)
+	function update($entryId, BorhanDataEntry $documentEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -2012,7 +2012,7 @@ class KalturaDataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDataEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDataEntry");
 		return $resultObject;
 	}
 
@@ -2029,7 +2029,7 @@ class KalturaDataService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaDataEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanDataEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -2041,7 +2041,7 @@ class KalturaDataService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDataListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanDataListResponse");
 		return $resultObject;
 	}
 
@@ -2057,14 +2057,14 @@ class KalturaDataService extends KalturaServiceBase
 	}
 }
 
-class KalturaDocumentService extends KalturaServiceBase
+class BorhanDocumentService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function addFromUploadedFile(KalturaDocumentEntry $documentEntry, $uploadTokenId)
+	function addFromUploadedFile(BorhanDocumentEntry $documentEntry, $uploadTokenId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "documentEntry", $documentEntry->toParams());
@@ -2074,11 +2074,11 @@ class KalturaDocumentService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
-	function addFromEntry($sourceEntryId, KalturaDocumentEntry $documentEntry = null, $sourceFlavorParamsId = null)
+	function addFromEntry($sourceEntryId, BorhanDocumentEntry $documentEntry = null, $sourceFlavorParamsId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "sourceEntryId", $sourceEntryId);
@@ -2090,11 +2090,11 @@ class KalturaDocumentService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
-	function addFromFlavorAsset($sourceFlavorAssetId, KalturaDocumentEntry $documentEntry = null)
+	function addFromFlavorAsset($sourceFlavorAssetId, BorhanDocumentEntry $documentEntry = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "sourceFlavorAssetId", $sourceFlavorAssetId);
@@ -2105,7 +2105,7 @@ class KalturaDocumentService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
@@ -2138,11 +2138,11 @@ class KalturaDocumentService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
-	function update($entryId, KalturaDocumentEntry $documentEntry)
+	function update($entryId, BorhanDocumentEntry $documentEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -2152,7 +2152,7 @@ class KalturaDocumentService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentEntry");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentEntry");
 		return $resultObject;
 	}
 
@@ -2169,7 +2169,7 @@ class KalturaDocumentService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaDocumentEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanDocumentEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -2181,7 +2181,7 @@ class KalturaDocumentService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaDocumentListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanDocumentListResponse");
 		return $resultObject;
 	}
 
@@ -2235,14 +2235,14 @@ class KalturaDocumentService extends KalturaServiceBase
 	}
 }
 
-class KalturaEmailIngestionProfileService extends KalturaServiceBase
+class BorhanEmailIngestionProfileService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaEmailIngestionProfile $EmailIP)
+	function add(BorhanEmailIngestionProfile $EmailIP)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "EmailIP", $EmailIP->toParams());
@@ -2251,7 +2251,7 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaEmailIngestionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanEmailIngestionProfile");
 		return $resultObject;
 	}
 
@@ -2264,7 +2264,7 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaEmailIngestionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanEmailIngestionProfile");
 		return $resultObject;
 	}
 
@@ -2277,11 +2277,11 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaEmailIngestionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanEmailIngestionProfile");
 		return $resultObject;
 	}
 
-	function update($id, KalturaEmailIngestionProfile $EmailIP)
+	function update($id, BorhanEmailIngestionProfile $EmailIP)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2291,7 +2291,7 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaEmailIngestionProfile");
+		$this->client->validateObjectType($resultObject, "BorhanEmailIngestionProfile");
 		return $resultObject;
 	}
 
@@ -2308,7 +2308,7 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function addMediaEntry(KalturaMediaEntry $mediaEntry, $uploadTokenId, $emailProfId, $fromAddress, $emailMsgId)
+	function addMediaEntry(BorhanMediaEntry $mediaEntry, $uploadTokenId, $emailProfId, $fromAddress, $emailMsgId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
@@ -2321,19 +2321,19 @@ class KalturaEmailIngestionProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 }
 
-class KalturaFlavorAssetService extends KalturaServiceBase
+class BorhanFlavorAssetService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add($entryId, KalturaFlavorAsset $flavorAsset)
+	function add($entryId, BorhanFlavorAsset $flavorAsset)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -2343,11 +2343,11 @@ class KalturaFlavorAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorAsset");
 		return $resultObject;
 	}
 
-	function update($id, KalturaFlavorAsset $flavorAsset)
+	function update($id, BorhanFlavorAsset $flavorAsset)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2357,11 +2357,11 @@ class KalturaFlavorAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorAsset");
 		return $resultObject;
 	}
 
-	function setContent($id, KalturaContentResource $contentResource)
+	function setContent($id, BorhanContentResource $contentResource)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2371,7 +2371,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorAsset");
 		return $resultObject;
 	}
 
@@ -2384,7 +2384,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorAsset");
 		return $resultObject;
 	}
 
@@ -2401,7 +2401,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanAssetFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -2413,7 +2413,7 @@ class KalturaFlavorAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorAssetListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorAssetListResponse");
 		return $resultObject;
 	}
 
@@ -2498,14 +2498,14 @@ class KalturaFlavorAssetService extends KalturaServiceBase
 	}
 }
 
-class KalturaFlavorParamsService extends KalturaServiceBase
+class BorhanFlavorParamsService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaFlavorParams $flavorParams)
+	function add(BorhanFlavorParams $flavorParams)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "flavorParams", $flavorParams->toParams());
@@ -2514,7 +2514,7 @@ class KalturaFlavorParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorParams");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorParams");
 		return $resultObject;
 	}
 
@@ -2527,11 +2527,11 @@ class KalturaFlavorParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorParams");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorParams");
 		return $resultObject;
 	}
 
-	function update($id, KalturaFlavorParams $flavorParams)
+	function update($id, BorhanFlavorParams $flavorParams)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -2541,7 +2541,7 @@ class KalturaFlavorParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorParams");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorParams");
 		return $resultObject;
 	}
 
@@ -2558,7 +2558,7 @@ class KalturaFlavorParamsService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaFlavorParamsFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanFlavorParamsFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -2570,7 +2570,7 @@ class KalturaFlavorParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaFlavorParamsListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanFlavorParamsListResponse");
 		return $resultObject;
 	}
 
@@ -2588,9 +2588,9 @@ class KalturaFlavorParamsService extends KalturaServiceBase
 	}
 }
 
-class KalturaJobsService extends KalturaServiceBase
+class BorhanJobsService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -2604,7 +2604,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2617,7 +2617,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2630,7 +2630,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2643,7 +2643,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2656,7 +2656,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2669,7 +2669,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2682,7 +2682,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2695,7 +2695,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2708,7 +2708,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2721,7 +2721,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2734,7 +2734,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2747,7 +2747,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2760,7 +2760,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2773,7 +2773,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2786,7 +2786,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2799,7 +2799,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2812,7 +2812,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2825,7 +2825,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2838,7 +2838,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2851,7 +2851,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2864,7 +2864,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2877,7 +2877,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2890,7 +2890,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2903,7 +2903,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2916,7 +2916,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2929,7 +2929,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2942,7 +2942,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2955,7 +2955,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2968,7 +2968,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2981,7 +2981,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -2994,7 +2994,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3007,7 +3007,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3020,7 +3020,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3033,7 +3033,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3046,7 +3046,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3059,7 +3059,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3072,7 +3072,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3085,7 +3085,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3098,7 +3098,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3111,7 +3111,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3124,7 +3124,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3137,7 +3137,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3150,7 +3150,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3163,7 +3163,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3176,7 +3176,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3189,7 +3189,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3202,7 +3202,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3215,7 +3215,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3228,7 +3228,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3241,7 +3241,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3254,7 +3254,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3267,7 +3267,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3280,7 +3280,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3293,7 +3293,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3306,7 +3306,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3319,7 +3319,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3332,7 +3332,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3345,7 +3345,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3358,7 +3358,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3371,7 +3371,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3384,7 +3384,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3397,7 +3397,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3410,7 +3410,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3423,7 +3423,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3436,11 +3436,11 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
-	function addMailJob(KalturaMailJobData $mailJobData)
+	function addMailJob(BorhanMailJobData $mailJobData)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mailJobData", $mailJobData->toParams());
@@ -3453,7 +3453,7 @@ class KalturaJobsService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function addBatchJob(KalturaBatchJob $batchJob)
+	function addBatchJob(BorhanBatchJob $batchJob)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "batchJob", $batchJob->toParams());
@@ -3462,11 +3462,11 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJob");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJob");
 		return $resultObject;
 	}
 
-	function getStatus($jobId, $jobType, KalturaFilterPager $pager = null)
+	function getStatus($jobId, $jobType, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "jobId", $jobId);
@@ -3478,7 +3478,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3492,7 +3492,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3506,7 +3506,7 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
@@ -3520,11 +3520,11 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobResponse");
 		return $resultObject;
 	}
 
-	function listBatchJobs(KalturaBatchJobFilterExt $filter = null, KalturaFilterPager $pager = null)
+	function listBatchJobs(BorhanBatchJobFilterExt $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -3536,19 +3536,19 @@ class KalturaJobsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBatchJobListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBatchJobListResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaLiveStreamService extends KalturaServiceBase
+class BorhanLiveStreamService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaLiveStreamAdminEntry $liveStreamEntry, $sourceType = null)
+	function add(BorhanLiveStreamAdminEntry $liveStreamEntry, $sourceType = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "liveStreamEntry", $liveStreamEntry->toParams());
@@ -3558,7 +3558,7 @@ class KalturaLiveStreamService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaLiveStreamAdminEntry");
+		$this->client->validateObjectType($resultObject, "BorhanLiveStreamAdminEntry");
 		return $resultObject;
 	}
 
@@ -3572,11 +3572,11 @@ class KalturaLiveStreamService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaLiveStreamEntry");
+		$this->client->validateObjectType($resultObject, "BorhanLiveStreamEntry");
 		return $resultObject;
 	}
 
-	function update($entryId, KalturaLiveStreamAdminEntry $liveStreamEntry)
+	function update($entryId, BorhanLiveStreamAdminEntry $liveStreamEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -3586,7 +3586,7 @@ class KalturaLiveStreamService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaLiveStreamAdminEntry");
+		$this->client->validateObjectType($resultObject, "BorhanLiveStreamAdminEntry");
 		return $resultObject;
 	}
 
@@ -3603,7 +3603,7 @@ class KalturaLiveStreamService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaLiveStreamEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanLiveStreamEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -3615,7 +3615,7 @@ class KalturaLiveStreamService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaLiveStreamListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanLiveStreamListResponse");
 		return $resultObject;
 	}
 
@@ -3630,7 +3630,7 @@ class KalturaLiveStreamService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaLiveStreamEntry");
+		$this->client->validateObjectType($resultObject, "BorhanLiveStreamEntry");
 		return $resultObject;
 	}
 
@@ -3644,19 +3644,19 @@ class KalturaLiveStreamService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaLiveStreamEntry");
+		$this->client->validateObjectType($resultObject, "BorhanLiveStreamEntry");
 		return $resultObject;
 	}
 }
 
-class KalturaMediaService extends KalturaServiceBase
+class BorhanMediaService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaMediaEntry $entry)
+	function add(BorhanMediaEntry $entry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entry", $entry->toParams());
@@ -3665,11 +3665,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function addContent($entryId, KalturaResource $resource = null)
+	function addContent($entryId, BorhanResource $resource = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -3680,11 +3680,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function addFromBulk(KalturaMediaEntry $mediaEntry, $url, $bulkUploadId)
+	function addFromBulk(BorhanMediaEntry $mediaEntry, $url, $bulkUploadId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
@@ -3695,11 +3695,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function addFromUrl(KalturaMediaEntry $mediaEntry, $url)
+	function addFromUrl(BorhanMediaEntry $mediaEntry, $url)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
@@ -3709,11 +3709,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function addFromSearchResult(KalturaMediaEntry $mediaEntry = null, KalturaSearchResult $searchResult = null)
+	function addFromSearchResult(BorhanMediaEntry $mediaEntry = null, BorhanSearchResult $searchResult = null)
 	{
 		$kparams = array();
 		if ($mediaEntry !== null)
@@ -3725,11 +3725,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function addFromUploadedFile(KalturaMediaEntry $mediaEntry, $uploadTokenId)
+	function addFromUploadedFile(BorhanMediaEntry $mediaEntry, $uploadTokenId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
@@ -3739,11 +3739,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function addFromRecordedWebcam(KalturaMediaEntry $mediaEntry, $webcamTokenId)
+	function addFromRecordedWebcam(BorhanMediaEntry $mediaEntry, $webcamTokenId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
@@ -3753,11 +3753,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function addFromEntry($sourceEntryId, KalturaMediaEntry $mediaEntry = null, $sourceFlavorParamsId = null)
+	function addFromEntry($sourceEntryId, BorhanMediaEntry $mediaEntry = null, $sourceFlavorParamsId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "sourceEntryId", $sourceEntryId);
@@ -3769,11 +3769,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function addFromFlavorAsset($sourceFlavorAssetId, KalturaMediaEntry $mediaEntry = null)
+	function addFromFlavorAsset($sourceFlavorAssetId, BorhanMediaEntry $mediaEntry = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "sourceFlavorAssetId", $sourceFlavorAssetId);
@@ -3784,7 +3784,7 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
@@ -3817,11 +3817,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function update($entryId, KalturaMediaEntry $mediaEntry)
+	function update($entryId, BorhanMediaEntry $mediaEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -3831,11 +3831,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function updateContent($entryId, KalturaResource $resource, $conversionProfileId = null)
+	function updateContent($entryId, BorhanResource $resource, $conversionProfileId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -3846,7 +3846,7 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
@@ -3872,7 +3872,7 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
@@ -3885,11 +3885,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
-	function listAction(KalturaMediaEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanMediaEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -3901,11 +3901,11 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanMediaListResponse");
 		return $resultObject;
 	}
 
-	function count(KalturaMediaEntryFilter $filter = null)
+	function count(BorhanMediaEntryFilter $filter = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -3944,7 +3944,7 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
@@ -3960,7 +3960,7 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
@@ -3975,7 +3975,7 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMediaEntry");
 		return $resultObject;
 	}
 
@@ -3989,7 +3989,7 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "BorhanBaseEntry");
 		return $resultObject;
 	}
 
@@ -4007,7 +4007,7 @@ class KalturaMediaService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function flag(KalturaModerationFlag $moderationFlag)
+	function flag(BorhanModerationFlag $moderationFlag)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "moderationFlag", $moderationFlag->toParams());
@@ -4046,7 +4046,7 @@ class KalturaMediaService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listFlags($entryId, KalturaFilterPager $pager = null)
+	function listFlags($entryId, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -4057,7 +4057,7 @@ class KalturaMediaService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaModerationFlagListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanModerationFlagListResponse");
 		return $resultObject;
 	}
 
@@ -4076,14 +4076,14 @@ class KalturaMediaService extends KalturaServiceBase
 	}
 }
 
-class KalturaMixingService extends KalturaServiceBase
+class BorhanMixingService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaMixEntry $mixEntry)
+	function add(BorhanMixEntry $mixEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "mixEntry", $mixEntry->toParams());
@@ -4092,7 +4092,7 @@ class KalturaMixingService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMixEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMixEntry");
 		return $resultObject;
 	}
 
@@ -4106,11 +4106,11 @@ class KalturaMixingService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMixEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMixEntry");
 		return $resultObject;
 	}
 
-	function update($entryId, KalturaMixEntry $mixEntry)
+	function update($entryId, BorhanMixEntry $mixEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -4120,7 +4120,7 @@ class KalturaMixingService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMixEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMixEntry");
 		return $resultObject;
 	}
 
@@ -4137,7 +4137,7 @@ class KalturaMixingService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaMixEntryFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanMixEntryFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -4149,11 +4149,11 @@ class KalturaMixingService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMixListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanMixListResponse");
 		return $resultObject;
 	}
 
-	function count(KalturaMediaEntryFilter $filter = null)
+	function count(BorhanMediaEntryFilter $filter = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -4176,7 +4176,7 @@ class KalturaMixingService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMixEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMixEntry");
 		return $resultObject;
 	}
 
@@ -4190,7 +4190,7 @@ class KalturaMixingService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaMixEntry");
+		$this->client->validateObjectType($resultObject, "BorhanMixEntry");
 		return $resultObject;
 	}
 
@@ -4251,9 +4251,9 @@ class KalturaMixingService extends KalturaServiceBase
 	}
 }
 
-class KalturaNotificationService extends KalturaServiceBase
+class BorhanNotificationService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -4268,19 +4268,19 @@ class KalturaNotificationService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaClientNotification");
+		$this->client->validateObjectType($resultObject, "BorhanClientNotification");
 		return $resultObject;
 	}
 }
 
-class KalturaPartnerService extends KalturaServiceBase
+class BorhanPartnerService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function register(KalturaPartner $partner, $cmsPassword = "")
+	function register(BorhanPartner $partner, $cmsPassword = "")
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "partner", $partner->toParams());
@@ -4290,11 +4290,11 @@ class KalturaPartnerService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPartner");
+		$this->client->validateObjectType($resultObject, "BorhanPartner");
 		return $resultObject;
 	}
 
-	function update(KalturaPartner $partner, $allowEmpty = false)
+	function update(BorhanPartner $partner, $allowEmpty = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "partner", $partner->toParams());
@@ -4304,7 +4304,7 @@ class KalturaPartnerService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPartner");
+		$this->client->validateObjectType($resultObject, "BorhanPartner");
 		return $resultObject;
 	}
 
@@ -4319,7 +4319,7 @@ class KalturaPartnerService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPartner");
+		$this->client->validateObjectType($resultObject, "BorhanPartner");
 		return $resultObject;
 	}
 
@@ -4331,7 +4331,7 @@ class KalturaPartnerService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPartner");
+		$this->client->validateObjectType($resultObject, "BorhanPartner");
 		return $resultObject;
 	}
 
@@ -4346,19 +4346,19 @@ class KalturaPartnerService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPartnerUsage");
+		$this->client->validateObjectType($resultObject, "BorhanPartnerUsage");
 		return $resultObject;
 	}
 }
 
-class KalturaPermissionItemService extends KalturaServiceBase
+class BorhanPermissionItemService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaPermissionItem $permissionItem)
+	function add(BorhanPermissionItem $permissionItem)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "permissionItem", $permissionItem->toParams());
@@ -4367,7 +4367,7 @@ class KalturaPermissionItemService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermissionItem");
+		$this->client->validateObjectType($resultObject, "BorhanPermissionItem");
 		return $resultObject;
 	}
 
@@ -4380,11 +4380,11 @@ class KalturaPermissionItemService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermissionItem");
+		$this->client->validateObjectType($resultObject, "BorhanPermissionItem");
 		return $resultObject;
 	}
 
-	function update($permissionItemId, KalturaPermissionItem $permissionItem)
+	function update($permissionItemId, BorhanPermissionItem $permissionItem)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "permissionItemId", $permissionItemId);
@@ -4394,7 +4394,7 @@ class KalturaPermissionItemService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermissionItem");
+		$this->client->validateObjectType($resultObject, "BorhanPermissionItem");
 		return $resultObject;
 	}
 
@@ -4407,11 +4407,11 @@ class KalturaPermissionItemService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermissionItem");
+		$this->client->validateObjectType($resultObject, "BorhanPermissionItem");
 		return $resultObject;
 	}
 
-	function listAction(KalturaPermissionItemFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanPermissionItemFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -4423,19 +4423,19 @@ class KalturaPermissionItemService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermissionItemListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanPermissionItemListResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaPermissionService extends KalturaServiceBase
+class BorhanPermissionService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaPermission $permission)
+	function add(BorhanPermission $permission)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "permission", $permission->toParams());
@@ -4444,7 +4444,7 @@ class KalturaPermissionService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermission");
+		$this->client->validateObjectType($resultObject, "BorhanPermission");
 		return $resultObject;
 	}
 
@@ -4457,11 +4457,11 @@ class KalturaPermissionService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermission");
+		$this->client->validateObjectType($resultObject, "BorhanPermission");
 		return $resultObject;
 	}
 
-	function update($permissionName, KalturaPermission $permission)
+	function update($permissionName, BorhanPermission $permission)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "permissionName", $permissionName);
@@ -4471,7 +4471,7 @@ class KalturaPermissionService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermission");
+		$this->client->validateObjectType($resultObject, "BorhanPermission");
 		return $resultObject;
 	}
 
@@ -4484,11 +4484,11 @@ class KalturaPermissionService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermission");
+		$this->client->validateObjectType($resultObject, "BorhanPermission");
 		return $resultObject;
 	}
 
-	function listAction(KalturaPermissionFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanPermissionFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -4500,7 +4500,7 @@ class KalturaPermissionService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPermissionListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanPermissionListResponse");
 		return $resultObject;
 	}
 
@@ -4517,14 +4517,14 @@ class KalturaPermissionService extends KalturaServiceBase
 	}
 }
 
-class KalturaPlaylistService extends KalturaServiceBase
+class BorhanPlaylistService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaPlaylist $playlist, $updateStats = false)
+	function add(BorhanPlaylist $playlist, $updateStats = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "playlist", $playlist->toParams());
@@ -4534,7 +4534,7 @@ class KalturaPlaylistService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPlaylist");
+		$this->client->validateObjectType($resultObject, "BorhanPlaylist");
 		return $resultObject;
 	}
 
@@ -4548,11 +4548,11 @@ class KalturaPlaylistService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPlaylist");
+		$this->client->validateObjectType($resultObject, "BorhanPlaylist");
 		return $resultObject;
 	}
 
-	function update($id, KalturaPlaylist $playlist, $updateStats = false)
+	function update($id, BorhanPlaylist $playlist, $updateStats = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -4563,7 +4563,7 @@ class KalturaPlaylistService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPlaylist");
+		$this->client->validateObjectType($resultObject, "BorhanPlaylist");
 		return $resultObject;
 	}
 
@@ -4580,7 +4580,7 @@ class KalturaPlaylistService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function cloneAction($id, KalturaPlaylist $newPlaylist = null)
+	function cloneAction($id, BorhanPlaylist $newPlaylist = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -4591,11 +4591,11 @@ class KalturaPlaylistService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPlaylist");
+		$this->client->validateObjectType($resultObject, "BorhanPlaylist");
 		return $resultObject;
 	}
 
-	function listAction(KalturaPlaylistFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanPlaylistFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -4607,7 +4607,7 @@ class KalturaPlaylistService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPlaylistListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanPlaylistListResponse");
 		return $resultObject;
 	}
 
@@ -4668,19 +4668,19 @@ class KalturaPlaylistService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaPlaylist");
+		$this->client->validateObjectType($resultObject, "BorhanPlaylist");
 		return $resultObject;
 	}
 }
 
-class KalturaReportService extends KalturaServiceBase
+class BorhanReportService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function getGraphs($reportType, KalturaReportInputFilter $reportInputFilter, $dimension = null, $objectIds = null)
+	function getGraphs($reportType, BorhanReportInputFilter $reportInputFilter, $dimension = null, $objectIds = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "reportType", $reportType);
@@ -4696,7 +4696,7 @@ class KalturaReportService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function getTotal($reportType, KalturaReportInputFilter $reportInputFilter, $objectIds = null)
+	function getTotal($reportType, BorhanReportInputFilter $reportInputFilter, $objectIds = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "reportType", $reportType);
@@ -4707,11 +4707,11 @@ class KalturaReportService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaReportTotal");
+		$this->client->validateObjectType($resultObject, "BorhanReportTotal");
 		return $resultObject;
 	}
 
-	function getTable($reportType, KalturaReportInputFilter $reportInputFilter, KalturaFilterPager $pager, $order = null, $objectIds = null)
+	function getTable($reportType, BorhanReportInputFilter $reportInputFilter, BorhanFilterPager $pager, $order = null, $objectIds = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "reportType", $reportType);
@@ -4724,11 +4724,11 @@ class KalturaReportService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaReportTable");
+		$this->client->validateObjectType($resultObject, "BorhanReportTable");
 		return $resultObject;
 	}
 
-	function getUrlForReportAsCsv($reportTitle, $reportText, $headers, $reportType, KalturaReportInputFilter $reportInputFilter, $dimension = null, KalturaFilterPager $pager = null, $order = null, $objectIds = null)
+	function getUrlForReportAsCsv($reportTitle, $reportText, $headers, $reportType, BorhanReportInputFilter $reportInputFilter, $dimension = null, BorhanFilterPager $pager = null, $order = null, $objectIds = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "reportTitle", $reportTitle);
@@ -4751,14 +4751,14 @@ class KalturaReportService extends KalturaServiceBase
 	}
 }
 
-class KalturaSearchService extends KalturaServiceBase
+class BorhanSearchService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function search(KalturaSearch $search, KalturaFilterPager $pager = null)
+	function search(BorhanSearch $search, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "search", $search->toParams());
@@ -4769,11 +4769,11 @@ class KalturaSearchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSearchResultResponse");
+		$this->client->validateObjectType($resultObject, "BorhanSearchResultResponse");
 		return $resultObject;
 	}
 
-	function getMediaInfo(KalturaSearchResult $searchResult)
+	function getMediaInfo(BorhanSearchResult $searchResult)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "searchResult", $searchResult->toParams());
@@ -4782,7 +4782,7 @@ class KalturaSearchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSearchResult");
+		$this->client->validateObjectType($resultObject, "BorhanSearchResult");
 		return $resultObject;
 	}
 
@@ -4796,7 +4796,7 @@ class KalturaSearchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSearchResult");
+		$this->client->validateObjectType($resultObject, "BorhanSearchResult");
 		return $resultObject;
 	}
 
@@ -4811,14 +4811,14 @@ class KalturaSearchService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSearchAuthData");
+		$this->client->validateObjectType($resultObject, "BorhanSearchAuthData");
 		return $resultObject;
 	}
 }
 
-class KalturaSessionService extends KalturaServiceBase
+class BorhanSessionService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -4882,19 +4882,19 @@ class KalturaSessionService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaStartWidgetSessionResponse");
+		$this->client->validateObjectType($resultObject, "BorhanStartWidgetSessionResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaStatsService extends KalturaServiceBase
+class BorhanStatsService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function collect(KalturaStatsEvent $event)
+	function collect(BorhanStatsEvent $event)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "event", $event->toParams());
@@ -4907,11 +4907,11 @@ class KalturaStatsService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function kmcCollect(KalturaStatsKmcEvent $kmcEvent)
+	function bmcCollect(BorhanStatsBmcEvent $bmcEvent)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "kmcEvent", $kmcEvent->toParams());
-		$this->client->queueServiceActionCall("stats", "kmcCollect", $kparams);
+		$this->client->addParam($kparams, "bmcEvent", $bmcEvent->toParams());
+		$this->client->queueServiceActionCall("stats", "bmcCollect", $kparams);
 		if ($this->client->isMultiRequest())
 			return null;
 		$resultObject = $this->client->doQueue();
@@ -4920,28 +4920,28 @@ class KalturaStatsService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function reportKceError(KalturaCEError $kalturaCEError)
+	function reportKceError(BorhanCEError $borhanCEError)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "kalturaCEError", $kalturaCEError->toParams());
+		$this->client->addParam($kparams, "borhanCEError", $borhanCEError->toParams());
 		$this->client->queueServiceActionCall("stats", "reportKceError", $kparams);
 		if ($this->client->isMultiRequest())
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaCEError");
+		$this->client->validateObjectType($resultObject, "BorhanCEError");
 		return $resultObject;
 	}
 }
 
-class KalturaStorageProfileService extends KalturaServiceBase
+class BorhanStorageProfileService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function listAction(KalturaStorageProfileFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanStorageProfileFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -4953,7 +4953,7 @@ class KalturaStorageProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaStorageProfileListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanStorageProfileListResponse");
 		return $resultObject;
 	}
 
@@ -4980,11 +4980,11 @@ class KalturaStorageProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaStorageProfile");
+		$this->client->validateObjectType($resultObject, "BorhanStorageProfile");
 		return $resultObject;
 	}
 
-	function update($storageProfileId, KalturaStorageProfile $storageProfile)
+	function update($storageProfileId, BorhanStorageProfile $storageProfile)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
@@ -4994,11 +4994,11 @@ class KalturaStorageProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaStorageProfile");
+		$this->client->validateObjectType($resultObject, "BorhanStorageProfile");
 		return $resultObject;
 	}
 
-	function add(KalturaStorageProfile $storageProfile)
+	function add(BorhanStorageProfile $storageProfile)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "storageProfile", $storageProfile->toParams());
@@ -5007,19 +5007,19 @@ class KalturaStorageProfileService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaStorageProfile");
+		$this->client->validateObjectType($resultObject, "BorhanStorageProfile");
 		return $resultObject;
 	}
 }
 
-class KalturaSyndicationFeedService extends KalturaServiceBase
+class BorhanSyndicationFeedService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaBaseSyndicationFeed $syndicationFeed)
+	function add(BorhanBaseSyndicationFeed $syndicationFeed)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "syndicationFeed", $syndicationFeed->toParams());
@@ -5028,7 +5028,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseSyndicationFeed");
+		$this->client->validateObjectType($resultObject, "BorhanBaseSyndicationFeed");
 		return $resultObject;
 	}
 
@@ -5041,11 +5041,11 @@ class KalturaSyndicationFeedService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseSyndicationFeed");
+		$this->client->validateObjectType($resultObject, "BorhanBaseSyndicationFeed");
 		return $resultObject;
 	}
 
-	function update($id, KalturaBaseSyndicationFeed $syndicationFeed)
+	function update($id, BorhanBaseSyndicationFeed $syndicationFeed)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -5055,7 +5055,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseSyndicationFeed");
+		$this->client->validateObjectType($resultObject, "BorhanBaseSyndicationFeed");
 		return $resultObject;
 	}
 
@@ -5072,7 +5072,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaBaseSyndicationFeedFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanBaseSyndicationFeedFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -5084,7 +5084,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaBaseSyndicationFeedListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanBaseSyndicationFeedListResponse");
 		return $resultObject;
 	}
 
@@ -5097,7 +5097,7 @@ class KalturaSyndicationFeedService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaSyndicationFeedEntryCount");
+		$this->client->validateObjectType($resultObject, "BorhanSyndicationFeedEntryCount");
 		return $resultObject;
 	}
 
@@ -5115,9 +5115,9 @@ class KalturaSyndicationFeedService extends KalturaServiceBase
 	}
 }
 
-class KalturaSystemService extends KalturaServiceBase
+class BorhanSystemService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -5135,14 +5135,14 @@ class KalturaSystemService extends KalturaServiceBase
 	}
 }
 
-class KalturaThumbAssetService extends KalturaServiceBase
+class BorhanThumbAssetService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add($entryId, KalturaThumbAsset $thumbAsset)
+	function add($entryId, BorhanThumbAsset $thumbAsset)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -5152,11 +5152,11 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
-	function setContent($id, KalturaContentResource $contentResource)
+	function setContent($id, BorhanContentResource $contentResource)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -5166,11 +5166,11 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
-	function update($id, KalturaThumbAsset $thumbAsset, KalturaContentResource $contentResource = null)
+	function update($id, BorhanThumbAsset $thumbAsset, BorhanContentResource $contentResource = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -5182,7 +5182,7 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
@@ -5228,11 +5228,11 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
-	function generate($entryId, KalturaThumbParams $thumbParams, $sourceAssetId = null)
+	function generate($entryId, BorhanThumbParams $thumbParams, $sourceAssetId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -5243,7 +5243,7 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
@@ -5256,7 +5256,7 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
@@ -5269,7 +5269,7 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
@@ -5286,7 +5286,7 @@ class KalturaThumbAssetService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaAssetFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanAssetFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -5298,7 +5298,7 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAssetListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAssetListResponse");
 		return $resultObject;
 	}
 
@@ -5312,7 +5312,7 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
@@ -5327,7 +5327,7 @@ class KalturaThumbAssetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "BorhanThumbAsset");
 		return $resultObject;
 	}
 
@@ -5345,14 +5345,14 @@ class KalturaThumbAssetService extends KalturaServiceBase
 	}
 }
 
-class KalturaThumbParamsService extends KalturaServiceBase
+class BorhanThumbParamsService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaThumbParams $thumbParams)
+	function add(BorhanThumbParams $thumbParams)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
@@ -5361,7 +5361,7 @@ class KalturaThumbParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbParams");
+		$this->client->validateObjectType($resultObject, "BorhanThumbParams");
 		return $resultObject;
 	}
 
@@ -5374,11 +5374,11 @@ class KalturaThumbParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbParams");
+		$this->client->validateObjectType($resultObject, "BorhanThumbParams");
 		return $resultObject;
 	}
 
-	function update($id, KalturaThumbParams $thumbParams)
+	function update($id, BorhanThumbParams $thumbParams)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -5388,7 +5388,7 @@ class KalturaThumbParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbParams");
+		$this->client->validateObjectType($resultObject, "BorhanThumbParams");
 		return $resultObject;
 	}
 
@@ -5405,7 +5405,7 @@ class KalturaThumbParamsService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaThumbParamsFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanThumbParamsFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -5417,7 +5417,7 @@ class KalturaThumbParamsService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaThumbParamsListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanThumbParamsListResponse");
 		return $resultObject;
 	}
 
@@ -5435,14 +5435,14 @@ class KalturaThumbParamsService extends KalturaServiceBase
 	}
 }
 
-class KalturaUiConfService extends KalturaServiceBase
+class BorhanUiConfService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaUiConf $uiConf)
+	function add(BorhanUiConf $uiConf)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "uiConf", $uiConf->toParams());
@@ -5451,11 +5451,11 @@ class KalturaUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "BorhanUiConf");
 		return $resultObject;
 	}
 
-	function update($id, KalturaUiConf $uiConf)
+	function update($id, BorhanUiConf $uiConf)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -5465,7 +5465,7 @@ class KalturaUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "BorhanUiConf");
 		return $resultObject;
 	}
 
@@ -5478,7 +5478,7 @@ class KalturaUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "BorhanUiConf");
 		return $resultObject;
 	}
 
@@ -5504,11 +5504,11 @@ class KalturaUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "BorhanUiConf");
 		return $resultObject;
 	}
 
-	function listTemplates(KalturaUiConfFilter $filter = null, KalturaFilterPager $pager = null)
+	function listTemplates(BorhanUiConfFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -5520,11 +5520,11 @@ class KalturaUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConfListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUiConfListResponse");
 		return $resultObject;
 	}
 
-	function listAction(KalturaUiConfFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanUiConfFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -5536,7 +5536,7 @@ class KalturaUiConfService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUiConfListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUiConfListResponse");
 		return $resultObject;
 	}
 
@@ -5553,9 +5553,9 @@ class KalturaUiConfService extends KalturaServiceBase
 	}
 }
 
-class KalturaUploadService extends KalturaServiceBase
+class BorhanUploadService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -5583,19 +5583,19 @@ class KalturaUploadService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUploadResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUploadResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaUploadTokenService extends KalturaServiceBase
+class BorhanUploadTokenService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaUploadToken $uploadToken = null)
+	function add(BorhanUploadToken $uploadToken = null)
 	{
 		$kparams = array();
 		if ($uploadToken !== null)
@@ -5605,7 +5605,7 @@ class KalturaUploadTokenService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUploadToken");
+		$this->client->validateObjectType($resultObject, "BorhanUploadToken");
 		return $resultObject;
 	}
 
@@ -5618,7 +5618,7 @@ class KalturaUploadTokenService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUploadToken");
+		$this->client->validateObjectType($resultObject, "BorhanUploadToken");
 		return $resultObject;
 	}
 
@@ -5636,7 +5636,7 @@ class KalturaUploadTokenService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUploadToken");
+		$this->client->validateObjectType($resultObject, "BorhanUploadToken");
 		return $resultObject;
 	}
 
@@ -5653,7 +5653,7 @@ class KalturaUploadTokenService extends KalturaServiceBase
 		return $resultObject;
 	}
 
-	function listAction(KalturaUploadTokenFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanUploadTokenFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -5665,19 +5665,19 @@ class KalturaUploadTokenService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUploadTokenListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUploadTokenListResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaUserRoleService extends KalturaServiceBase
+class BorhanUserRoleService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaUserRole $userRole)
+	function add(BorhanUserRole $userRole)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "userRole", $userRole->toParams());
@@ -5686,7 +5686,7 @@ class KalturaUserRoleService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "BorhanUserRole");
 		return $resultObject;
 	}
 
@@ -5699,11 +5699,11 @@ class KalturaUserRoleService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "BorhanUserRole");
 		return $resultObject;
 	}
 
-	function update($userRoleId, KalturaUserRole $userRole)
+	function update($userRoleId, BorhanUserRole $userRole)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "userRoleId", $userRoleId);
@@ -5713,7 +5713,7 @@ class KalturaUserRoleService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "BorhanUserRole");
 		return $resultObject;
 	}
 
@@ -5726,11 +5726,11 @@ class KalturaUserRoleService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "BorhanUserRole");
 		return $resultObject;
 	}
 
-	function listAction(KalturaUserRoleFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanUserRoleFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -5742,7 +5742,7 @@ class KalturaUserRoleService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUserRoleListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUserRoleListResponse");
 		return $resultObject;
 	}
 
@@ -5755,19 +5755,19 @@ class KalturaUserRoleService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "BorhanUserRole");
 		return $resultObject;
 	}
 }
 
-class KalturaUserService extends KalturaServiceBase
+class BorhanUserService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaUser $user)
+	function add(BorhanUser $user)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "user", $user->toParams());
@@ -5776,11 +5776,11 @@ class KalturaUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "BorhanUser");
 		return $resultObject;
 	}
 
-	function update($userId, KalturaUser $user)
+	function update($userId, BorhanUser $user)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "userId", $userId);
@@ -5790,7 +5790,7 @@ class KalturaUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "BorhanUser");
 		return $resultObject;
 	}
 
@@ -5803,7 +5803,7 @@ class KalturaUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "BorhanUser");
 		return $resultObject;
 	}
 
@@ -5816,7 +5816,7 @@ class KalturaUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "BorhanUser");
 		return $resultObject;
 	}
 
@@ -5829,11 +5829,11 @@ class KalturaUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "BorhanUser");
 		return $resultObject;
 	}
 
-	function listAction(KalturaUserFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanUserFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -5845,7 +5845,7 @@ class KalturaUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUserListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanUserListResponse");
 		return $resultObject;
 	}
 
@@ -5952,7 +5952,7 @@ class KalturaUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "BorhanUser");
 		return $resultObject;
 	}
 
@@ -5966,19 +5966,19 @@ class KalturaUserService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "BorhanUser");
 		return $resultObject;
 	}
 }
 
-class KalturaWidgetService extends KalturaServiceBase
+class BorhanWidgetService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
 
-	function add(KalturaWidget $widget)
+	function add(BorhanWidget $widget)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "widget", $widget->toParams());
@@ -5987,11 +5987,11 @@ class KalturaWidgetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaWidget");
+		$this->client->validateObjectType($resultObject, "BorhanWidget");
 		return $resultObject;
 	}
 
-	function update($id, KalturaWidget $widget)
+	function update($id, BorhanWidget $widget)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -6001,7 +6001,7 @@ class KalturaWidgetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaWidget");
+		$this->client->validateObjectType($resultObject, "BorhanWidget");
 		return $resultObject;
 	}
 
@@ -6014,11 +6014,11 @@ class KalturaWidgetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaWidget");
+		$this->client->validateObjectType($resultObject, "BorhanWidget");
 		return $resultObject;
 	}
 
-	function cloneAction(KalturaWidget $widget)
+	function cloneAction(BorhanWidget $widget)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "widget", $widget->toParams());
@@ -6027,11 +6027,11 @@ class KalturaWidgetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaWidget");
+		$this->client->validateObjectType($resultObject, "BorhanWidget");
 		return $resultObject;
 	}
 
-	function listAction(KalturaWidgetFilter $filter = null, KalturaFilterPager $pager = null)
+	function listAction(BorhanWidgetFilter $filter = null, BorhanFilterPager $pager = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -6043,14 +6043,14 @@ class KalturaWidgetService extends KalturaServiceBase
 			return null;
 		$resultObject = $this->client->doQueue();
 		$this->client->throwExceptionIfError($resultObject);
-		$this->client->validateObjectType($resultObject, "KalturaWidgetListResponse");
+		$this->client->validateObjectType($resultObject, "BorhanWidgetListResponse");
 		return $resultObject;
 	}
 }
 
-class KalturaXInternalService extends KalturaServiceBase
+class BorhanXInternalService extends BorhanServiceBase
 {
-	function __construct(KalturaClient $client = null)
+	function __construct(BorhanClient $client = null)
 	{
 		parent::__construct($client);
 	}
@@ -6070,7 +6070,7 @@ class KalturaXInternalService extends KalturaServiceBase
 	}
 }
 
-class KalturaClient extends KalturaClientBase
+class BorhanClient extends BorhanClientBase
 {
 	/**
 	 * @var string
@@ -6079,19 +6079,19 @@ class KalturaClient extends KalturaClientBase
 
 	/**
 	 * Add & Manage Access Controls
-	 * @var KalturaAccessControlService
+	 * @var BorhanAccessControlService
 	 */
 	public $accessControl = null;
 
 	/**
 	 * Manage details for the administrative user
-	 * @var KalturaAdminUserService
+	 * @var BorhanAdminUserService
 	 */
 	public $adminUser = null;
 
 	/**
 	 * Base Entry Service
-	 * @var KalturaBaseEntryService
+	 * @var BorhanBaseEntryService
 	 */
 	public $baseEntry = null;
 
@@ -6103,7 +6103,7 @@ class KalturaClient extends KalturaClientBase
 	 * acuiring a batch objet properly (using  GetExclusiveXX).
 	 * If an object was aquired and should be returned to the pool in it's initial state - use the FreeExclusiveXX action 
 	 * 
-	 * @var KalturaBatchcontrolService
+	 * @var BorhanBatchcontrolService
 	 */
 	public $batchcontrol = null;
 
@@ -6115,62 +6115,62 @@ class KalturaClient extends KalturaClientBase
 	 * acuiring a batch objet properly (using  GetExclusiveXX).
 	 * If an object was aquired and should be returned to the pool in it's initial state - use the FreeExclusiveXX action 
 	 * 
-	 * @var KalturaBatchService
+	 * @var BorhanBatchService
 	 */
 	public $batch = null;
 
 	/**
 	 * Bulk upload service is used to upload & manage bulk uploads using CSV files
-	 * @var KalturaBulkUploadService
+	 * @var BorhanBulkUploadService
 	 */
 	public $bulkUpload = null;
 
 	/**
 	 * Add & Manage Categories
-	 * @var KalturaCategoryService
+	 * @var BorhanCategoryService
 	 */
 	public $category = null;
 
 	/**
 	 * Manage the connection between Conversion Profiles and Asset Params
-	 * @var KalturaConversionProfileAssetParamsService
+	 * @var BorhanConversionProfileAssetParamsService
 	 */
 	public $conversionProfileAssetParams = null;
 
 	/**
 	 * Add & Manage Conversion Profiles
-	 * @var KalturaConversionProfileService
+	 * @var BorhanConversionProfileService
 	 */
 	public $conversionProfile = null;
 
 	/**
 	 * Data service lets you manage data content (textual content)
-	 * @var KalturaDataService
+	 * @var BorhanDataService
 	 */
 	public $data = null;
 
 	/**
 	 * Document service
 	 * DEPRECATED
-	 * @var KalturaDocumentService
+	 * @var BorhanDocumentService
 	 */
 	public $document = null;
 
 	/**
 	 * EmailIngestionProfile service lets you manage email ingestion profile records
-	 * @var KalturaEmailIngestionProfileService
+	 * @var BorhanEmailIngestionProfileService
 	 */
 	public $EmailIngestionProfile = null;
 
 	/**
 	 * Retrieve information and invoke actions on Flavor Asset
-	 * @var KalturaFlavorAssetService
+	 * @var BorhanFlavorAssetService
 	 */
 	public $flavorAsset = null;
 
 	/**
 	 * Add & Manage Flavor Params
-	 * @var KalturaFlavorParamsService
+	 * @var BorhanFlavorParamsService
 	 */
 	public $flavorParams = null;
 
@@ -6182,207 +6182,207 @@ class KalturaClient extends KalturaClientBase
 	 * acuiring a batch objet properly (using  GetExclusiveXX).
 	 * If an object was aquired and should be returned to the pool in it's initial state - use the FreeExclusiveXX action 
 	 * 
-	 * @var KalturaJobsService
+	 * @var BorhanJobsService
 	 */
 	public $jobs = null;
 
 	/**
 	 * Live Stream service lets you manage live stream channels
-	 * @var KalturaLiveStreamService
+	 * @var BorhanLiveStreamService
 	 */
 	public $liveStream = null;
 
 	/**
 	 * Media service lets you upload and manage media files (images / videos & audio)
-	 * @var KalturaMediaService
+	 * @var BorhanMediaService
 	 */
 	public $media = null;
 
 	/**
-	 * A Mix is an XML unique format invented by Kaltura, it allows the user to create a mix of videos and images, in and out points, transitions, text overlays, soundtrack, effects and much more...
+	 * A Mix is an XML unique format invented by Borhan, it allows the user to create a mix of videos and images, in and out points, transitions, text overlays, soundtrack, effects and much more...
 	 * Mixing service lets you create a new mix, manage its metadata and make basic manipulations.   
-	 * @var KalturaMixingService
+	 * @var BorhanMixingService
 	 */
 	public $mixing = null;
 
 	/**
 	 * Notification Service
-	 * @var KalturaNotificationService
+	 * @var BorhanNotificationService
 	 */
 	public $notification = null;
 
 	/**
 	 * partner service allows you to change/manage your partner personal details and settings as well
-	 * @var KalturaPartnerService
+	 * @var BorhanPartnerService
 	 */
 	public $partner = null;
 
 	/**
 	 * PermissionItem service lets you create and manage permission items
-	 * @var KalturaPermissionItemService
+	 * @var BorhanPermissionItemService
 	 */
 	public $permissionItem = null;
 
 	/**
 	 * Permission service lets you create and manage user permissions
-	 * @var KalturaPermissionService
+	 * @var BorhanPermissionService
 	 */
 	public $permission = null;
 
 	/**
 	 * Playlist service lets you create,manage and play your playlists
 	 * Playlists could be static (containing a fixed list of entries) or dynamic (baseed on a filter)
-	 * @var KalturaPlaylistService
+	 * @var BorhanPlaylistService
 	 */
 	public $playlist = null;
 
 	/**
 	 * api for getting reports data by the report type and some inputFilter
-	 * @var KalturaReportService
+	 * @var BorhanReportService
 	 */
 	public $report = null;
 
 	/**
 	 * Search service allows you to search for media in various media providers
 	 * This service is being used mostly by the CW component
-	 * @var KalturaSearchService
+	 * @var BorhanSearchService
 	 */
 	public $search = null;
 
 	/**
 	 * Session service
-	 * @var KalturaSessionService
+	 * @var BorhanSessionService
 	 */
 	public $session = null;
 
 	/**
 	 * Stats Service
-	 * @var KalturaStatsService
+	 * @var BorhanStatsService
 	 */
 	public $stats = null;
 
 	/**
 	 * Storage Profiles service
-	 * @var KalturaStorageProfileService
+	 * @var BorhanStorageProfileService
 	 */
 	public $storageProfile = null;
 
 	/**
 	 * Add & Manage Syndication Feeds
-	 * @var KalturaSyndicationFeedService
+	 * @var BorhanSyndicationFeedService
 	 */
 	public $syndicationFeed = null;
 
 	/**
 	 * System service is used for internal system helpers & to retrieve system level information
-	 * @var KalturaSystemService
+	 * @var BorhanSystemService
 	 */
 	public $system = null;
 
 	/**
 	 * Retrieve information and invoke actions on Thumb Asset
-	 * @var KalturaThumbAssetService
+	 * @var BorhanThumbAssetService
 	 */
 	public $thumbAsset = null;
 
 	/**
 	 * Add & Manage Thumb Params
-	 * @var KalturaThumbParamsService
+	 * @var BorhanThumbParamsService
 	 */
 	public $thumbParams = null;
 
 	/**
 	 * UiConf service lets you create and manage your UIConfs for the various flash components
-	 * This service is used by the KMC-ApplicationStudio
-	 * @var KalturaUiConfService
+	 * This service is used by the BMC-ApplicationStudio
+	 * @var BorhanUiConfService
 	 */
 	public $uiConf = null;
 
 	/**
 	 * 
-	 * @var KalturaUploadService
+	 * @var BorhanUploadService
 	 */
 	public $upload = null;
 
 	/**
 	 * 
-	 * @var KalturaUploadTokenService
+	 * @var BorhanUploadTokenService
 	 */
 	public $uploadToken = null;
 
 	/**
 	 * UserRole service lets you create and manage user roles
-	 * @var KalturaUserRoleService
+	 * @var BorhanUserRoleService
 	 */
 	public $userRole = null;
 
 	/**
-	 * Manage partner users on Kaltura's side
-	 * The userId in kaltura is the unique Id in the partner's system, and the [partnerId,Id] couple are unique key in kaltura's DB
-	 * @var KalturaUserService
+	 * Manage partner users on Borhan's side
+	 * The userId in borhan is the unique Id in the partner's system, and the [partnerId,Id] couple are unique key in borhan's DB
+	 * @var BorhanUserService
 	 */
 	public $user = null;
 
 	/**
 	 * widget service for full widget management
-	 * @var KalturaWidgetService
+	 * @var BorhanWidgetService
 	 */
 	public $widget = null;
 
 	/**
-	 * Internal Service is used for actions that are used internally in Kaltura applications and might be changed in the future without any notice.
-	 * @var KalturaXInternalService
+	 * Internal Service is used for actions that are used internally in Borhan applications and might be changed in the future without any notice.
+	 * @var BorhanXInternalService
 	 */
 	public $xInternal = null;
 
 	/**
-	 * Kaltura client constructor
+	 * Borhan client constructor
 	 *
-	 * @param KalturaConfiguration $config
+	 * @param BorhanConfiguration $config
 	 */
-	public function __construct(KalturaConfiguration $config)
+	public function __construct(BorhanConfiguration $config)
 	{
 		parent::__construct($config);
 		
-		$this->accessControl = new KalturaAccessControlService($this);
-		$this->adminUser = new KalturaAdminUserService($this);
-		$this->baseEntry = new KalturaBaseEntryService($this);
-		$this->batchcontrol = new KalturaBatchcontrolService($this);
-		$this->batch = new KalturaBatchService($this);
-		$this->bulkUpload = new KalturaBulkUploadService($this);
-		$this->category = new KalturaCategoryService($this);
-		$this->conversionProfileAssetParams = new KalturaConversionProfileAssetParamsService($this);
-		$this->conversionProfile = new KalturaConversionProfileService($this);
-		$this->data = new KalturaDataService($this);
-		$this->document = new KalturaDocumentService($this);
-		$this->EmailIngestionProfile = new KalturaEmailIngestionProfileService($this);
-		$this->flavorAsset = new KalturaFlavorAssetService($this);
-		$this->flavorParams = new KalturaFlavorParamsService($this);
-		$this->jobs = new KalturaJobsService($this);
-		$this->liveStream = new KalturaLiveStreamService($this);
-		$this->media = new KalturaMediaService($this);
-		$this->mixing = new KalturaMixingService($this);
-		$this->notification = new KalturaNotificationService($this);
-		$this->partner = new KalturaPartnerService($this);
-		$this->permissionItem = new KalturaPermissionItemService($this);
-		$this->permission = new KalturaPermissionService($this);
-		$this->playlist = new KalturaPlaylistService($this);
-		$this->report = new KalturaReportService($this);
-		$this->search = new KalturaSearchService($this);
-		$this->session = new KalturaSessionService($this);
-		$this->stats = new KalturaStatsService($this);
-		$this->storageProfile = new KalturaStorageProfileService($this);
-		$this->syndicationFeed = new KalturaSyndicationFeedService($this);
-		$this->system = new KalturaSystemService($this);
-		$this->thumbAsset = new KalturaThumbAssetService($this);
-		$this->thumbParams = new KalturaThumbParamsService($this);
-		$this->uiConf = new KalturaUiConfService($this);
-		$this->upload = new KalturaUploadService($this);
-		$this->uploadToken = new KalturaUploadTokenService($this);
-		$this->userRole = new KalturaUserRoleService($this);
-		$this->user = new KalturaUserService($this);
-		$this->widget = new KalturaWidgetService($this);
-		$this->xInternal = new KalturaXInternalService($this);
+		$this->accessControl = new BorhanAccessControlService($this);
+		$this->adminUser = new BorhanAdminUserService($this);
+		$this->baseEntry = new BorhanBaseEntryService($this);
+		$this->batchcontrol = new BorhanBatchcontrolService($this);
+		$this->batch = new BorhanBatchService($this);
+		$this->bulkUpload = new BorhanBulkUploadService($this);
+		$this->category = new BorhanCategoryService($this);
+		$this->conversionProfileAssetParams = new BorhanConversionProfileAssetParamsService($this);
+		$this->conversionProfile = new BorhanConversionProfileService($this);
+		$this->data = new BorhanDataService($this);
+		$this->document = new BorhanDocumentService($this);
+		$this->EmailIngestionProfile = new BorhanEmailIngestionProfileService($this);
+		$this->flavorAsset = new BorhanFlavorAssetService($this);
+		$this->flavorParams = new BorhanFlavorParamsService($this);
+		$this->jobs = new BorhanJobsService($this);
+		$this->liveStream = new BorhanLiveStreamService($this);
+		$this->media = new BorhanMediaService($this);
+		$this->mixing = new BorhanMixingService($this);
+		$this->notification = new BorhanNotificationService($this);
+		$this->partner = new BorhanPartnerService($this);
+		$this->permissionItem = new BorhanPermissionItemService($this);
+		$this->permission = new BorhanPermissionService($this);
+		$this->playlist = new BorhanPlaylistService($this);
+		$this->report = new BorhanReportService($this);
+		$this->search = new BorhanSearchService($this);
+		$this->session = new BorhanSessionService($this);
+		$this->stats = new BorhanStatsService($this);
+		$this->storageProfile = new BorhanStorageProfileService($this);
+		$this->syndicationFeed = new BorhanSyndicationFeedService($this);
+		$this->system = new BorhanSystemService($this);
+		$this->thumbAsset = new BorhanThumbAssetService($this);
+		$this->thumbParams = new BorhanThumbParamsService($this);
+		$this->uiConf = new BorhanUiConfService($this);
+		$this->upload = new BorhanUploadService($this);
+		$this->uploadToken = new BorhanUploadTokenService($this);
+		$this->userRole = new BorhanUserRoleService($this);
+		$this->user = new BorhanUserService($this);
+		$this->widget = new BorhanWidgetService($this);
+		$this->xInternal = new BorhanXInternalService($this);
 	}
 	
 }

@@ -14,13 +14,13 @@ $endTime = $_POST['end'];
 $clipDuration = $endTime - $startTime;
 
 // Create New Clip
-$operation1						= new KalturaClipAttributes();
+$operation1						= new BorhanClipAttributes();
 $operation1->offset				= $startTime;
 $operation1->duration			= $clipDuration;
 
 // Add New Resource
-$resource						= new KalturaOperationResource();
-$resource->resource				= new KalturaEntryResource();
+$resource						= new BorhanOperationResource();
+$resource->resource				= new BorhanEntryResource();
 $resource->resource->entryId	= $entryId;
 $resource->operationAttributes	= array($operation1);
 
@@ -33,7 +33,7 @@ if( $overwrite ) {
 	}
 } else {
 	// Create New Media Entry
-	$entry					= new KalturaMediaEntry();
+	$entry					= new BorhanMediaEntry();
 	$entry->name			= $_POST['name'];
 	$entry->description		= $_POST['desc'];
 	$entry->mediaType		= intval($_POST['mediaType']);
